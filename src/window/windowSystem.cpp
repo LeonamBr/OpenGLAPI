@@ -45,6 +45,7 @@ void WindowSystem::SetGLFWCallbacks(GLFWwindow* window) {
     glfwSetKeyCallback(window, KeyCallback);
     glfwSetCursorPosCallback(window, CursorCallback);
     glfwSetFramebufferSizeCallback(window, ResizeCallback);
+    glfwSetScrollCallback(window, ScrollCallback);
 }
 
 void WindowSystem::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -68,5 +69,13 @@ void WindowSystem::ResizeCallback(GLFWwindow* window, int width, int height) {
     if (self && self->m_Bus) {
         self->m_Bus->Emit(WindowResizeEvent{ width, height });
         self->m_Context->Resize(width, height);
+    }
+}
+
+void WindowSystem::ScrollCallback(GLFWwindow *window, double xoffset, double yoffset)
+{
+    auto* self = static_cast<WindowSystem*>(glfwGetWindowUserPointer(window));
+    if (self && self->m_Bus) {
+        self->m_Bus->Emit(ScrollEvent{xoffset, yoffset});
     }
 }

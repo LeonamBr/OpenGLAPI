@@ -27,6 +27,7 @@ private:
     static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
     static void CursorCallback(GLFWwindow* window, double xpos, double ypos);
     static void ResizeCallback(GLFWwindow* window, int width, int height);
+    static void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 };
 
 #endif

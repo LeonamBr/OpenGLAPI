@@ -67,7 +67,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "d:/OpenGLAPI/build"
+			"value" : "c:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "29"
+			"value" : "31"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -103,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "3"
+			"value" : "5"
 		},
 		{
 			"name" : "CMAKE_COLOR_MAKEFILE",
@@ -167,10 +167,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "CXX compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "C:/mingw/bin/g++.exe"
 		},
 		{
@@ -311,10 +311,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "C:/mingw/bin/gcc.exe"
 		},
 		{
@@ -587,7 +587,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -671,7 +671,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/OpenGLAPI"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -1371,7 +1371,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/mingw/share/cmake-3.29"
+			"value" : "C:/mingw/share/cmake-3.31"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1651,7 +1651,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[C:/mingw/bin/doxygen.exe][cfound components: doxygen ][v1.10.0()]"
+			"value" : "[C:/mingw/bin/doxygen.exe][cfound components: doxygen ][v1.13.2()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
@@ -1675,7 +1675,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI/build/vendor/glfw"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw"
 		},
 		{
 			"name" : "GLFW_BUILD_DOCS",
@@ -1795,7 +1795,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI/vendor/glfw"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw"
 		},
 		{
 			"name" : "GLFW_USE_HYBRID_HPG",
@@ -2071,7 +2071,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI/build"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build"
 		},
 		{
 			"name" : "OpenGL_API_IS_TOP_LEVEL",
@@ -2095,7 +2095,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI"
 		},
 		{
 			"name" : "SPDLOG_BUILD_ALL",
@@ -2458,6 +2458,30 @@
 			"value" : "1"
 		},
 		{
+			"name" : "_CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "linker supports push/pop state"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "FALSE"
+		},
+		{
+			"name" : "_CMAKE_C_LINKER_PUSHPOP_STATE_SUPPORTED",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "linker supports push/pop state"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "FALSE"
+		},
+		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
 			"properties" : 
 			[
@@ -2491,7 +2515,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI/build/vendor/glm"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glm"
 		},
 		{
 			"name" : "glm_IS_TOP_LEVEL",
@@ -2515,7 +2539,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI/vendor/glm"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glm"
 		},
 		{
 			"name" : "spdlog_BINARY_DIR",
@@ -2527,7 +2551,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI/build/vendor/spdlog"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/spdlog"
 		},
 		{
 			"name" : "spdlog_IS_TOP_LEVEL",
@@ -2551,7 +2575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/OpenGLAPI/vendor/spdlog"
+			"value" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog"
 		}
 	],
 	"kind" : "cache",

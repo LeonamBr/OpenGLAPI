@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['macos_0',['MacOS',['../compat_guide.html#compat_osx',1,'OpenGL on macOS'],['../build_guide.html#build_link_osx',1,'With command-line or makefile on macOS'],['../build_guide.html#build_link_xcode',1,'With Xcode on macOS']]],
+  ['macos_0',['macOS',['../compat_guide.html#compat_osx',1,'OpenGL on macOS'],['../build_guide.html#build_link_osx',1,'With command-line or makefile on macOS'],['../build_guide.html#build_link_xcode',1,'With Xcode on macOS']]],
   ['macos_20specific_20cmake_20options_1',['macOS specific CMake options',['../compile_guide.html#compile_options_macos',1,'']]],
   ['macos_20specific_20hints_2',['macOS specific hints',['../window_guide.html#window_hints_osx',1,'']]],
   ['macos_20specific_20init_20hints_3',['macOS specific init hints',['../intro_guide.html#init_hints_osx',1,'']]],
   ['macro_4',['Removal of GLFWCALL macro',['../moving_guide.html#moving_stdcall',1,'']]],
-  ['macros_5',['Macros',['../internals_guide.html#internals_config',1,'Configuration macros'],['../build_guide.html#build_macros',1,'GLFW header option macros']]],
+  ['macros_5',['macros',['../internals_guide.html#internals_config',1,'Configuration macros'],['../build_guide.html#build_macros',1,'GLFW header option macros']]],
   ['main_2emd_6',['main.md',['../main_8md.html',1,'']]],
   ['makefile_20on_20macos_7',['With command-line or makefile on macOS',['../build_guide.html#build_link_osx',1,'']]],
   ['making_20the_20opengl_20context_20current_8',['Making the OpenGL context current',['../quick_guide.html#quick_context_current',1,'']]],
-  ['management_9',['Management',['../moving_guide.html#moving_context',1,'Explicit context management'],['../intro_guide.html#intro_version',1,'Version management']]],
-  ['manually_10',['Manually',['../compile_guide.html#compile_manual',1,'Compiling GLFW manually'],['../context_guide.html#context_glext_manual',1,'Loading extensions manually']]],
+  ['management_9',['management',['../moving_guide.html#moving_context',1,'Explicit context management'],['../intro_guide.html#intro_version',1,'Version management']]],
+  ['manually_10',['manually',['../compile_guide.html#compile_manual',1,'Compiling GLFW manually'],['../context_guide.html#context_glext_manual',1,'Loading extensions manually']]],
   ['mappings_11',['Gamepad mappings',['../input_guide.html#gamepad_mapping',1,'']]],
   ['maximization_12',['Window maximization',['../window_guide.html#window_maximize',1,'']]],
   ['mbcs_20support_13',['Win32 MBCS support',['../moving_guide.html#moving_mbcs',1,'']]],
@@ -33,9 +33,10 @@ var searchData=
   ['monitors_30',['Retrieving monitors',['../monitor_guide.html#monitor_monitors',1,'']]],
   ['motion_31',['Raw mouse motion',['../input_guide.html#raw_mouse_motion',1,'']]],
   ['mouse_20button_20input_32',['Mouse button input',['../input_guide.html#input_mouse_button',1,'']]],
-  ['mouse_20buttons_33',['Mouse buttons',['../group__buttons.html',1,'Mouse buttons'],['../news.html#unlimited_mouse_buttons',1,'Unlimited mouse buttons']]],
-  ['mouse_20input_34',['Mouse input',['../input_guide.html#input_mouse',1,'']]],
-  ['mouse_20motion_35',['Raw mouse motion',['../input_guide.html#raw_mouse_motion',1,'']]],
-  ['moving_20from_20glfw_202_20to_203_36',['Moving from GLFW 2 to 3',['../moving_guide.html',1,'']]],
-  ['moving_2emd_37',['moving.md',['../moving_8md.html',1,'']]]
+  ['mouse_20buttons_33',['Mouse buttons',['../group__buttons.html',1,'']]],
+  ['mouse_20buttons_34',['Unlimited mouse buttons',['../news.html#unlimited_mouse_buttons',1,'']]],
+  ['mouse_20input_35',['Mouse input',['../input_guide.html#input_mouse',1,'']]],
+  ['mouse_20motion_36',['Raw mouse motion',['../input_guide.html#raw_mouse_motion',1,'']]],
+  ['moving_20from_20glfw_202_20to_203_37',['Moving from GLFW 2 to 3',['../moving_guide.html',1,'']]],
+  ['moving_2emd_38',['moving.md',['../moving_8md.html',1,'']]]
 ];

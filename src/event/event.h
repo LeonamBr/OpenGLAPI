@@ -20,4 +20,9 @@ struct WindowResizeEvent {
     int height;
 };
 
+struct ScrollEvent {
+    double xoffset;
+    double yoffset;
+};
+
 #endif
