@@ -225,6 +225,43 @@ docs/fast:
 	$(MAKE) $(MAKESILENT) -f vendor\glfw\docs\CMakeFiles\docs.dir\build.make vendor/glfw/docs/CMakeFiles/docs.dir/build
 .PHONY : docs/fast
 
+#=============================================================================
+# Target rules for targets named glm
+
+# Build rule for target.
+glm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 glm
+.PHONY : glm
+
+# fast build rule for target.
+glm/fast:
+	$(MAKE) $(MAKESILENT) -f vendor\glm\glm\CMakeFiles\glm.dir\build.make vendor/glm/glm/CMakeFiles/glm.dir/build
+.PHONY : glm/fast
+
+src/renderer/camera.obj: src/renderer/camera.cpp.obj
+.PHONY : src/renderer/camera.obj
+
+# target to build an object file
+src/renderer/camera.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.obj
+.PHONY : src/renderer/camera.cpp.obj
+
+src/renderer/camera.i: src/renderer/camera.cpp.i
+.PHONY : src/renderer/camera.i
+
+# target to preprocess a source file
+src/renderer/camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.i
+.PHONY : src/renderer/camera.cpp.i
+
+src/renderer/camera.s: src/renderer/camera.cpp.s
+.PHONY : src/renderer/camera.s
+
+# target to generate assembly for a file
+src/renderer/camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.s
+.PHONY : src/renderer/camera.cpp.s
+
 src/renderer/shader.obj: src/renderer/shader.cpp.obj
 .PHONY : src/renderer/shader.obj
 
@@ -314,6 +351,10 @@ help:
 	@echo ... update_mappings
 	@echo ... OpenGL_API
 	@echo ... glfw
+	@echo ... glm
+	@echo ... src/renderer/camera.obj
+	@echo ... src/renderer/camera.i
+	@echo ... src/renderer/camera.s
 	@echo ... src/renderer/shader.obj
 	@echo ... src/renderer/shader.i
 	@echo ... src/renderer/shader.s

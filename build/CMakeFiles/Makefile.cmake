@@ -19,6 +19,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/docs/CMakeLists.txt"
   "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/docs/Doxyfile.in"
   "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/CMakeLists.txt"
+  "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glm/CMakeLists.txt"
+  "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glm/glm/CMakeLists.txt"
   "C:/mingw/share/cmake-3.31/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
   "C:/mingw/share/cmake-3.31/Modules/CMakeCInformation.cmake"
   "C:/mingw/share/cmake-3.31/Modules/CMakeCXXInformation.cmake"
@@ -82,6 +84,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "vendor/glfw/src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "vendor/glfw/docs/Doxyfile"
   "vendor/glfw/docs/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "vendor/glm/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "vendor/glm/glm/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -91,4 +95,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "vendor/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   "vendor/glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake"
   "vendor/glfw/docs/CMakeFiles/docs.dir/DependInfo.cmake"
+  "vendor/glm/glm/CMakeFiles/glm.dir/DependInfo.cmake"
   )

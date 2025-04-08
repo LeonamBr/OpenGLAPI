@@ -305,6 +305,17 @@
 		},
 		{
 			"path" : "vendor/glfw/docs/Doxyfile.in"
+		},
+		{
+			"path" : "vendor/glm/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/mingw/share/cmake-3.31/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"path" : "vendor/glm/glm/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",
