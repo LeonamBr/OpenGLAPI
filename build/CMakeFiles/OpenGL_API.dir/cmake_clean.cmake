@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj"
+  "CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj.d"
   "CMakeFiles/OpenGL_API.dir/src/sandbox.cpp.obj"
   "CMakeFiles/OpenGL_API.dir/src/sandbox.cpp.obj.d"
   "CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj"

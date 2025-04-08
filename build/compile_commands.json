@@ -1,13 +1,19 @@
 [
 {
   "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
-  "command": "C:\\mingw\\bin\\g++.exe  @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\sandbox.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\sandbox.cpp",
+  "command": "C:\\mingw\\bin\\g++.exe -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\sandbox.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\sandbox.cpp",
   "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/sandbox.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/sandbox.cpp.obj"
 },
 {
   "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
-  "command": "C:\\mingw\\bin\\gcc.exe  @CMakeFiles/OpenGL_API.dir/includes_C.rsp -g -o CMakeFiles\\OpenGL_API.dir\\vendor\\glad\\src\\glad.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glad\\src\\glad.c",
+  "command": "C:\\mingw\\bin\\g++.exe -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\shader.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\renderer\\shader.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer/shader.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj"
+},
+{
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\gcc.exe -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_C.rsp -g -o CMakeFiles\\OpenGL_API.dir\\vendor\\glad\\src\\glad.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glad\\src\\glad.c",
   "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/src/glad.c",
   "output": "CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj"
 },

@@ -3,13 +3,13 @@
 
 # compile C with C:/mingw/bin/gcc.exe
 # compile CXX with C:/mingw/bin/g++.exe
-C_DEFINES = 
+C_DEFINES = -DSTB_IMAGE_IMPLEMENTATION
 
 C_INCLUDES = @CMakeFiles/OpenGL_API.dir/includes_C.rsp
 
 C_FLAGS = -g
 
-CXX_DEFINES = 
+CXX_DEFINES = -DSTB_IMAGE_IMPLEMENTATION
 
 CXX_INCLUDES = @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
 

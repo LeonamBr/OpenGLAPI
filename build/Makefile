@@ -225,6 +225,30 @@ docs/fast:
 	$(MAKE) $(MAKESILENT) -f vendor\glfw\docs\CMakeFiles\docs.dir\build.make vendor/glfw/docs/CMakeFiles/docs.dir/build
 .PHONY : docs/fast
 
+src/renderer/shader.obj: src/renderer/shader.cpp.obj
+.PHONY : src/renderer/shader.obj
+
+# target to build an object file
+src/renderer/shader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj
+.PHONY : src/renderer/shader.cpp.obj
+
+src/renderer/shader.i: src/renderer/shader.cpp.i
+.PHONY : src/renderer/shader.i
+
+# target to preprocess a source file
+src/renderer/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.i
+.PHONY : src/renderer/shader.cpp.i
+
+src/renderer/shader.s: src/renderer/shader.cpp.s
+.PHONY : src/renderer/shader.s
+
+# target to generate assembly for a file
+src/renderer/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.s
+.PHONY : src/renderer/shader.cpp.s
+
 src/sandbox.obj: src/sandbox.cpp.obj
 .PHONY : src/sandbox.obj
 
@@ -290,6 +314,9 @@ help:
 	@echo ... update_mappings
 	@echo ... OpenGL_API
 	@echo ... glfw
+	@echo ... src/renderer/shader.obj
+	@echo ... src/renderer/shader.i
+	@echo ... src/renderer/shader.s
 	@echo ... src/sandbox.obj
 	@echo ... src/sandbox.i
 	@echo ... src/sandbox.s
