@@ -37,6 +37,12 @@
 			{
 				"command" : 1,
 				"file" : 1,
+				"line" : 10,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
 				"line" : 11,
 				"parent" : 2
 			},
@@ -85,26 +91,30 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/stb"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
 				},
 				{
 					"backtrace" : 8,
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/stb"
+				},
+				{
+					"backtrace" : 9,
 					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glm"
 				}
 			],

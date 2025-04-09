@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "OpenGL_API.exe"
+			"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/OpenGL_API.exe"
 		},
 		{
-			"path" : "OpenGL_API.pdb"
+			"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/OpenGL_API.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -43,6 +43,12 @@
 				"command" : 2,
 				"file" : 0,
 				"line" : 24,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
@@ -97,22 +103,26 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 8,
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
+				},
+				{
+					"backtrace" : 9,
 					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/stb"
 				},
 				{
@@ -158,22 +168,26 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 8,
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
+				},
+				{
+					"backtrace" : 9,
 					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/stb"
 				},
 				{

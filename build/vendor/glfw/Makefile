@@ -136,6 +136,13 @@ all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\E-FUTEBOLDERUA\Desktop\OpenGLAPI\build\CMakeFiles 0
 .PHONY : all
 
+# The main codegen target
+codegen: cmake_check_build_system
+	cd /d C:\Users\E-FUTEBOLDERUA\Desktop\OpenGLAPI\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\E-FUTEBOLDERUA\Desktop\OpenGLAPI\build\CMakeFiles C:\Users\E-FUTEBOLDERUA\Desktop\OpenGLAPI\build\vendor\glfw\\CMakeFiles\progress.marks
+	cd /d C:\Users\E-FUTEBOLDERUA\Desktop\OpenGLAPI\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 vendor/glfw/codegen
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\E-FUTEBOLDERUA\Desktop\OpenGLAPI\build\CMakeFiles 0
+.PHONY : codegen
+
 # The main clean target
 clean:
 	cd /d C:\Users\E-FUTEBOLDERUA\Desktop\OpenGLAPI\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 vendor/glfw/clean
@@ -180,6 +187,7 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
+	@echo ... codegen
 	@echo ... edit_cache
 	@echo ... install
 	@echo ... install/local
