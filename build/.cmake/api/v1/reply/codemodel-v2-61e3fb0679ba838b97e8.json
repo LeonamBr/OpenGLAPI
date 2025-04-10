@@ -9,13 +9,14 @@
 					"childIndexes" : 
 					[
 						1,
-						4
+						4,
+						6
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.31"
+						"string" : "3.27"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -42,7 +43,7 @@
 					"source" : "vendor/glfw",
 					"targetIndexes" : 
 					[
-						4
+						5
 					]
 				},
 				{
@@ -59,7 +60,7 @@
 					"targetIndexes" : 
 					[
 						2,
-						5
+						6
 					]
 				},
 				{
@@ -107,6 +108,21 @@
 					[
 						3
 					]
+				},
+				{
+					"build" : "vendor/spdlog",
+					"jsonFile" : "directory-vendor.spdlog-Debug-e87d539985341df26c00.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "vendor/spdlog",
+					"targetIndexes" : 
+					[
+						4
+					]
 				}
 			],
 			"name" : "Debug",
@@ -116,7 +132,8 @@
 					"childIndexes" : 
 					[
 						1,
-						2
+						2,
+						3
 					],
 					"directoryIndexes" : 
 					[
@@ -141,8 +158,8 @@
 					[
 						1,
 						2,
-						4,
-						5
+						5,
+						6
 					]
 				},
 				{
@@ -157,6 +174,18 @@
 					[
 						3
 					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6
+					],
+					"name" : "spdlog",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						4
+					]
 				}
 			],
 			"targets" : 
@@ -164,7 +193,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "OpenGL_API::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-OpenGL_API-Debug-4d6371bf4fc856334377.json",
+					"jsonFile" : "target-OpenGL_API-Debug-ac9c363da3895f7c1b9d.json",
 					"name" : "OpenGL_API",
 					"projectIndex" : 0
 				},
@@ -178,16 +207,23 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "glfw::@31bd9730e6b8c71cc656",
-					"jsonFile" : "target-glfw-Debug-2386d4969cb90332d8b8.json",
+					"jsonFile" : "target-glfw-Debug-bd1b9dd3e719335083dd.json",
 					"name" : "glfw",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 5,
 					"id" : "glm::@613f4c0f156fd21f7bfb",
-					"jsonFile" : "target-glm-Debug-9a34cfba9ddef1417e88.json",
+					"jsonFile" : "target-glm-Debug-8a5b948285b6ab5a9a20.json",
 					"name" : "glm",
 					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "spdlog::@1e9db359b48fad81080b",
+					"jsonFile" : "target-spdlog-Debug-d36cb6db4caf11e1bf3e.json",
+					"name" : "spdlog",
+					"projectIndex" : 3
 				},
 				{
 					"directoryIndex" : 1,
@@ -209,8 +245,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
-		"source" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI"
+		"build" : "D:/OpenGLAPI/build",
+		"source" : "D:/OpenGLAPI"
 	},
 	"version" : 
 	{

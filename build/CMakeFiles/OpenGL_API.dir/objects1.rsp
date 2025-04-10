@@ -1,1 +1,1 @@
-CMakeFiles/OpenGL_API.dir/src/sandbox.cpp.obj CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.obj CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj
+CMakeFiles/OpenGL_API.dir/src/sandbox.cpp.obj CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.obj CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj

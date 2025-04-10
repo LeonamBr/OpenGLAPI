@@ -6,6 +6,7 @@
 #include <stb_image.h>
 #include <shader.h>
 #include <camera.h>
+#include <log.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -29,6 +30,7 @@ float lastFrame = 0.0f;
 int main (int argc, char** argv)
 {
 
+    Log::Init();
     if(!glfwInit())
     {
         std::cout << "erro ao iniciar glfw" << std::endl;
@@ -187,7 +189,7 @@ int main (int argc, char** argv)
     Shader.setInt("texture1", 0);
     Shader.setInt("texture2", 1);
 
-    glfwSwapInterval(1);
+    glfwSwapInterval(0);
 
     int FPS = 0;
     float acumullator = 0;
@@ -236,7 +238,7 @@ int main (int argc, char** argv)
 
         if ( acumullator >= 1.0f)
         {
-            std::cout << "Deltatime: " << deltaTime << " Currente Frame: " << currentFrame << " Last frame: " << lastFrame << " FPS: " << FPS << std::endl;
+            LOG_INFO("DeltaTime: {0} Current frame: {1} Last frame: {2} FPS: {3}", deltaTime, currentFrame, lastFrame, FPS);
             acumullator = 0;
         }
 
