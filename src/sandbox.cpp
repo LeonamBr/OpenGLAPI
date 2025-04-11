@@ -10,10 +10,15 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <event.h>
+#include <eventbus.h>
+#include <inputmanager.h>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+
 void processInput(GLFWwindow *window);
 
 const GLuint width = 800;
@@ -30,6 +35,10 @@ float lastFrame = 0.0f;
 int main (int argc, char** argv)
 {
 
+    EventBus bus;
+    InputManager input;
+    input.Register(bus);
+
     Log::Init();
     if(!glfwInit())
     {
@@ -41,6 +50,7 @@ int main (int argc, char** argv)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     GLFWwindow* window = glfwCreateWindow(width, height, "Hello window", nullptr, nullptr);
+    glfwSetWindowUserPointer(window, &bus);
 
     if(!window)
     {
@@ -52,6 +62,7 @@ int main (int argc, char** argv)
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
+    glfwSetKeyCallback(window, key_callback);
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
@@ -238,7 +249,7 @@ int main (int argc, char** argv)
 
         if ( acumullator >= 1.0f)
         {
-            LOG_INFO("DeltaTime: {0} Current frame: {1} Last frame: {2} FPS: {3}", deltaTime, currentFrame, lastFrame, FPS);
+            LOG_DEBUG("DeltaTime: {0} Current frame: {1} Last frame: {2} FPS: {3}", deltaTime, currentFrame, lastFrame, FPS);
             acumullator = 0;
         }
 
@@ -294,6 +305,20 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
     lastY = ypos;
 
     camera.ProcessMouseMovement(xoffset, yoffset);
+
+    auto* bus = static_cast<EventBus*>(glfwGetWindowUserPointer(window));
+    if (bus) {
+        bus->Emit(MouseMovedEvent{ xpos, ypos });
+    }
+
+}
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    auto* bus = static_cast<EventBus*>(glfwGetWindowUserPointer(window));
+    if (bus && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+        bus->Emit(KeyPressedEvent{ key, action == GLFW_REPEAT });
+    }
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)

@@ -9,6 +9,8 @@ project(OpenGL_API
 
 include_directories(assets)
 include_directories(src)
+include_directories(src/utils)
+include_directories(src/event)
 include_directories(src/renderer)
 include_directories(src/core)
 include_directories(vendor/glad)

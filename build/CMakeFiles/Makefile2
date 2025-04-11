@@ -180,9 +180,9 @@ vendor/spdlog/clean: vendor/spdlog/CMakeFiles/spdlog.dir/clean
 # Target rules for target CMakeFiles/OpenGL_API.dir
 
 # All Build rule for target.
+CMakeFiles/OpenGL_API.dir/all: vendor/glfw/src/CMakeFiles/glfw.dir/all
 CMakeFiles/OpenGL_API.dir/all: vendor/glm/glm/CMakeFiles/glm.dir/all
 CMakeFiles/OpenGL_API.dir/all: vendor/spdlog/CMakeFiles/spdlog.dir/all
-CMakeFiles/OpenGL_API.dir/all: vendor/glfw/src/CMakeFiles/glfw.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target OpenGL_API"

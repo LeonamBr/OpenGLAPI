@@ -77,6 +77,18 @@
 				"parent" : 2
 			},
 			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 17,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 2
+			},
+			{
 				"command" : 2,
 				"file" : 0,
 				"line" : 64,
@@ -105,26 +117,34 @@
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/OpenGLAPI/src/renderer"
+					"path" : "D:/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/OpenGLAPI/src/core"
+					"path" : "D:/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "D:/OpenGLAPI/vendor/glad"
+					"path" : "D:/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "D:/OpenGLAPI/vendor/glad/include"
+					"path" : "D:/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "D:/OpenGLAPI/vendor/stb"
+					"path" : "D:/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 10,
+					"path" : "D:/OpenGLAPI/vendor/glad/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "D:/OpenGLAPI/vendor/stb"
+				},
+				{
+					"backtrace" : 12,
 					"path" : "D:/OpenGLAPI/vendor/glm"
 				}
 			],

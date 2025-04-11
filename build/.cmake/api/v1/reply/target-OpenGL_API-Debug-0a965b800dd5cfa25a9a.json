@@ -30,19 +30,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 29,
+				"line" : 31,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 30,
+				"line" : 32,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 27,
+				"line" : 29,
 				"parent" : 0
 			},
 			{
@@ -86,6 +86,18 @@
 				"file" : 0,
 				"line" : 16,
 				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
 			}
 		]
 	},
@@ -121,22 +133,30 @@
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/OpenGLAPI/src/renderer"
+					"path" : "D:/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "D:/OpenGLAPI/src/core"
+					"path" : "D:/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "D:/OpenGLAPI/vendor/glad"
+					"path" : "D:/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "D:/OpenGLAPI/vendor/glad/include"
+					"path" : "D:/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 10,
+					"path" : "D:/OpenGLAPI/vendor/glad"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "D:/OpenGLAPI/vendor/glad/include"
+				},
+				{
+					"backtrace" : 12,
 					"path" : "D:/OpenGLAPI/vendor/stb"
 				},
 				{
@@ -199,22 +219,30 @@
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/OpenGLAPI/src/renderer"
+					"path" : "D:/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "D:/OpenGLAPI/src/core"
+					"path" : "D:/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "D:/OpenGLAPI/vendor/glad"
+					"path" : "D:/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "D:/OpenGLAPI/vendor/glad/include"
+					"path" : "D:/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 10,
+					"path" : "D:/OpenGLAPI/vendor/glad"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "D:/OpenGLAPI/vendor/glad/include"
+				},
+				{
+					"backtrace" : 12,
 					"path" : "D:/OpenGLAPI/vendor/stb"
 				},
 				{
@@ -241,15 +269,15 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "glfw::@31bd9730e6b8c71cc656"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "glm::@613f4c0f156fd21f7bfb"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "spdlog::@1e9db359b48fad81080b"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "glfw::@31bd9730e6b8c71cc656"
 		}
 	],
 	"id" : "OpenGL_API::@6890427a1f51a3e7e1df",
