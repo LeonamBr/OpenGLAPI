@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "D:/OpenGLAPI/OpenGL_API.exe"
+			"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/OpenGL_API.exe"
 		},
 		{
-			"path" : "D:/OpenGLAPI/OpenGL_API.pdb"
+			"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/OpenGL_API.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -30,19 +30,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 31,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 32,
+				"line" : 36,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 29,
+				"line" : 33,
 				"parent" : 0
 			},
 			{
@@ -98,6 +98,18 @@
 				"file" : 0,
 				"line" : 18,
 				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 20,
+				"parent" : 0
 			}
 		]
 	},
@@ -125,51 +137,59 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "D:/OpenGLAPI/assets"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/OpenGLAPI/src"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/OpenGLAPI/src/utils"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "D:/OpenGLAPI/src/event"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "D:/OpenGLAPI/src/renderer"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "D:/OpenGLAPI/src/core"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/OpenGLAPI/vendor/glad"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/openGL"
 				},
 				{
 					"backtrace" : 11,
-					"path" : "D:/OpenGLAPI/vendor/glad/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/window"
 				},
 				{
 					"backtrace" : 12,
-					"path" : "D:/OpenGLAPI/vendor/stb"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/stb"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/glfw/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/include"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/glm"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glm"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/spdlog/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/include"
 				}
 			],
 			"language" : "CXX",
@@ -186,7 +206,9 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4,
+				5
 			]
 		},
 		{
@@ -211,57 +233,65 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "D:/OpenGLAPI/assets"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/OpenGLAPI/src"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/OpenGLAPI/src/utils"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "D:/OpenGLAPI/src/event"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "D:/OpenGLAPI/src/renderer"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "D:/OpenGLAPI/src/core"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/OpenGLAPI/vendor/glad"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/openGL"
 				},
 				{
 					"backtrace" : 11,
-					"path" : "D:/OpenGLAPI/vendor/glad/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/window"
 				},
 				{
 					"backtrace" : 12,
-					"path" : "D:/OpenGLAPI/vendor/stb"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/stb"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/glfw/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/include"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/glm"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glm"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/spdlog/include"
+					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/include"
 				}
 			],
 			"language" : "C",
 			"sourceIndexes" : 
 			[
-				4
+				6
 			]
 		}
 	],
@@ -342,7 +372,9 @@
 				1,
 				2,
 				3,
-				4
+				4,
+				5,
+				6
 			]
 		}
 	],
@@ -370,6 +402,18 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/core/log.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/openGL/openGLContext.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/window/windowSystem.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

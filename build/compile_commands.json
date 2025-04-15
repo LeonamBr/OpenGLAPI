@@ -1,206 +1,218 @@
 [
 {
-  "directory": "D:/OpenGLAPI/build",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\sandbox.cpp.obj -c D:\\OpenGLAPI\\src\\sandbox.cpp",
-  "file": "D:/OpenGLAPI/src/sandbox.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\sandbox.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\sandbox.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/sandbox.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/sandbox.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\shader.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\shader.cpp",
-  "file": "D:/OpenGLAPI/src/renderer/shader.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\shader.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\renderer\\shader.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer/shader.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\camera.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\camera.cpp",
-  "file": "D:/OpenGLAPI/src/renderer/camera.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\camera.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\renderer\\camera.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer/camera.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\core\\log.cpp.obj -c D:\\OpenGLAPI\\src\\core\\log.cpp",
-  "file": "D:/OpenGLAPI/src/core/log.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\core\\log.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\core\\log.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/core/log.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build",
-  "command": "C:\\mingw\\bin\\gcc.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_C.rsp -g -o CMakeFiles\\OpenGL_API.dir\\vendor\\glad\\src\\glad.c.obj -c D:\\OpenGLAPI\\vendor\\glad\\src\\glad.c",
-  "file": "D:/OpenGLAPI/vendor/glad/src/glad.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\openGL\\openGLContext.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\openGL\\openGLContext.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/openGL/openGLContext.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj"
+},
+{
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\window\\windowSystem.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\src\\window\\windowSystem.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/window/windowSystem.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj"
+},
+{
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\gcc.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_C.rsp -g -o CMakeFiles\\OpenGL_API.dir\\vendor\\glad\\src\\glad.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glad\\src\\glad.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/src/glad.c",
   "output": "CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\context.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\context.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/context.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\context.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\context.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/context.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/context.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\init.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\init.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/init.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\init.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\init.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/init.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/init.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\input.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\input.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/input.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\input.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\input.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/input.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/input.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\monitor.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\monitor.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/monitor.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\monitor.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\monitor.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/monitor.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\platform.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\platform.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/platform.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\platform.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\platform.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/platform.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/platform.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\vulkan.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\vulkan.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/vulkan.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\vulkan.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\vulkan.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/vulkan.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\window.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\window.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/window.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\window.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\window.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/window.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/window.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\egl_context.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\egl_context.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/egl_context.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\egl_context.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\egl_context.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/egl_context.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\osmesa_context.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/osmesa_context.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\osmesa_context.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/osmesa_context.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_init.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\null_init.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/null_init.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_init.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\null_init.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/null_init.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_monitor.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\null_monitor.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/null_monitor.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_monitor.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\null_monitor.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/null_monitor.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_window.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\null_window.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/null_window.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_window.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\null_window.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/null_window.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_joystick.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\null_joystick.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/null_joystick.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_joystick.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\null_joystick.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/null_joystick.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_module.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\win32_module.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/win32_module.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_module.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\win32_module.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/win32_module.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_time.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\win32_time.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/win32_time.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_time.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\win32_time.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/win32_time.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_thread.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\win32_thread.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/win32_thread.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_thread.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\win32_thread.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/win32_thread.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_init.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\win32_init.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/win32_init.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_init.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\win32_init.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/win32_init.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\win32_joystick.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/win32_joystick.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\win32_joystick.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/win32_joystick.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\win32_monitor.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/win32_monitor.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\win32_monitor.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/win32_monitor.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_window.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\win32_window.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/win32_window.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_window.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\win32_window.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/win32_window.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glfw/src",
-  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\wgl_context.c.obj -c D:\\OpenGLAPI\\vendor\\glfw\\src\\wgl_context.c",
-  "file": "D:/OpenGLAPI/vendor/glfw/src/wgl_context.c",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src",
+  "command": "C:\\mingw\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\wgl_context.c.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glfw\\src\\wgl_context.c",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src/wgl_context.c",
   "output": "vendor/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/glm/glm",
-  "command": "C:\\mingw\\bin\\g++.exe  @CMakeFiles/glm.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\glm.dir\\detail\\glm.cpp.obj -c D:\\OpenGLAPI\\vendor\\glm\\glm\\detail\\glm.cpp",
-  "file": "D:/OpenGLAPI/vendor/glm/glm/detail/glm.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glm/glm",
+  "command": "C:\\mingw\\bin\\g++.exe  @CMakeFiles/glm.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\glm.dir\\detail\\glm.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\glm\\glm\\detail\\glm.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glm/glm/detail/glm.cpp",
   "output": "vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/spdlog",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\spdlog.cpp.obj -c D:\\OpenGLAPI\\vendor\\spdlog\\src\\spdlog.cpp",
-  "file": "D:/OpenGLAPI/vendor/spdlog/src/spdlog.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/spdlog",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\spdlog.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\spdlog\\src\\spdlog.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/src/spdlog.cpp",
   "output": "vendor/spdlog/CMakeFiles/spdlog.dir/src/spdlog.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/spdlog",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\stdout_sinks.cpp.obj -c D:\\OpenGLAPI\\vendor\\spdlog\\src\\stdout_sinks.cpp",
-  "file": "D:/OpenGLAPI/vendor/spdlog/src/stdout_sinks.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/spdlog",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\stdout_sinks.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\spdlog\\src\\stdout_sinks.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/src/stdout_sinks.cpp",
   "output": "vendor/spdlog/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/spdlog",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\color_sinks.cpp.obj -c D:\\OpenGLAPI\\vendor\\spdlog\\src\\color_sinks.cpp",
-  "file": "D:/OpenGLAPI/vendor/spdlog/src/color_sinks.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/spdlog",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\color_sinks.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\spdlog\\src\\color_sinks.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/src/color_sinks.cpp",
   "output": "vendor/spdlog/CMakeFiles/spdlog.dir/src/color_sinks.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/spdlog",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\file_sinks.cpp.obj -c D:\\OpenGLAPI\\vendor\\spdlog\\src\\file_sinks.cpp",
-  "file": "D:/OpenGLAPI/vendor/spdlog/src/file_sinks.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/spdlog",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\file_sinks.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\spdlog\\src\\file_sinks.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/src/file_sinks.cpp",
   "output": "vendor/spdlog/CMakeFiles/spdlog.dir/src/file_sinks.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/spdlog",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\async.cpp.obj -c D:\\OpenGLAPI\\vendor\\spdlog\\src\\async.cpp",
-  "file": "D:/OpenGLAPI/vendor/spdlog/src/async.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/spdlog",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\async.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\spdlog\\src\\async.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/src/async.cpp",
   "output": "vendor/spdlog/CMakeFiles/spdlog.dir/src/async.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/spdlog",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\cfg.cpp.obj -c D:\\OpenGLAPI\\vendor\\spdlog\\src\\cfg.cpp",
-  "file": "D:/OpenGLAPI/vendor/spdlog/src/cfg.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/spdlog",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\cfg.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\spdlog\\src\\cfg.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/src/cfg.cpp",
   "output": "vendor/spdlog/CMakeFiles/spdlog.dir/src/cfg.cpp.obj"
 },
 {
-  "directory": "D:/OpenGLAPI/build/vendor/spdlog",
-  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\bundled_fmtlib_format.cpp.obj -c D:\\OpenGLAPI\\vendor\\spdlog\\src\\bundled_fmtlib_format.cpp",
-  "file": "D:/OpenGLAPI/vendor/spdlog/src/bundled_fmtlib_format.cpp",
+  "directory": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/spdlog",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED @CMakeFiles/spdlog.dir/includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\spdlog.dir\\src\\bundled_fmtlib_format.cpp.obj -c C:\\Users\\E-FUTEBOLDERUA\\Desktop\\OpenGLAPI\\vendor\\spdlog\\src\\bundled_fmtlib_format.cpp",
+  "file": "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/spdlog/src/bundled_fmtlib_format.cpp",
   "output": "vendor/spdlog/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.obj"
 }
 ]

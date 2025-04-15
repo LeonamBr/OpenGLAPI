@@ -13,6 +13,8 @@ include_directories(src/utils)
 include_directories(src/event)
 include_directories(src/renderer)
 include_directories(src/core)
+include_directories(src/openGL)
+include_directories(src/window)
 include_directories(vendor/glad)
 include_directories(vendor/glad/include)
 include_directories(vendor/stb)
@@ -24,6 +26,8 @@ set (EXECUTABLE src/sandbox.cpp
                 src/renderer/shader.cpp
                 src/renderer/camera.cpp
                 src/core/log.cpp
+                src/openGL/openGLContext.cpp
+                src/window/windowSystem.cpp
                 vendor/glad/src/glad.c)
 
 add_compile_definitions(STB_IMAGE_IMPLEMENTATION)

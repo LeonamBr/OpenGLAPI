@@ -1,8 +1,6 @@
 #include <string>
 #include <iostream>
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 #include <stb_image.h>
 #include <shader.h>
 #include <camera.h>
@@ -13,13 +11,15 @@
 #include <event.h>
 #include <eventbus.h>
 #include <inputmanager.h>
+#include <openGLContext.h>
+#include <windowSystem.h>
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+#define REGISTER_EVENT(bus, fn, EventType) \
+    bus.Subscribe<EventType>([](const EventType& e) { fn(e); })
 
 void processInput(GLFWwindow *window);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+void mousePosEvent(const MouseMovedEvent& e);
 
 const GLuint width = 800;
 const GLuint height = 600;
@@ -31,46 +31,20 @@ bool firstMouse = true;
 
 float deltaTime = 0.0f;	
 float lastFrame = 0.0f;
+WindowSystem m_window;
 
 int main (int argc, char** argv)
 {
-
     EventBus bus;
-    InputManager input;
-    input.Register(bus);
 
+    REGISTER_EVENT(bus, mousePosEvent, MouseMovedEvent);
+    
+    m_window.Init(width, height, "Native Window", bus);
+    OpenGLContext m_context(m_window.GetNativeWindow());
     Log::Init();
-    if(!glfwInit())
-    {
-        std::cout << "erro ao iniciar glfw" << std::endl;
-    }
+    glfwSetScrollCallback(m_window.GetNativeWindow(), scroll_callback);
 
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-    GLFWwindow* window = glfwCreateWindow(width, height, "Hello window", nullptr, nullptr);
-    glfwSetWindowUserPointer(window, &bus);
-
-    if(!window)
-    {
-        std::cout << "Erro ao criar janela" << std::endl;
-        glfwDestroyWindow(window);
-        glfwTerminate();
-    }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    glfwSetCursorPosCallback(window, mouse_callback);
-    glfwSetScrollCallback(window, scroll_callback);
-    glfwSetKeyCallback(window, key_callback);
-
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
-    }    
+    glfwSetInputMode(m_window.GetNativeWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     glEnable(GL_DEPTH_TEST);
 
@@ -205,7 +179,7 @@ int main (int argc, char** argv)
     int FPS = 0;
     float acumullator = 0;
 
-    while (!glfwWindowShouldClose(window))
+    while (!m_window.ShouldClose())
     {
 
         float currentFrame = static_cast<float>(glfwGetTime());
@@ -215,7 +189,7 @@ int main (int argc, char** argv)
 
         acumullator += deltaTime;
 
-        processInput(window);
+        processInput(m_window.GetNativeWindow());
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
@@ -243,7 +217,7 @@ int main (int argc, char** argv)
             model = glm::rotate(model, currentFrame, glm::vec3(1.0f, 0.3f, 0.5f));
             model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
             Shader.setMat4("model", model);
-
+            
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
 
@@ -253,8 +227,8 @@ int main (int argc, char** argv)
             acumullator = 0;
         }
 
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+        m_window.SwapBuffers();
+        m_window.PollEvents();
     }
 
     glDeleteVertexArrays(1, &VAO);
@@ -286,10 +260,10 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
+void mousePosEvent(const MouseMovedEvent& e)
 {
-    float xpos = static_cast<float>(xposIn);
-    float ypos = static_cast<float>(yposIn);
+    float xpos = e.x;
+    float ypos = e.y;
 
     if (firstMouse)
     {
@@ -305,23 +279,10 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
     lastY = ypos;
 
     camera.ProcessMouseMovement(xoffset, yoffset);
-
-    auto* bus = static_cast<EventBus*>(glfwGetWindowUserPointer(window));
-    if (bus) {
-        bus->Emit(MouseMovedEvent{ xpos, ypos });
-    }
-
-}
-
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-    auto* bus = static_cast<EventBus*>(glfwGetWindowUserPointer(window));
-    if (bus && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
-        bus->Emit(KeyPressedEvent{ key, action == GLFW_REPEAT });
-    }
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
     camera.ProcessMouseScroll(static_cast<float>(yoffset));
 }
+

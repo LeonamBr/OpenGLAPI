@@ -11,6 +11,10 @@ struct KeyPressedEvent {
     bool repeat;
 };
 
+struct KeyReleasedEvent {
+    int key;
+};
+
 struct WindowResizeEvent {
     int width;
     int height;
