@@ -1,4 +1,5 @@
 #include "OpenGLContext.h"
+#include <log.h>
 #include <iostream>
 
 OpenGLContext::OpenGLContext(GLFWwindow* window)
@@ -11,7 +12,11 @@ void OpenGLContext::Init() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwMakeContextCurrent(m_Window);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+
+    LOG_INFO("OpenGL Info:");
+	LOG_INFO("  Vendor: {0}", (char*)glGetString(GL_VENDOR));
+	LOG_INFO("  Renderer: {0}", (char*)glGetString(GL_RENDERER));
+	LOG_INFO("  Version: {0}", (char*)glGetString(GL_VERSION));
 }
 
 void OpenGLContext::SwapBuffers() {

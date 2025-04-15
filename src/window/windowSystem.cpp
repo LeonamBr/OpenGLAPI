@@ -1,4 +1,5 @@
 #include "WindowSystem.h"
+#include <log.h>
 #include <event.h>
 #include <stdexcept>
 

@@ -39,9 +39,9 @@ int main (int argc, char** argv)
 
     REGISTER_EVENT(bus, mousePosEvent, MouseMovedEvent);
     
+    Log::Init();
     m_window.Init(width, height, "Native Window", bus);
     OpenGLContext m_context(m_window.GetNativeWindow());
-    Log::Init();
     glfwSetScrollCallback(m_window.GetNativeWindow(), scroll_callback);
 
     glfwSetInputMode(m_window.GetNativeWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -217,13 +217,13 @@ int main (int argc, char** argv)
             model = glm::rotate(model, currentFrame, glm::vec3(1.0f, 0.3f, 0.5f));
             model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
             Shader.setMat4("model", model);
-            
+
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
 
         if ( acumullator >= 1.0f)
         {
-            LOG_DEBUG("DeltaTime: {0} Current frame: {1} Last frame: {2} FPS: {3}", deltaTime, currentFrame, lastFrame, FPS);
+            LOG_DEBUG("FPS: {0}", FPS);
             acumullator = 0;
         }
 
