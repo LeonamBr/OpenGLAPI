@@ -14,9 +14,9 @@ void OpenGLContext::Init() {
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
     LOG_INFO("OpenGL Info:");
-	LOG_INFO("  Vendor: {0}", (char*)glGetString(GL_VENDOR));
-	LOG_INFO("  Renderer: {0}", (char*)glGetString(GL_RENDERER));
-	LOG_INFO("  Version: {0}", (char*)glGetString(GL_VERSION));
+    LOG_INFO("  Vendor: {}",   reinterpret_cast<const char*>(glGetString(GL_VENDOR)));
+    LOG_INFO("  Renderer: {}", reinterpret_cast<const char*>(glGetString(GL_RENDERER)));
+    LOG_INFO("  Version: {}",  reinterpret_cast<const char*>(glGetString(GL_VERSION)));
 }
 
 void OpenGLContext::SwapBuffers() {

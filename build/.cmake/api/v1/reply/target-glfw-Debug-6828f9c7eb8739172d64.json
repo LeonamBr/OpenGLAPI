@@ -203,59 +203,59 @@
 			[
 				{
 					"backtrace" : 8,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/assets"
+					"path" : "D:/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src"
+					"path" : "D:/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/utils"
+					"path" : "D:/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 11,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/event"
+					"path" : "D:/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 12,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/renderer"
+					"path" : "D:/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/core"
+					"path" : "D:/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 14,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/openGL"
+					"path" : "D:/OpenGLAPI/src/openGL"
 				},
 				{
 					"backtrace" : 15,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/src/window"
+					"path" : "D:/OpenGLAPI/src/window"
 				},
 				{
 					"backtrace" : 16,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad"
+					"path" : "D:/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 17,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glad/include"
+					"path" : "D:/OpenGLAPI/vendor/glad/include"
 				},
 				{
 					"backtrace" : 18,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/stb"
+					"path" : "D:/OpenGLAPI/vendor/stb"
 				},
 				{
 					"backtrace" : 19,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/include"
+					"path" : "D:/OpenGLAPI/vendor/glfw/include"
 				},
 				{
 					"backtrace" : 20,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/vendor/glfw/src"
+					"path" : "D:/OpenGLAPI/vendor/glfw/src"
 				},
 				{
 					"backtrace" : 20,
-					"path" : "C:/Users/E-FUTEBOLDERUA/Desktop/OpenGLAPI/build/vendor/glfw/src"
+					"path" : "D:/OpenGLAPI/build/vendor/glfw/src"
 				}
 			],
 			"language" : "C",
