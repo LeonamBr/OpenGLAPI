@@ -15,6 +15,7 @@ include_directories(src/renderer)
 include_directories(src/core)
 include_directories(src/openGL)
 include_directories(src/window)
+include_directories(src/input)
 include_directories(vendor/glad)
 include_directories(vendor/glad/include)
 include_directories(vendor/stb)
@@ -27,6 +28,7 @@ set (EXECUTABLE src/sandbox.cpp
                 src/renderer/camera.cpp
                 src/renderer/mesh.cpp
                 src/renderer/meshFactory.cpp
+                src/input/cameraController.cpp
                 src/core/log.cpp
                 src/openGL/openGLContext.cpp
                 src/window/windowSystem.cpp

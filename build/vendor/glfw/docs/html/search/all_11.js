@@ -1,7 +1,7 @@
 var searchData=
 [
   ['object_20sharing_0',['Context object sharing',['../context_guide.html#context_sharing',1,'']]],
-  ['objects_1',['objects',['../context_guide.html#context_object',1,'Context objects'],['../input_guide.html#cursor_object',1,'Cursor objects'],['../monitor_guide.html#monitor_object',1,'Monitor objects'],['../window_guide.html#window_object',1,'Window objects']]],
+  ['objects_1',['Objects',['../context_guide.html#context_object',1,'Context objects'],['../input_guide.html#cursor_object',1,'Cursor objects'],['../monitor_guide.html#monitor_object',1,'Monitor objects'],['../window_guide.html#window_object',1,'Window objects']]],
   ['of_20automatic_20event_20polling_2',['Removal of automatic event polling',['../moving_guide.html#moving_autopoll',1,'']]],
   ['of_20character_20actions_3',['Removal of character actions',['../moving_guide.html#moving_char_up',1,'']]],
   ['of_20glfwcall_20macro_4',['Removal of GLFWCALL macro',['../moving_guide.html#moving_stdcall',1,'']]],
@@ -13,16 +13,15 @@ var searchData=
   ['offscreen_20contexts_10',['Offscreen contexts',['../context_guide.html#context_offscreen',1,'']]],
   ['offsets_11',['Wheel position replaced by scroll offsets',['../moving_guide.html#moving_wheel',1,'']]],
   ['older_20than_20xp_12',['Support for versions of Windows older than XP',['../moving_guide.html#moving_windows',1,'']]],
-  ['on_20macos_13',['on macOS',['../compat_guide.html#compat_osx',1,'OpenGL on macOS'],['../build_guide.html#build_link_osx',1,'With command-line or makefile on macOS'],['../build_guide.html#build_link_xcode',1,'With Xcode on macOS']]],
+  ['on_20macos_13',['On macOS',['../compat_guide.html#compat_osx',1,'OpenGL on macOS'],['../build_guide.html#build_link_osx',1,'With command-line or makefile on macOS'],['../build_guide.html#build_link_xcode',1,'With Xcode on macOS']]],
   ['on_20unix_14',['With pkg-config and GLFW binaries on Unix',['../build_guide.html#build_link_pkgconfig',1,'']]],
   ['opengl_15',['Rendering with OpenGL',['../quick_guide.html#quick_render',1,'']]],
   ['opengl_20and_20opengl_20es_20extensions_16',['OpenGL and OpenGL ES extensions',['../context_guide.html#context_glext',1,'']]],
   ['opengl_20context_20current_17',['Making the OpenGL context current',['../quick_guide.html#quick_context_current',1,'']]],
-  ['opengl_20es_20extensions_18',['OpenGL and OpenGL ES extensions',['../context_guide.html#context_glext',1,'']]],
-  ['opengl_20on_20macos_19',['OpenGL on macOS',['../compat_guide.html#compat_osx',1,'']]],
-  ['option_20macros_20',['GLFW header option macros',['../build_guide.html#build_macros',1,'']]],
-  ['options_21',['options',['../compile_guide.html#compile_options',1,'CMake options'],['../compile_guide.html#compile_options_macos',1,'macOS specific CMake options'],['../compile_guide.html#compile_options_shared',1,'Shared CMake options'],['../compile_guide.html#compile_options_unix',1,'Unix-like system specific CMake options'],['../compile_guide.html#compile_options_win32',1,'Win32 specific CMake options']]],
-  ['or_20makefile_20on_20macos_22',['With command-line or makefile on macOS',['../build_guide.html#build_link_osx',1,'']]],
-  ['order_23',['Event order',['../intro_guide.html#event_order',1,'']]],
-  ['output_24',['Clipboard input and output',['../input_guide.html#clipboard',1,'']]]
+  ['opengl_20on_20macos_18',['OpenGL on macOS',['../compat_guide.html#compat_osx',1,'']]],
+  ['option_20macros_19',['GLFW header option macros',['../build_guide.html#build_macros',1,'']]],
+  ['options_20',['Options',['../compile_guide.html#compile_options',1,'CMake options'],['../compile_guide.html#compile_options_macos',1,'macOS specific CMake options'],['../compile_guide.html#compile_options_shared',1,'Shared CMake options'],['../compile_guide.html#compile_options_unix',1,'Unix-like system specific CMake options'],['../compile_guide.html#compile_options_win32',1,'Win32 specific CMake options']]],
+  ['or_20makefile_20on_20macos_21',['With command-line or makefile on macOS',['../build_guide.html#build_link_osx',1,'']]],
+  ['order_22',['Event order',['../intro_guide.html#event_order',1,'']]],
+  ['output_23',['Clipboard input and output',['../input_guide.html#clipboard',1,'']]]
 ];
