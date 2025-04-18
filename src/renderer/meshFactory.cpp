@@ -1,37 +1,31 @@
 #include "meshFactory.h"
 
-Mesh MeshFactory::CreateTriangle() {
-    float vertices[] = {
-         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
-        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
-         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f
+// Cria um triângulo simples
+std::shared_ptr<Mesh> MeshFactory::CreateTriangle() {
+    static float vertices[] = {
+        // Positions         // Colors
+        -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f,
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,
+         0.0f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f,
     };
-    return Mesh(vertices, sizeof(vertices), 6);
+
+    return std::make_shared<Mesh>(vertices, sizeof(vertices));
 }
 
-Mesh MeshFactory::CreateQuad() {
-    float vertices[] = {
-        -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
-         0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
-        -0.5f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,
-         0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f
+// Cria um quadrado com dois triângulos (usando índices)
+std::shared_ptr<Mesh> MeshFactory::CreateQuad() {
+    static float vertices[] = {
+        // Positions         // Colors
+        -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f, // Bottom Left
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f, // Bottom Right
+         0.5f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f, // Top Right
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f, // Top Left
     };
 
-    unsigned int indices[] = {
+    static uint32_t indices[] = {
         0, 1, 2,
-        1, 3, 2
+        2, 3, 0
     };
 
-    float quadTriVertices[] = {
-
-        -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
-         0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
-        -0.5f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,
-
-         0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
-         0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f,
-        -0.5f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f
-    };
-
-    return Mesh(quadTriVertices, sizeof(quadTriVertices), 6);
+    return std::make_shared<Mesh>(vertices, sizeof(vertices), indices, 6);
 }

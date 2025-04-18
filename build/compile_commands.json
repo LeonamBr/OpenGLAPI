@@ -31,6 +31,30 @@
 },
 {
   "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\indexBuffer.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\indexBuffer.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/indexBuffer.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\vertexBuffer.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\vertexBuffer.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/vertexBuffer.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\vertexArray.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\vertexArray.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/vertexArray.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\shaderLibrary.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\shaderLibrary.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/shaderLibrary.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
   "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\OpenGL_API.dir\\src\\input\\cameraController.cpp.obj -c D:\\OpenGLAPI\\src\\input\\cameraController.cpp",
   "file": "D:/OpenGLAPI/src/input/cameraController.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj"

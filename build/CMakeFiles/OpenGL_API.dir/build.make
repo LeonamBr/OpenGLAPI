@@ -143,11 +143,71 @@ CMakeFiles/OpenGL_API.dir/src/renderer/meshFactory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_API.dir/src/renderer/meshFactory.cpp.s"
 	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OpenGLAPI\src\renderer\meshFactory.cpp -o CMakeFiles\OpenGL_API.dir\src\renderer\meshFactory.cpp.s
 
+CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj: CMakeFiles/OpenGL_API.dir/flags.make
+CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj: CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
+CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj: D:/OpenGLAPI/src/renderer/indexBuffer.cpp
+CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj -MF CMakeFiles\OpenGL_API.dir\src\renderer\indexBuffer.cpp.obj.d -o CMakeFiles\OpenGL_API.dir\src\renderer\indexBuffer.cpp.obj -c D:\OpenGLAPI\src\renderer\indexBuffer.cpp
+
+CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.i"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OpenGLAPI\src\renderer\indexBuffer.cpp > CMakeFiles\OpenGL_API.dir\src\renderer\indexBuffer.cpp.i
+
+CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.s"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OpenGLAPI\src\renderer\indexBuffer.cpp -o CMakeFiles\OpenGL_API.dir\src\renderer\indexBuffer.cpp.s
+
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj: CMakeFiles/OpenGL_API.dir/flags.make
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj: CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj: D:/OpenGLAPI/src/renderer/vertexBuffer.cpp
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj -MF CMakeFiles\OpenGL_API.dir\src\renderer\vertexBuffer.cpp.obj.d -o CMakeFiles\OpenGL_API.dir\src\renderer\vertexBuffer.cpp.obj -c D:\OpenGLAPI\src\renderer\vertexBuffer.cpp
+
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.i"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OpenGLAPI\src\renderer\vertexBuffer.cpp > CMakeFiles\OpenGL_API.dir\src\renderer\vertexBuffer.cpp.i
+
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.s"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OpenGLAPI\src\renderer\vertexBuffer.cpp -o CMakeFiles\OpenGL_API.dir\src\renderer\vertexBuffer.cpp.s
+
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj: CMakeFiles/OpenGL_API.dir/flags.make
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj: CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj: D:/OpenGLAPI/src/renderer/vertexArray.cpp
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj -MF CMakeFiles\OpenGL_API.dir\src\renderer\vertexArray.cpp.obj.d -o CMakeFiles\OpenGL_API.dir\src\renderer\vertexArray.cpp.obj -c D:\OpenGLAPI\src\renderer\vertexArray.cpp
+
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.i"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OpenGLAPI\src\renderer\vertexArray.cpp > CMakeFiles\OpenGL_API.dir\src\renderer\vertexArray.cpp.i
+
+CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.s"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OpenGLAPI\src\renderer\vertexArray.cpp -o CMakeFiles\OpenGL_API.dir\src\renderer\vertexArray.cpp.s
+
+CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj: CMakeFiles/OpenGL_API.dir/flags.make
+CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj: CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
+CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj: D:/OpenGLAPI/src/renderer/shaderLibrary.cpp
+CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj -MF CMakeFiles\OpenGL_API.dir\src\renderer\shaderLibrary.cpp.obj.d -o CMakeFiles\OpenGL_API.dir\src\renderer\shaderLibrary.cpp.obj -c D:\OpenGLAPI\src\renderer\shaderLibrary.cpp
+
+CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.i"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OpenGLAPI\src\renderer\shaderLibrary.cpp > CMakeFiles\OpenGL_API.dir\src\renderer\shaderLibrary.cpp.i
+
+CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.s"
+	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OpenGLAPI\src\renderer\shaderLibrary.cpp -o CMakeFiles\OpenGL_API.dir\src\renderer\shaderLibrary.cpp.s
+
 CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj: CMakeFiles/OpenGL_API.dir/flags.make
 CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj: CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
 CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj: D:/OpenGLAPI/src/input/cameraController.cpp
 CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj"
 	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj -MF CMakeFiles\OpenGL_API.dir\src\input\cameraController.cpp.obj.d -o CMakeFiles\OpenGL_API.dir\src\input\cameraController.cpp.obj -c D:\OpenGLAPI\src\input\cameraController.cpp
 
 CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.i: cmake_force
@@ -162,7 +222,7 @@ CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj: CMakeFiles/OpenGL_API.dir/flags.
 CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj: CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
 CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj: D:/OpenGLAPI/src/core/log.cpp
 CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj"
 	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj -MF CMakeFiles\OpenGL_API.dir\src\core\log.cpp.obj.d -o CMakeFiles\OpenGL_API.dir\src\core\log.cpp.obj -c D:\OpenGLAPI\src\core\log.cpp
 
 CMakeFiles/OpenGL_API.dir/src/core/log.cpp.i: cmake_force
@@ -177,7 +237,7 @@ CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj: CMakeFiles/OpenGL_AP
 CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj: CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
 CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj: D:/OpenGLAPI/src/openGL/openGLContext.cpp
 CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj"
 	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj -MF CMakeFiles\OpenGL_API.dir\src\openGL\openGLContext.cpp.obj.d -o CMakeFiles\OpenGL_API.dir\src\openGL\openGLContext.cpp.obj -c D:\OpenGLAPI\src\openGL\openGLContext.cpp
 
 CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.i: cmake_force
@@ -192,7 +252,7 @@ CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj: CMakeFiles/OpenGL_API
 CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj: CMakeFiles/OpenGL_API.dir/includes_CXX.rsp
 CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj: D:/OpenGLAPI/src/window/windowSystem.cpp
 CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj"
 	C:\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj -MF CMakeFiles\OpenGL_API.dir\src\window\windowSystem.cpp.obj.d -o CMakeFiles\OpenGL_API.dir\src\window\windowSystem.cpp.obj -c D:\OpenGLAPI\src\window\windowSystem.cpp
 
 CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.i: cmake_force
@@ -207,7 +267,7 @@ CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj: CMakeFiles/OpenGL_API.dir/
 CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj: CMakeFiles/OpenGL_API.dir/includes_C.rsp
 CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj: D:/OpenGLAPI/vendor/glad/src/glad.c
 CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj: CMakeFiles/OpenGL_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj"
 	C:\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj -MF CMakeFiles\OpenGL_API.dir\vendor\glad\src\glad.c.obj.d -o CMakeFiles\OpenGL_API.dir\vendor\glad\src\glad.c.obj -c D:\OpenGLAPI\vendor\glad\src\glad.c
 
 CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.i: cmake_force
@@ -225,6 +285,10 @@ OpenGL_API_OBJECTS = \
 "CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.obj" \
 "CMakeFiles/OpenGL_API.dir/src/renderer/mesh.cpp.obj" \
 "CMakeFiles/OpenGL_API.dir/src/renderer/meshFactory.cpp.obj" \
+"CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj" \
+"CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj" \
+"CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj" \
+"CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj" \
 "CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj" \
 "CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj" \
 "CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj" \
@@ -239,6 +303,10 @@ D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.o
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.obj
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/renderer/mesh.cpp.obj
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/renderer/meshFactory.cpp.obj
+D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj
+D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj
+D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj
+D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/src/openGL/openGLContext.cpp.obj
@@ -251,7 +319,7 @@ D:/OpenGLAPI/OpenGL_API.exe: vendor/spdlog/libspdlogd.a
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/linkLibs.rsp
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/objects1.rsp
 D:/OpenGLAPI/OpenGL_API.exe: CMakeFiles/OpenGL_API.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable D:\OpenGLAPI\OpenGL_API.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\OpenGLAPI\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable D:\OpenGLAPI\OpenGL_API.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\OpenGL_API.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -347,6 +347,30 @@ src/renderer/camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.s
 .PHONY : src/renderer/camera.cpp.s
 
+src/renderer/indexBuffer.obj: src/renderer/indexBuffer.cpp.obj
+.PHONY : src/renderer/indexBuffer.obj
+
+# target to build an object file
+src/renderer/indexBuffer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.obj
+.PHONY : src/renderer/indexBuffer.cpp.obj
+
+src/renderer/indexBuffer.i: src/renderer/indexBuffer.cpp.i
+.PHONY : src/renderer/indexBuffer.i
+
+# target to preprocess a source file
+src/renderer/indexBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.i
+.PHONY : src/renderer/indexBuffer.cpp.i
+
+src/renderer/indexBuffer.s: src/renderer/indexBuffer.cpp.s
+.PHONY : src/renderer/indexBuffer.s
+
+# target to generate assembly for a file
+src/renderer/indexBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.s
+.PHONY : src/renderer/indexBuffer.cpp.s
+
 src/renderer/mesh.obj: src/renderer/mesh.cpp.obj
 .PHONY : src/renderer/mesh.obj
 
@@ -418,6 +442,78 @@ src/renderer/shader.s: src/renderer/shader.cpp.s
 src/renderer/shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.s
 .PHONY : src/renderer/shader.cpp.s
+
+src/renderer/shaderLibrary.obj: src/renderer/shaderLibrary.cpp.obj
+.PHONY : src/renderer/shaderLibrary.obj
+
+# target to build an object file
+src/renderer/shaderLibrary.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj
+.PHONY : src/renderer/shaderLibrary.cpp.obj
+
+src/renderer/shaderLibrary.i: src/renderer/shaderLibrary.cpp.i
+.PHONY : src/renderer/shaderLibrary.i
+
+# target to preprocess a source file
+src/renderer/shaderLibrary.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.i
+.PHONY : src/renderer/shaderLibrary.cpp.i
+
+src/renderer/shaderLibrary.s: src/renderer/shaderLibrary.cpp.s
+.PHONY : src/renderer/shaderLibrary.s
+
+# target to generate assembly for a file
+src/renderer/shaderLibrary.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.s
+.PHONY : src/renderer/shaderLibrary.cpp.s
+
+src/renderer/vertexArray.obj: src/renderer/vertexArray.cpp.obj
+.PHONY : src/renderer/vertexArray.obj
+
+# target to build an object file
+src/renderer/vertexArray.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.obj
+.PHONY : src/renderer/vertexArray.cpp.obj
+
+src/renderer/vertexArray.i: src/renderer/vertexArray.cpp.i
+.PHONY : src/renderer/vertexArray.i
+
+# target to preprocess a source file
+src/renderer/vertexArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.i
+.PHONY : src/renderer/vertexArray.cpp.i
+
+src/renderer/vertexArray.s: src/renderer/vertexArray.cpp.s
+.PHONY : src/renderer/vertexArray.s
+
+# target to generate assembly for a file
+src/renderer/vertexArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/vertexArray.cpp.s
+.PHONY : src/renderer/vertexArray.cpp.s
+
+src/renderer/vertexBuffer.obj: src/renderer/vertexBuffer.cpp.obj
+.PHONY : src/renderer/vertexBuffer.obj
+
+# target to build an object file
+src/renderer/vertexBuffer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.obj
+.PHONY : src/renderer/vertexBuffer.cpp.obj
+
+src/renderer/vertexBuffer.i: src/renderer/vertexBuffer.cpp.i
+.PHONY : src/renderer/vertexBuffer.i
+
+# target to preprocess a source file
+src/renderer/vertexBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.i
+.PHONY : src/renderer/vertexBuffer.cpp.i
+
+src/renderer/vertexBuffer.s: src/renderer/vertexBuffer.cpp.s
+.PHONY : src/renderer/vertexBuffer.s
+
+# target to generate assembly for a file
+src/renderer/vertexBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/vertexBuffer.cpp.s
+.PHONY : src/renderer/vertexBuffer.cpp.s
 
 src/sandbox.obj: src/sandbox.cpp.obj
 .PHONY : src/sandbox.obj
@@ -522,6 +618,9 @@ help:
 	@echo ... src/renderer/camera.obj
 	@echo ... src/renderer/camera.i
 	@echo ... src/renderer/camera.s
+	@echo ... src/renderer/indexBuffer.obj
+	@echo ... src/renderer/indexBuffer.i
+	@echo ... src/renderer/indexBuffer.s
 	@echo ... src/renderer/mesh.obj
 	@echo ... src/renderer/mesh.i
 	@echo ... src/renderer/mesh.s
@@ -531,6 +630,15 @@ help:
 	@echo ... src/renderer/shader.obj
 	@echo ... src/renderer/shader.i
 	@echo ... src/renderer/shader.s
+	@echo ... src/renderer/shaderLibrary.obj
+	@echo ... src/renderer/shaderLibrary.i
+	@echo ... src/renderer/shaderLibrary.s
+	@echo ... src/renderer/vertexArray.obj
+	@echo ... src/renderer/vertexArray.i
+	@echo ... src/renderer/vertexArray.s
+	@echo ... src/renderer/vertexBuffer.obj
+	@echo ... src/renderer/vertexBuffer.i
+	@echo ... src/renderer/vertexBuffer.s
 	@echo ... src/sandbox.obj
 	@echo ... src/sandbox.i
 	@echo ... src/sandbox.s

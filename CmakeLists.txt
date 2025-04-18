@@ -28,6 +28,10 @@ set (EXECUTABLE src/sandbox.cpp
                 src/renderer/camera.cpp
                 src/renderer/mesh.cpp
                 src/renderer/meshFactory.cpp
+                src/renderer/indexBuffer.cpp
+                src/renderer/vertexBuffer.cpp
+                src/renderer/vertexArray.cpp
+                src/renderer/shaderLibrary.cpp
                 src/input/cameraController.cpp
                 src/core/log.cpp
                 src/openGL/openGLContext.cpp

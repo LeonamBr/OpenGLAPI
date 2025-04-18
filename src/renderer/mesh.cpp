@@ -1,41 +1,30 @@
-#include "Mesh.h"
+#include "mesh.h"
+#include <glad/glad.h>
 
-Mesh::Mesh(const float* vertices, size_t size, unsigned int stride)
+Mesh::Mesh(float* vertices, uint32_t vertexSize, uint32_t* indices, uint32_t indexCount)
+    : m_IndexCount(indexCount)
 {
-    m_VertexCount = static_cast<GLsizei>(size / (stride * sizeof(float)));
+    m_VertexArray = std::make_shared<VertexArray>();
 
-    glGenVertexArrays(1, &m_VAO);
-    glGenBuffers(1, &m_VBO);
+    auto vertexBuffer = std::make_shared<VertexBuffer>(vertices, vertexSize);
+    m_VertexArray->AddVertexBuffer(vertexBuffer);
 
-    glBindVertexArray(m_VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-    glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
+    if (indices && indexCount > 0) {
+        auto indexBuffer = std::make_shared<IndexBuffer>(indices, indexCount);
+        m_VertexArray->SetIndexBuffer(indexBuffer);
+    }
 
-    // layout fixo: pos(3), color(3)
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-
-    glBindVertexArray(0);
-}
-
-Mesh::~Mesh()
-{
-    glDeleteBuffers(1, &m_VBO);
-    glDeleteVertexArrays(1, &m_VAO);
-}
-
-void Mesh::Bind() const {
-    glBindVertexArray(m_VAO);
-}
-
-void Mesh::Unbind() const {
-    glBindVertexArray(0);
+    // Calcula vertexCount baseado no formato fixo atual (6 floats por vertex)
+    m_VertexCount = vertexSize / (6 * sizeof(float));
 }
 
 void Mesh::Draw() const {
-    glBindVertexArray(m_VAO);
-    glDrawArrays(GL_TRIANGLES, 0, m_VertexCount);
-    glBindVertexArray(0);
+    m_VertexArray->Bind();
+
+    if (m_IndexCount > 0) {
+        glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_INT, nullptr);
+    } else {
+        glDrawArrays(GL_TRIANGLES, 0, m_VertexCount);
+    }
 }
+

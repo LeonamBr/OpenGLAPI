@@ -1,14 +1,13 @@
-#ifndef ENGINE_MESH_FACTORY_H
-#define ENGINE_MESH_FACTORY_H
+#ifndef MESH_FACTORY_H
+#define MESH_FACTORY_H
 
+#include <memory>
 #include "mesh.h"
 
 class MeshFactory {
 public:
-    static Mesh CreateTriangle();
-    static Mesh CreateQuad();
-    static Mesh CreateCube();
-
+    static std::shared_ptr<Mesh> CreateTriangle();
+    static std::shared_ptr<Mesh> CreateQuad();
 };
 
 #endif

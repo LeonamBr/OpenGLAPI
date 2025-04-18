@@ -1,19 +1,29 @@
-#include <glad/glad.h>
+#include "shaderLibrary.h"
+#include "meshFactory.h"
+#include "macros.h"
+#include "eventbus.h"
+#include "windowSystem.h"
+#include "camera.h"
+#include "cameraController.h"
+#include "log.h"
+#include "inputmanager.h"
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <memory>
 
-#include "log.h"
-#include "windowSystem.h"
-#include "shader.h"
-#include "eventbus.h"
-#include "meshFactory.h"
-#include "Camera.h"
-#include "CameraController.h"
-#include "macros.h"
-#include "event.h"
-#include "keyCodes.h"
-#include "mouseKeyCodes.h"
+EventBus bus;
+WindowSystem window;
+ShaderLibrary shaderLibrary;
+
+std::shared_ptr<Mesh> quad;
+std::shared_ptr<Mesh> triangle;
+Camera camera(45.0f, 800.0f/600.0f, 0.1f, 100.0f);
+CameraController cameraController(camera);
+
+glm::vec3 camPosition(0.0f, 0.0f, 3.0f);
+glm::mat4 projection;
+glm::mat4 view;
 
 struct Transform
 {
@@ -35,52 +45,54 @@ struct Transform
     }
 };
 
-Transform t1;
-Transform t2;
+Transform model1;
+Transform model2;
 
 void moveQuad(const KeyPressedEvent& e) {
     if (e.keycode == ENGINE_KEY_W)
-        t1.position.y += 0.01f;
+        model1.position += .01;
     else if (e.keycode == ENGINE_KEY_S)
-        t1.position.y -= 0.01f;
+        model1.position.y -= 0.01f;
 
     if (e.keycode == ENGINE_KEY_D)
-        t1.position.x += 0.01f;
+        model1.position.x += 0.01f;
     else if (e.keycode == ENGINE_KEY_A)
-        t1.position.x -= 0.01f;
+        model1.position.x -= 0.01f;
 
     if (e.keycode == ENGINE_KEY_LEFT)
-        t1.rotation.z += 1.0f;
+        model1.rotation.z += 1.0f;
     else if (e.keycode == ENGINE_KEY_RIGHT)
-        t1.rotation.z -= 1.0f;
+        model1.rotation.z -= 1.0f;
+
+    if(e.keycode == ENGINE_KEY_ESCAPE)
+        window.~WindowSystem();
 }
 
 void scaleQuad(const ScrollEvent& e) {
     if (e.yoffset > 0) {
-        t1.scale += glm::vec3(0.01f);
+        model1.scale += glm::vec3(0.01f);
     } else if (e.yoffset < 0) {
-        t1.scale -= glm::vec3(0.01f);
-        t1.scale.x = std::max(t1.scale.x, 0.01f);
-        t1.scale.y = std::max(t1.scale.y, 0.01f);
+        model1.scale -= glm::vec3(0.01f);
+        model1.scale.x = std::max(model1.scale.x, 0.01f);
+        model1.scale.y = std::max(model1.scale.y, 0.01f);
     }
 }
 
 int main() {
     Log::Init();
-    EventBus bus;
-    WindowSystem window;
     window.Init(800, 600, "Shader Test", bus);
 
-    Shader shader("ColorTriangle", "assets/shader/shader.vertex", "assets/shader/basic.fragment");
-    Mesh triangle = MeshFactory::CreateTriangle();
+    // Shader via ShaderLibrary
+    shaderLibrary.Load("basic", "assets/shader/basic.vertex", "assets/shader/basic.fragment");
+    shaderLibrary.Load("model", "assets/shader/shader.vertex", "assets/shader/basic.fragment");
 
-    Camera camera(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
-    CameraController cameraController(camera);
+    // Criar meshes
+    quad = MeshFactory::CreateQuad();
+    triangle = MeshFactory::CreateTriangle();
 
-    t2.position.x = 0.6f;
-    t2.rotation.z = -45.0f;
-    t2.scale = glm::vec3(1.25f);
+    projection = glm::perspective(glm::radians(45.0f), 800.0f/600.0f, 0.1f, 100.0f);
 
+    // Registrar eventos
     BIND_EVENT(bus, KeyPressedEvent, moveQuad);
     BIND_EVENT(bus, ScrollEvent, scaleQuad);
 
@@ -91,28 +103,33 @@ int main() {
 
     float lastFrameTime = 0.0f;
 
-    glfwSetInputMode(window.GetNativeWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
+    // Loop de execução
     while (!window.ShouldClose()) {
+        
         float currentFrameTime = glfwGetTime();
         float deltaTime = currentFrameTime - lastFrameTime;
         lastFrameTime = currentFrameTime;
-
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
         cameraController.OnUpdate(deltaTime);
 
-        shader.Bind();
+        // Atualiza matrices
+        view = camera.GetViewMatrix();
+        projection = camera.GetProjectionMatrix();
 
-        glm::mat4 view = camera.GetViewMatrix();
-        glm::mat4 projection = camera.GetProjectionMatrix();
+        // Renderização
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        shader.SetMat4("u_View", view);
-        shader.SetMat4("u_Projection", projection);
+        auto shader = shaderLibrary.Get("model");
+        shader->Bind();
+        shader->SetMat4("u_Projection", projection);
+        shader->SetMat4("u_View", view);
+        shader->SetMat4("u_Model", model1.GetMatrix());
 
-        shader.SetMat4("u_Model", t1.GetMatrix());
-        triangle.Draw();
+        quad->Draw();
+
+        shader->SetMat4("u_Model", model2.GetMatrix());
+
+        triangle->Draw();
 
         window.PollEvents();
         window.SwapBuffers();

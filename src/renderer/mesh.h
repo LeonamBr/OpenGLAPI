@@ -1,22 +1,23 @@
-#ifndef ENGINE_MESH_H
-#define ENGINE_MESH_H
+#ifndef MESH_H
+#define MESH_H
 
-#include <vector>
-#include <glad/glad.h>
+#include "vertexArray.h"
+#include "vertexBuffer.h"
+#include "indexBuffer.h"
+#include <glm/glm.hpp>
 
 class Mesh {
-public:
-    Mesh(const float* vertices, size_t size, unsigned int stride);
-    ~Mesh();
-
-    void Bind() const;
-    void Unbind() const;
-    void Draw() const;
-
-private:
-    GLuint m_VAO = 0;
-    GLuint m_VBO = 0;
-    GLsizei m_VertexCount = 0;
-};
+    public:
+        Mesh(float* vertices, uint32_t vertexSize, uint32_t* indices = nullptr, uint32_t indexCount = 0);
+        ~Mesh() = default;
+    
+        void Draw() const;
+    
+    private:
+        std::shared_ptr<VertexArray> m_VertexArray;
+        uint32_t m_VertexCount = 0;
+        uint32_t m_IndexCount = 0;
+    };
+    
 
 #endif
