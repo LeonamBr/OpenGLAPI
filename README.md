@@ -100,7 +100,7 @@ Este projeto é aberto para aprendizado e evolução pessoal. Não possui licen�
 
 ## Autor
 
-Desenvolvido por **[LeonamBr](https://github.com/daydroidmuchiri)**, com apoio e feedback construtivo no processo de estudo de engines gráficas e arquiteturas de software.
+Desenvolvido por **[LeonamBr](https://github.com/LeonamBr)**, com apoio e feedback construtivo no processo de estudo de engines gráficas e arquiteturas de software.
 
 ---
 
