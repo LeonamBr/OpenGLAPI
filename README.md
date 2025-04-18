@@ -50,7 +50,7 @@ vendor/
 2. Clone o repositório com submodules:
 
 ```bash
-git clone --recurse-submodules https://github.com/seu-usuario/OpenGLAPI.git
+git clone --recurse-submodules https://github.com/LeonamBr/OpenGLAPI.git
 ```
 
 3. Compile:
@@ -100,7 +100,7 @@ Este projeto é aberto para aprendizado e evolução pessoal. Não possui licen�
 
 ## Autor
 
-Desenvolvido por **[Seu Nome ou Nick]**, com apoio e feedback construtivo no processo de estudo de engines gráficas e arquiteturas de software.
+Desenvolvido por **[LeonamBr](https://github.com/daydroidmuchiri)**, com apoio e feedback construtivo no processo de estudo de engines gráficas e arquiteturas de software.
 
 ---
 
