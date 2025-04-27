@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "D:/OpenGLAPI/OpenGL_API.exe"
+			"path" : "C:/Leonam/OpenGLAPI/OpenGL_API.exe"
 		},
 		{
-			"path" : "D:/OpenGLAPI/OpenGL_API.pdb"
+			"path" : "C:/Leonam/OpenGLAPI/OpenGL_API.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -143,63 +143,63 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "D:/OpenGLAPI/assets"
+					"path" : "C:/Leonam/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/OpenGLAPI/src"
+					"path" : "C:/Leonam/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/OpenGLAPI/src/utils"
+					"path" : "C:/Leonam/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "D:/OpenGLAPI/src/event"
+					"path" : "C:/Leonam/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "D:/OpenGLAPI/src/renderer"
+					"path" : "C:/Leonam/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "D:/OpenGLAPI/src/core"
+					"path" : "C:/Leonam/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/OpenGLAPI/src/openGL"
+					"path" : "C:/Leonam/OpenGLAPI/src/openGL"
 				},
 				{
 					"backtrace" : 11,
-					"path" : "D:/OpenGLAPI/src/window"
+					"path" : "C:/Leonam/OpenGLAPI/src/window"
 				},
 				{
 					"backtrace" : 12,
-					"path" : "D:/OpenGLAPI/src/input"
+					"path" : "C:/Leonam/OpenGLAPI/src/input"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/OpenGLAPI/vendor/glad"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 14,
-					"path" : "D:/OpenGLAPI/vendor/glad/include"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glad/include"
 				},
 				{
 					"backtrace" : 15,
-					"path" : "D:/OpenGLAPI/vendor/stb"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/stb"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/glfw/include"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glfw/include"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/glm"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glm"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/spdlog/include"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/spdlog/include"
 				}
 			],
 			"language" : "CXX",
@@ -250,63 +250,63 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "D:/OpenGLAPI/assets"
+					"path" : "C:/Leonam/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/OpenGLAPI/src"
+					"path" : "C:/Leonam/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/OpenGLAPI/src/utils"
+					"path" : "C:/Leonam/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "D:/OpenGLAPI/src/event"
+					"path" : "C:/Leonam/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "D:/OpenGLAPI/src/renderer"
+					"path" : "C:/Leonam/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "D:/OpenGLAPI/src/core"
+					"path" : "C:/Leonam/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/OpenGLAPI/src/openGL"
+					"path" : "C:/Leonam/OpenGLAPI/src/openGL"
 				},
 				{
 					"backtrace" : 11,
-					"path" : "D:/OpenGLAPI/src/window"
+					"path" : "C:/Leonam/OpenGLAPI/src/window"
 				},
 				{
 					"backtrace" : 12,
-					"path" : "D:/OpenGLAPI/src/input"
+					"path" : "C:/Leonam/OpenGLAPI/src/input"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/OpenGLAPI/vendor/glad"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 14,
-					"path" : "D:/OpenGLAPI/vendor/glad/include"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glad/include"
 				},
 				{
 					"backtrace" : 15,
-					"path" : "D:/OpenGLAPI/vendor/stb"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/stb"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/glfw/include"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glfw/include"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/glm"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glm"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "D:/OpenGLAPI/vendor/spdlog/include"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/spdlog/include"
 				}
 			],
 			"language" : "C",
@@ -320,11 +320,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "glfw::@31bd9730e6b8c71cc656"
+			"id" : "glm::@613f4c0f156fd21f7bfb"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "glm::@613f4c0f156fd21f7bfb"
+			"id" : "glfw::@31bd9730e6b8c71cc656"
 		},
 		{
 			"backtrace" : 2,

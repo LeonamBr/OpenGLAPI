@@ -1,81 +1,119 @@
-#include "WindowSystem.h"
-#include <log.h>
-#include <event.h>
-#include <stdexcept>
+#include "windowSystem.h"
+#include "log.h"
+#include "macros.h"
+#include "event.h"
 
-WindowSystem::WindowSystem() {
-    if (!glfwInit())
-        throw std::runtime_error("Falha ao inicializar GLFW");
+WindowSystem::WindowSystem()
+    : m_WindowHandle(nullptr), m_RenderContext(nullptr)
+{
 }
 
-WindowSystem::~WindowSystem() {
-    glfwTerminate();
+WindowSystem::~WindowSystem()
+{
+    Shutdown();
 }
 
-void WindowSystem::Init(int width, int height, const char* title, EventBus& bus) {
-    m_Bus = &bus;
-    m_Window = glfwCreateWindow(width, height, title, nullptr, nullptr);
-    if (!m_Window)
-        throw std::runtime_error("Falha ao criar a janela GLFW!");
+void WindowSystem::Init(unsigned int width, unsigned int height, const std::string& title, EventBus& bus)
+{
+    m_Data.Width = width;
+    m_Data.Height = height;
+    m_Data.Title = title;
+    m_Data.eventBus = &bus;
 
-    glfwSetWindowUserPointer(m_Window, this);
-    SetGLFWCallbacks(m_Window);
+    if (!glfwInit()) {
+        LOG_CRITICAL("Could not initialize GLFW!");
+        return;
+    }
 
-    m_Context = std::make_unique<OpenGLContext>(m_Window);
-    m_Context->Init();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    m_WindowHandle = glfwCreateWindow((int)width, (int)height, title.c_str(), nullptr, nullptr);
+    if (!m_WindowHandle) {
+        LOG_CRITICAL("Failed to create GLFW window!");
+        glfwTerminate();
+        return;
+    }
+
+    m_RenderContext = new OpenGLContext(m_WindowHandle);
+    m_RenderContext->Init();
+
+    glfwSetWindowUserPointer(m_WindowHandle, &m_Data);
+
+    glfwSetFramebufferSizeCallback(m_WindowHandle, FramebufferSizeCallback);
+    glfwSetKeyCallback(m_WindowHandle, KeyCallback);
+    glfwSetCursorPosCallback(m_WindowHandle, MouseMovedCallback);
+    glfwSetScrollCallback(m_WindowHandle, MouseScrolledCallback);
+    glfwSetWindowCloseCallback(m_WindowHandle, WindowCloseCallback);
 }
 
-void WindowSystem::PollEvents() {
+void WindowSystem::PollEvents()
+{
     glfwPollEvents();
 }
 
-void WindowSystem::SwapBuffers() {
-    m_Context->SwapBuffers();
-}
-
-bool WindowSystem::ShouldClose() const {
-    return glfwWindowShouldClose(m_Window);
-}
-
-GLFWwindow* WindowSystem::GetNativeWindow() const {
-    return m_Window;
-}
-
-void WindowSystem::SetGLFWCallbacks(GLFWwindow* window) {
-    glfwSetKeyCallback(window, KeyCallback);
-    glfwSetCursorPosCallback(window, CursorCallback);
-    glfwSetFramebufferSizeCallback(window, ResizeCallback);
-    glfwSetScrollCallback(window, ScrollCallback);
-}
-
-void WindowSystem::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    auto* self = static_cast<WindowSystem*>(glfwGetWindowUserPointer(window));
-    if (!self || !self->m_Bus) return;
-
-    if (action == GLFW_PRESS || action == GLFW_REPEAT)
-        self->m_Bus->Emit(KeyPressedEvent{ key, action == GLFW_REPEAT });
-    else if (action == GLFW_RELEASE)
-        self->m_Bus->Emit(KeyReleasedEvent{ key });
-}
-
-void WindowSystem::CursorCallback(GLFWwindow* window, double xpos, double ypos) {
-    auto* self = static_cast<WindowSystem*>(glfwGetWindowUserPointer(window));
-    if (self && self->m_Bus)
-        self->m_Bus->Emit(MouseMovedEvent{ (float)xpos, (float)ypos });
-}
-
-void WindowSystem::ResizeCallback(GLFWwindow* window, int width, int height) {
-    auto* self = static_cast<WindowSystem*>(glfwGetWindowUserPointer(window));
-    if (self && self->m_Bus) {
-        self->m_Bus->Emit(WindowResizeEvent{ width, height });
-        self->m_Context->Resize(width, height);
-    }
-}
-
-void WindowSystem::ScrollCallback(GLFWwindow *window, double xoffset, double yoffset)
+void WindowSystem::SwapBuffers()
 {
-    auto* self = static_cast<WindowSystem*>(glfwGetWindowUserPointer(window));
-    if (self && self->m_Bus) {
-        self->m_Bus->Emit(ScrollEvent{xoffset, yoffset});
+    m_RenderContext->SwapBuffers();
+}
+
+bool WindowSystem::ShouldClose() const
+{
+    return glfwWindowShouldClose(m_WindowHandle);
+}
+
+void WindowSystem::Shutdown()
+{
+    glfwDestroyWindow(m_WindowHandle);
+    glfwTerminate();
+}
+
+void WindowSystem::FramebufferSizeCallback(GLFWwindow* window, int width, int height)
+{
+    WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+    data.Width = width;
+    data.Height = height;
+    glViewport(0, 0, width, height);
+
+    WindowResizeEvent event(width, height);
+    data.eventBus->Emit(event);
+}
+
+void WindowSystem::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+    if (action == GLFW_PRESS) {
+        KeyPressedEvent event(key);
+        data.eventBus->Emit(event);
     }
+    else if (action == GLFW_RELEASE) {
+        KeyReleasedEvent event(key);
+        data.eventBus->Emit(event);
+    }
+}
+
+void WindowSystem::MouseMovedCallback(GLFWwindow* window, double xpos, double ypos)
+{
+    WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+    MouseMovedEvent event((float)xpos, (float)ypos);
+    data.eventBus->Emit(event);
+}
+
+void WindowSystem::MouseScrolledCallback(GLFWwindow* window, double xoffset, double yoffset)
+{
+    WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+    ScrollEvent event((float)xoffset, (float)yoffset);
+    data.eventBus->Emit(event);
+}
+
+void WindowSystem::WindowCloseCallback(GLFWwindow* window)
+{
+    WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+    WindowCloseEvent event;
+    data.eventBus->Emit(event);
 }

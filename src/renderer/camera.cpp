@@ -1,57 +1,46 @@
-#include "Camera.h"
+#include "camera.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 Camera::Camera(float fov, float aspectRatio, float nearClip, float farClip)
-    : m_Fov(fov), m_AspectRatio(aspectRatio), m_NearClip(nearClip), m_FarClip(farClip) {}
-
-void Camera::SetPosition(const glm::vec3& position) {
-    m_Position = position;
+    : m_FOV(fov), m_AspectRatio(aspectRatio), m_NearClip(nearClip), m_FarClip(farClip)
+{
+    m_ProjectionMatrix = glm::perspective(glm::radians(m_FOV), m_AspectRatio, m_NearClip, m_FarClip);
+    UpdateViewMatrix();
 }
 
-const glm::vec3& Camera::GetPosition() const {
-    return m_Position;
+void Camera::SetFocalPoint(const glm::vec3& focalPoint)
+{
+    m_FocalPoint = focalPoint;
+    UpdateViewMatrix();
 }
 
-glm::mat4 Camera::GetViewMatrix() const {
-    return glm::lookAt(m_Position, m_Position + m_Front, m_Up);
+void Camera::SetDistance(float distance)
+{
+    m_Distance = distance;
+    UpdateViewMatrix();
 }
 
-glm::mat4 Camera::GetProjectionMatrix() const {
-    return glm::perspective(glm::radians(m_Fov), m_AspectRatio, m_NearClip, m_FarClip);
+void Camera::SetRotation(float yaw, float pitch)
+{
+    m_Yaw = yaw;
+    m_Pitch = pitch;
+    UpdateViewMatrix();
 }
 
-void Camera::ProcessMouseMovement(float xOffset, float yOffset) {
-    const float sensitivity = 0.5f;
-    xOffset *= sensitivity;
-    yOffset *= sensitivity;
-
-    m_Yaw += xOffset;
-    m_Pitch += yOffset;
-
-    // Limitar o pitch para evitar flip da câmera
-    if (m_Pitch > 89.0f)
-        m_Pitch = 89.0f;
-    if (m_Pitch < -89.0f)
-        m_Pitch = -89.0f;
-
-    UpdateCameraVectors();
+void Camera::SetViewportSize(float width, float height)
+{
+    m_AspectRatio = width / height;
+    m_ProjectionMatrix = glm::perspective(glm::radians(m_FOV), m_AspectRatio, m_NearClip, m_FarClip);
 }
 
-void Camera::ProcessMouseScroll(float yOffset) {
-    m_Fov -= yOffset;
-    if (m_Fov < 1.0f)
-        m_Fov = 1.0f;
-    if (m_Fov > 90.0f)
-        m_Fov = 90.0f;
-}
+void Camera::UpdateViewMatrix()
+{
+    glm::vec3 direction;
+    direction.x = cos(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
+    direction.y = sin(glm::radians(m_Pitch));
+    direction.z = sin(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
+    direction = glm::normalize(direction);
 
-void Camera::UpdateCameraVectors() {
-    glm::vec3 front;
-    front.x = cos(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
-    front.y = sin(glm::radians(m_Pitch));
-    front.z = sin(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
-    m_Front = glm::normalize(front);
-
-    m_Right = glm::normalize(glm::cross(m_Front, m_WorldUp));
-    m_Up = glm::normalize(glm::cross(m_Right, m_Front));
+    m_Position = m_FocalPoint - direction * m_Distance;
+    m_ViewMatrix = glm::lookAt(m_Position, m_FocalPoint, m_Up);
 }

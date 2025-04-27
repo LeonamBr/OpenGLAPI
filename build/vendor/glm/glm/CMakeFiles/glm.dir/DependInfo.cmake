@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/OpenGLAPI/vendor/glm/glm/detail/glm.cpp" "vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj" "gcc" "vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj.d"
+  "C:/Leonam/OpenGLAPI/vendor/glm/glm/detail/glm.cpp" "vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj" "gcc" "vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

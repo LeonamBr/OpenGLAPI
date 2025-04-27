@@ -10,17 +10,18 @@
 				{
 					"includeDirectories" : 
 					[
-						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.1.0/include",
+						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.2.0/include",
 						"C:/mingw/include",
-						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.1.0/include-fixed",
+						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed",
 						"C:/mingw/x86_64-w64-mingw32/include"
 					],
 					"linkDirectories" : 
 					[
-						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.1.0",
+						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.2.0",
 						"C:/mingw/lib/gcc",
 						"C:/mingw/x86_64-w64-mingw32/lib",
-						"C:/mingw/lib"
+						"C:/mingw/lib",
+						"/mingw/lib"
 					],
 					"linkFrameworkDirectories" : [],
 					"linkLibraries" : 
@@ -41,7 +42,7 @@
 					]
 				},
 				"path" : "C:/mingw/bin/gcc.exe",
-				"version" : "14.1.0"
+				"version" : "14.2.0"
 			},
 			"language" : "C",
 			"sourceFileExtensions" : 
@@ -58,20 +59,21 @@
 				{
 					"includeDirectories" : 
 					[
-						"C:/mingw/include/c++/14.1.0",
-						"C:/mingw/include/c++/14.1.0/x86_64-w64-mingw32",
-						"C:/mingw/include/c++/14.1.0/backward",
-						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.1.0/include",
+						"C:/mingw/include/c++/14.2.0",
+						"C:/mingw/include/c++/14.2.0/x86_64-w64-mingw32",
+						"C:/mingw/include/c++/14.2.0/backward",
+						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.2.0/include",
 						"C:/mingw/include",
-						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.1.0/include-fixed",
+						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed",
 						"C:/mingw/x86_64-w64-mingw32/include"
 					],
 					"linkDirectories" : 
 					[
-						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.1.0",
+						"C:/mingw/lib/gcc/x86_64-w64-mingw32/14.2.0",
 						"C:/mingw/lib/gcc",
 						"C:/mingw/x86_64-w64-mingw32/lib",
-						"C:/mingw/lib"
+						"C:/mingw/lib",
+						"/mingw/lib"
 					],
 					"linkFrameworkDirectories" : [],
 					"linkLibraries" : 
@@ -95,7 +97,7 @@
 					]
 				},
 				"path" : "C:/mingw/bin/g++.exe",
-				"version" : "14.1.0"
+				"version" : "14.2.0"
 			},
 			"language" : "CXX",
 			"sourceFileExtensions" : 

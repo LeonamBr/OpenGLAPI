@@ -193,7 +193,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "OpenGL_API::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-OpenGL_API-Debug-e28ac29fabdc8f91972d.json",
+					"jsonFile" : "target-OpenGL_API-Debug-d539f2649d49798546ea.json",
 					"name" : "OpenGL_API",
 					"projectIndex" : 0
 				},
@@ -207,21 +207,21 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "glfw::@31bd9730e6b8c71cc656",
-					"jsonFile" : "target-glfw-Debug-d5d48733542ff013900c.json",
+					"jsonFile" : "target-glfw-Debug-df26a35b1cc3bf6ec866.json",
 					"name" : "glfw",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 5,
 					"id" : "glm::@613f4c0f156fd21f7bfb",
-					"jsonFile" : "target-glm-Debug-e1acfb671afed33f2f88.json",
+					"jsonFile" : "target-glm-Debug-21ce2b735e0def835e30.json",
 					"name" : "glm",
 					"projectIndex" : 2
 				},
 				{
 					"directoryIndex" : 6,
 					"id" : "spdlog::@1e9db359b48fad81080b",
-					"jsonFile" : "target-spdlog-Debug-93bc3178d0fca233ec21.json",
+					"jsonFile" : "target-spdlog-Debug-bafadd76169b5a244065.json",
 					"name" : "spdlog",
 					"projectIndex" : 3
 				},
@@ -245,8 +245,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/OpenGLAPI/build",
-		"source" : "D:/OpenGLAPI"
+		"build" : "C:/Leonam/OpenGLAPI/build",
+		"source" : "C:/Leonam/OpenGLAPI"
 	},
 	"version" : 
 	{

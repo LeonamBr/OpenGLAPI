@@ -209,63 +209,63 @@
 			[
 				{
 					"backtrace" : 8,
-					"path" : "D:/OpenGLAPI/assets"
+					"path" : "C:/Leonam/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "D:/OpenGLAPI/src"
+					"path" : "C:/Leonam/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/OpenGLAPI/src/utils"
+					"path" : "C:/Leonam/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 11,
-					"path" : "D:/OpenGLAPI/src/event"
+					"path" : "C:/Leonam/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 12,
-					"path" : "D:/OpenGLAPI/src/renderer"
+					"path" : "C:/Leonam/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/OpenGLAPI/src/core"
+					"path" : "C:/Leonam/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 14,
-					"path" : "D:/OpenGLAPI/src/openGL"
+					"path" : "C:/Leonam/OpenGLAPI/src/openGL"
 				},
 				{
 					"backtrace" : 15,
-					"path" : "D:/OpenGLAPI/src/window"
+					"path" : "C:/Leonam/OpenGLAPI/src/window"
 				},
 				{
 					"backtrace" : 16,
-					"path" : "D:/OpenGLAPI/src/input"
+					"path" : "C:/Leonam/OpenGLAPI/src/input"
 				},
 				{
 					"backtrace" : 17,
-					"path" : "D:/OpenGLAPI/vendor/glad"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 18,
-					"path" : "D:/OpenGLAPI/vendor/glad/include"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glad/include"
 				},
 				{
 					"backtrace" : 19,
-					"path" : "D:/OpenGLAPI/vendor/stb"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/stb"
 				},
 				{
 					"backtrace" : 20,
-					"path" : "D:/OpenGLAPI/vendor/glfw/include"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glfw/include"
 				},
 				{
 					"backtrace" : 21,
-					"path" : "D:/OpenGLAPI/vendor/glfw/src"
+					"path" : "C:/Leonam/OpenGLAPI/vendor/glfw/src"
 				},
 				{
 					"backtrace" : 21,
-					"path" : "D:/OpenGLAPI/build/vendor/glfw/src"
+					"path" : "C:/Leonam/OpenGLAPI/build/vendor/glfw/src"
 				}
 			],
 			"language" : "C",

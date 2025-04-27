@@ -12,13 +12,15 @@ struct KeyPressedEvent {
 };
 
 struct KeyReleasedEvent {
-    int key;
+    int keycode;
 };
 
 struct WindowResizeEvent {
     int width;
     int height;
 };
+
+struct WindowCloseEvent {};
 
 struct ScrollEvent {
     double xoffset;

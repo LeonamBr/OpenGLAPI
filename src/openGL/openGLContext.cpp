@@ -1,28 +1,23 @@
-#include "OpenGLContext.h"
-#include <log.h>
-#include <iostream>
+#include "openGLContext.h"
+#include "log.h"
 
-OpenGLContext::OpenGLContext(GLFWwindow* window)
-    : m_Window(window) {}
+OpenGLContext::OpenGLContext(GLFWwindow* windowHandle)
+    : m_WindowHandle(windowHandle)
+{
+}
 
-void OpenGLContext::Init() {
-
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwMakeContextCurrent(m_Window);
+void OpenGLContext::Init()
+{
+    glfwMakeContextCurrent(m_WindowHandle);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
     LOG_INFO("OpenGL Info:");
-    LOG_INFO("  Vendor: {}",   reinterpret_cast<const char*>(glGetString(GL_VENDOR)));
-    LOG_INFO("  Renderer: {}", reinterpret_cast<const char*>(glGetString(GL_RENDERER)));
-    LOG_INFO("  Version: {}",  reinterpret_cast<const char*>(glGetString(GL_VERSION)));
+    LOG_INFO("  Vendor: {0}", (const char*)glGetString(GL_VENDOR));
+    LOG_INFO("  Renderer: {0}", (const char*)glGetString(GL_RENDERER));
+    LOG_INFO("  Version: {0}", (const char*)glGetString(GL_VERSION));
 }
 
-void OpenGLContext::SwapBuffers() {
-    glfwSwapBuffers(m_Window);
-}
-
-void OpenGLContext::Resize(int width, int height) {
-    glViewport(0, 0, width, height);
+void OpenGLContext::SwapBuffers()
+{
+    glfwSwapBuffers(m_WindowHandle);
 }

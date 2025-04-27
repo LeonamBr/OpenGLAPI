@@ -7,32 +7,41 @@ class Camera {
 public:
     Camera(float fov, float aspectRatio, float nearClip, float farClip);
 
-    void SetPosition(const glm::vec3& position);
-    const glm::vec3& GetPosition() const;
+    const glm::mat4& GetViewMatrix() const { return m_ViewMatrix; }
+    const glm::mat4& GetProjectionMatrix() const { return m_ProjectionMatrix; }
 
-    glm::mat4 GetViewMatrix() const;
-    glm::mat4 GetProjectionMatrix() const;
+    const glm::vec3& GetPosition() const { return m_Position; }
+    const glm::vec3& GetFocalPoint() const { return m_FocalPoint; }
+    float GetYaw() const { return m_Yaw; }
+    float GetPitch() const { return m_Pitch; }
 
-    void ProcessMouseMovement(float xOffset, float yOffset);
-    void ProcessMouseScroll(float yOffset);
+    void SetFocalPoint(const glm::vec3& focalPoint);
+    void SetDistance(float distance);
+    void SetRotation(float yaw, float pitch);
+
+    void SetViewportSize(float width, float height);
+
 
 private:
-    void UpdateCameraVectors();
+    void UpdateViewMatrix();
 
 private:
-    glm::vec3 m_Position = glm::vec3(0.0f, 0.0f, 3.0f);
-    glm::vec3 m_Front = glm::vec3(0.0f, 0.0f, -1.0f);
-    glm::vec3 m_Up = glm::vec3(0.0f, 1.0f, 0.0f);
-    glm::vec3 m_Right = glm::vec3(1.0f, 0.0f, 0.0f);
-    glm::vec3 m_WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 m_Position = { 0.0f, 0.0f, 0.0f };
+    glm::vec3 m_FocalPoint = { 0.0f, 0.0f, 0.0f };
+    glm::vec3 m_Up = { 0.0f, 1.0f, 0.0f };
 
-    float m_Yaw = -90.0f;    // Olhando para -Z
+    float m_Yaw = -90.0f;
     float m_Pitch = 0.0f;
-    float m_Fov = 45.0f;
 
+    float m_Distance = 3.0f;
+
+    float m_FOV;
     float m_AspectRatio;
     float m_NearClip;
     float m_FarClip;
+
+    glm::mat4 m_ViewMatrix;
+    glm::mat4 m_ProjectionMatrix;
 };
 
-#endif // CAMERA_H
+#endif
