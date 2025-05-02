@@ -38,6 +38,7 @@ public:
 
     unsigned int GetWidth() const { return m_Data.Width; }
     unsigned int GetHeight() const { return m_Data.Height; }
+    GLFWwindow* GetNativeWindow() const { return m_WindowHandle; }
 
 private:
     void Shutdown();
@@ -284,6 +285,9 @@ public:
     void SetDistance(float distance);
     void SetRotation(float yaw, float pitch);
 
+    void SetViewportSize(float width, float height);
+
+
 private:
     void UpdateViewMatrix();
 
@@ -313,24 +317,28 @@ private:
 #ifndef MESH_H
 #define MESH_H
 
+#include <memory>
 #include "vertexArray.h"
 #include "vertexBuffer.h"
 #include "indexBuffer.h"
-#include <glm/glm.hpp>
+#include "bufferLayout.h"
 
 class Mesh {
-    public:
-        Mesh(float* vertices, uint32_t vertexSize, uint32_t* indices = nullptr, uint32_t indexCount = 0);
-        ~Mesh() = default;
-    
-        void Draw() const;
-    
-    private:
-        std::shared_ptr<VertexArray> m_VertexArray;
-        uint32_t m_VertexCount = 0;
-        uint32_t m_IndexCount = 0;
-    };
-    
+public:
+    Mesh(float* vertices, uint32_t vertexSize, const BufferLayout& layout,
+         uint32_t* indices = nullptr, uint32_t indexCount = 0);
+    ~Mesh() = default;
+
+    void Draw() const;
+
+    const std::shared_ptr<VertexArray>& GetVertexArray() const { return m_VertexArray; }
+
+private:
+    std::shared_ptr<VertexArray> m_VertexArray;
+    std::shared_ptr<VertexBuffer> m_VertexBuffer;
+    std::shared_ptr<IndexBuffer> m_IndexBuffer;
+    uint32_t m_IndexCount = 0;
+};
 
 #endif
 
@@ -350,6 +358,24 @@ public:
 
 #endif
 
+// ==== renderCommand.h ====
+
+#ifndef RENDER_COMMAND_H
+#define RENDER_COMMAND_H
+
+#include <glm/glm.hpp>
+#include "vertexArray.h"
+
+class RenderCommand {
+public:
+    static void Init();
+    static void SetClearColor(const glm::vec4& color);
+    static void Clear();
+    static void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray, uint32_t indexCount = 0);
+};
+
+#endif
+
 // ==== renderContext.h ====
 
 #ifndef RENDER_CONTEXT_H
@@ -365,13 +391,42 @@ public:
 
 #endif
 
+// ==== renderer.h ====
+
+#ifndef RENDERER_H
+#define RENDERER_H
+
+#include "camera.h"
+#include "shader.h"
+#include "mesh.h"
+
+class Renderer {
+public:
+    static void Init();
+    static void BeginScene(const Camera& camera);
+    static void EndScene();
+    static void Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<Mesh>& mesh, const glm::mat4& transform);
+
+private:
+    struct SceneData {
+        glm::mat4 View;
+        glm::mat4 Projection;
+    };
+
+    static SceneData s_SceneData;
+};
+
+#endif
+
 // ==== Sahder.h ====
 
 #ifndef ENGINE_SHADER_H
 #define ENGINE_SHADER_H
 
 #include <string>
+#include <unordered_map>
 #include <glm/glm.hpp>
+#include <glad/glad.h>
 
 class Shader {
 public:
@@ -388,16 +443,27 @@ public:
     void SetVec4(const std::string& name, const glm::vec4& value) const;
     void SetMat4(const std::string& name, const glm::mat4& value) const;
 
+    bool Reload();
+    bool IsValid() const;
+
     const std::string& GetName() const { return m_Name; }
 
 private:
+    static std::string ReadFile(const std::string& path);
+    static std::string PreprocessShader(const std::string& source, const std::string& parentDir);
+
+    uint32_t CompileShader(uint32_t type, const std::string& source);
+    bool Compile(const std::string& vertexSource, const std::string& fragmentSource);
+    int GetUniformLocation(const std::string& name) const;
+
+private:
+    mutable std::unordered_map<std::string, int> m_UniformLocationCache;
+
     uint32_t m_RendererID = 0;
     std::string m_Name;
-
-    std::string ReadFile(const std::string& path);
-    uint32_t CompileShader(uint32_t type, const std::string& source);
-    void Compile(const std::string& vertexSource, const std::string& fragmentSource);
-    int GetUniformLocation(const std::string& name) const;
+    std::string m_VertexPath;
+    std::string m_FragmentPath;
+    bool m_IsValid = false;
 };
 
 #endif
@@ -438,6 +504,7 @@ private:
 #include <memory>
 #include <vector>
 #include <cstdint>
+#include <string>
 
 #include "vertexBuffer.h"
 #include "indexBuffer.h"
@@ -454,6 +521,10 @@ public:
     void SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer);
 
     const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const { return m_IndexBuffer; }
+    const std::vector<std::shared_ptr<VertexBuffer>>& GetVertexBuffers() const { return m_VertexBuffers; }
+
+private:
+    void ConfigureAttribute(uint32_t index, const BufferElement& element, uint32_t stride);
 
 private:
     uint32_t m_RendererID = 0;
@@ -470,6 +541,7 @@ private:
 #define VERTEX_BUFFER_H
 
 #include <cstdint>
+#include "bufferLayout.h"
 
 class VertexBuffer {
 public:
@@ -479,8 +551,12 @@ public:
     void Bind() const;
     void Unbind() const;
 
+    void SetLayout(const BufferLayout& layout);
+    const BufferLayout& GetLayout() const;
+
 private:
     uint32_t m_RendererID = 0;
+    BufferLayout m_Layout;
 };
 
 #endif
@@ -509,11 +585,14 @@ private:
 
 // ==== cameraController.h ====
 
+
 #ifndef CAMERA_CONTROLLER_H
 #define CAMERA_CONTROLLER_H
 
 #include "camera.h"
 #include "event.h"
+#include "keyCodes.h"
+#include <GLFW/glfw3.h>
 
 class CameraController {
 public:
@@ -526,11 +605,15 @@ public:
     void OnScroll(const ScrollEvent& e);
 
 private:
+    void LockMouse();
+    void UnlockMouse();
+
+private:
     Camera& m_Camera;
 
-    bool m_FirstMouse = true;
-    float m_LastX = 0.0f;
-    float m_LastY = 0.0f;
+    float m_MovementSpeed = 2.5f;
+    float m_MouseSensitivity = 0.1f;
+    float m_ZoomSensitivity = 1.0f;
 
     bool m_MoveForward = false;
     bool m_MoveBackward = false;
@@ -539,9 +622,109 @@ private:
     bool m_MoveIn = false;
     bool m_MoveOut = false;
 
-    float m_MovementSpeed = 2.5f;
-    float m_MouseSensitivity = 0.1f;
-    float m_ZoomSensitivity = 1.0f;
+    bool m_FirstMouse = true;
+    float m_LastX = 0.0f;
+    float m_LastY = 0.0f;
+
+    bool m_MouseControlActive = false;
+};
+
+#endif
+
+// ==== bufferLayout.h ====
+
+#ifndef BUFFER_LAYOUT_H
+#define BUFFER_LAYOUT_H
+
+#include <string>
+#include <vector>
+#include <cstdint>
+#include <initializer_list>
+#include <cassert>
+
+
+enum class ShaderDataType {
+    None = 0, Float, Float2, Float3, Float4,
+    Mat3, Mat4,
+    Int, Int2, Int3, Int4,
+    Bool
+};
+
+static uint32_t ShaderDataTypeSize(ShaderDataType type) {
+    switch (type) {
+        case ShaderDataType::Float:   return 4;
+        case ShaderDataType::Float2:  return 4 * 2;
+        case ShaderDataType::Float3:  return 4 * 3;
+        case ShaderDataType::Float4:  return 4 * 4;
+        case ShaderDataType::Mat3:    return 4 * 3 * 3;
+        case ShaderDataType::Mat4:    return 4 * 4 * 4;
+        case ShaderDataType::Int:     return 4;
+        case ShaderDataType::Int2:    return 4 * 2;
+        case ShaderDataType::Int3:    return 4 * 3;
+        case ShaderDataType::Int4:    return 4 * 4;
+        case ShaderDataType::Bool:    return 1;
+    }
+    assert(false && "ShaderDataType desconhecido!");
+    return 0;
+}
+
+struct BufferElement {
+    std::string Name;
+    ShaderDataType Type;
+    uint32_t Size;
+    uint32_t Offset;
+    bool Normalized;
+
+    BufferElement() = default;
+
+    BufferElement(ShaderDataType type, const std::string& name, bool normalized = false)
+        : Name(name), Type(type), Size(ShaderDataTypeSize(type)), Offset(0), Normalized(normalized) {}
+
+    uint32_t GetComponentCount() const {
+        switch (Type) {
+            case ShaderDataType::Float:  return 1;
+            case ShaderDataType::Float2: return 2;
+            case ShaderDataType::Float3: return 3;
+            case ShaderDataType::Float4: return 4;
+            case ShaderDataType::Mat3:   return 9;
+            case ShaderDataType::Mat4:   return 16;
+            case ShaderDataType::Int:    return 1;
+            case ShaderDataType::Int2:   return 2;
+            case ShaderDataType::Int3:   return 3;
+            case ShaderDataType::Int4:   return 4;
+            case ShaderDataType::Bool:   return 1;
+        }
+        assert(false && "ShaderDataType desconhecido!");
+        return 0;
+    }
+};
+
+class BufferLayout {
+public:
+    BufferLayout() = default;
+
+    BufferLayout(const std::initializer_list<BufferElement>& elements)
+        : m_Elements(elements) {
+        CalculateOffsetsAndStride();
+    }
+
+    inline uint32_t GetStride() const { return m_Stride; }
+    inline const std::vector<BufferElement>& GetElements() const { return m_Elements; }
+
+private:
+    void CalculateOffsetsAndStride() {
+        uint32_t offset = 0;
+        m_Stride = 0;
+        for (auto& element : m_Elements) {
+            element.Offset = offset;
+            offset += element.Size;
+            m_Stride += element.Size;
+        }
+    }
+
+private:
+    std::vector<BufferElement> m_Elements;
+    uint32_t m_Stride = 0;
 };
 
 #endif
@@ -821,7 +1004,6 @@ public:
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
 
-
 class Log{
 
     public:
@@ -836,24 +1018,6 @@ class Log{
         static std::shared_ptr<spdlog::logger> s_Logger;
 
     };
-
-template<typename OStream, glm::length_t L, typename T, glm::qualifier Q>
-inline OStream& operator<<(OStream& os, const glm::vec<L, T, Q>& vector)
-{
-	return os << glm::to_string(vector);
-}
-
-template<typename OStream, glm::length_t C, glm::length_t R, typename T, glm::qualifier Q>
-inline OStream& operator<<(OStream& os, const glm::mat<C, R, T, Q>& matrix)
-{
-	return os << glm::to_string(matrix);
-}
-
-template<typename OStream, typename T, glm::qualifier Q>
-inline OStream& operator<<(OStream& os, glm::qua<T, Q> quaternion)
-{
-	return os << glm::to_string(quaternion);
-}
 
 #define LOG_TRACE(...)      Log::GetLogger()->trace(__VA_ARGS__)
 #define LOG_DEBUG(...)      Log::GetLogger()->debug(__VA_ARGS__)

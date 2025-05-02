@@ -67,7 +67,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Leonam/OpenGLAPI/build"
+			"value" : "d:/OpenGLAPI/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "31"
+			"value" : "29"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -103,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "5"
+			"value" : "3"
 		},
 		{
 			"name" : "CMAKE_COLOR_MAKEFILE",
@@ -587,7 +587,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI/build/CMakeFiles/pkgRedirects"
+			"value" : "D:/OpenGLAPI/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -671,7 +671,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Leonam/OpenGLAPI"
+			"value" : "D:/OpenGLAPI"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -1371,7 +1371,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/mingw/share/cmake-3.31"
+			"value" : "C:/mingw/share/cmake-3.29"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1651,7 +1651,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[C:/mingw/bin/doxygen.exe][cfound components: doxygen ][v1.13.2()]"
+			"value" : "[C:/mingw/bin/doxygen.exe][cfound components: doxygen ][v1.10.0()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
@@ -1675,7 +1675,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI/build/vendor/glfw"
+			"value" : "D:/OpenGLAPI/build/vendor/glfw"
 		},
 		{
 			"name" : "GLFW_BUILD_DOCS",
@@ -1795,7 +1795,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI/vendor/glfw"
+			"value" : "D:/OpenGLAPI/vendor/glfw"
 		},
 		{
 			"name" : "GLFW_USE_HYBRID_HPG",
@@ -2071,7 +2071,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI/build"
+			"value" : "D:/OpenGLAPI/build"
 		},
 		{
 			"name" : "OpenGL_API_IS_TOP_LEVEL",
@@ -2095,7 +2095,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI"
+			"value" : "D:/OpenGLAPI"
 		},
 		{
 			"name" : "SPDLOG_BUILD_ALL",
@@ -2458,30 +2458,6 @@
 			"value" : "1"
 		},
 		{
-			"name" : "_CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "linker supports push/pop state"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "FALSE"
-		},
-		{
-			"name" : "_CMAKE_C_LINKER_PUSHPOP_STATE_SUPPORTED",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "linker supports push/pop state"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "FALSE"
-		},
-		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
 			"properties" : 
 			[
@@ -2515,7 +2491,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI/build/vendor/glm"
+			"value" : "D:/OpenGLAPI/build/vendor/glm"
 		},
 		{
 			"name" : "glm_IS_TOP_LEVEL",
@@ -2539,7 +2515,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI/vendor/glm"
+			"value" : "D:/OpenGLAPI/vendor/glm"
 		},
 		{
 			"name" : "spdlog_BINARY_DIR",
@@ -2551,7 +2527,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI/build/vendor/spdlog"
+			"value" : "D:/OpenGLAPI/build/vendor/spdlog"
 		},
 		{
 			"name" : "spdlog_IS_TOP_LEVEL",
@@ -2575,7 +2551,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Leonam/OpenGLAPI/vendor/spdlog"
+			"value" : "D:/OpenGLAPI/vendor/spdlog"
 		}
 	],
 	"kind" : "cache",

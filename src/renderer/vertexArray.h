@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 #include <cstdint>
+#include <string>
 
 #include "vertexBuffer.h"
 #include "indexBuffer.h"
@@ -20,6 +21,10 @@ public:
     void SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer);
 
     const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const { return m_IndexBuffer; }
+    const std::vector<std::shared_ptr<VertexBuffer>>& GetVertexBuffers() const { return m_VertexBuffers; }
+
+private:
+    void ConfigureAttribute(uint32_t index, const BufferElement& element, uint32_t stride);
 
 private:
     uint32_t m_RendererID = 0;

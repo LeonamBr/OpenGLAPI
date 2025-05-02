@@ -20,6 +20,7 @@ public:
 
     unsigned int GetWidth() const { return m_Data.Width; }
     unsigned int GetHeight() const { return m_Data.Height; }
+    GLFWwindow* GetNativeWindow() const { return m_WindowHandle; }
 
 private:
     void Shutdown();

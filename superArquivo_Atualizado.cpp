@@ -170,30 +170,63 @@ void Camera::UpdateViewMatrix()
     m_ViewMatrix = glm::lookAt(m_Position, m_FocalPoint, m_Up);
 }
 
+// ==== mesh.cpp ====
+
+#include "mesh.h"
+#include <glad/glad.h>
+
+Mesh::Mesh(float* vertices, uint32_t vertexSize, const BufferLayout& layout,
+           uint32_t* indices, uint32_t indexCount)
+    : m_IndexCount(indexCount)
+{
+    m_VertexArray = std::make_shared<VertexArray>();
+
+    m_VertexBuffer = std::make_shared<VertexBuffer>(vertices, vertexSize);
+    m_VertexBuffer->SetLayout(layout);
+    m_VertexArray->AddVertexBuffer(m_VertexBuffer);
+
+    if (indices && indexCount > 0) {
+        m_IndexBuffer = std::make_shared<IndexBuffer>(indices, indexCount);
+        m_VertexArray->SetIndexBuffer(m_IndexBuffer);
+    }
+}
+
+void Mesh::Draw() const {
+    m_VertexArray->Bind();
+
+    if (m_IndexBuffer)
+        glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_INT, nullptr);
+    else
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
+
 // ==== meshFactory.cpp ====
 
 #include "meshFactory.h"
+#include "bufferLayout.h"
 
-// Cria um triângulo simples
 std::shared_ptr<Mesh> MeshFactory::CreateTriangle() {
     static float vertices[] = {
-        // Positions         // Colors
         -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f,
          0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,
-         0.0f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f,
+         0.0f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f
     };
 
-    return std::make_shared<Mesh>(vertices, sizeof(vertices));
+    BufferLayout layout = {
+        { ShaderDataType::Float3, "a_Position" },
+        { ShaderDataType::Float3, "a_Color" }
+    };
+
+    return std::make_shared<Mesh>(vertices, sizeof(vertices), layout);
 }
 
-// Cria um quadrado com dois triângulos (usando índices)
 std::shared_ptr<Mesh> MeshFactory::CreateQuad() {
     static float vertices[] = {
-        // Positions         // Colors
-        -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f, // Bottom Left
-         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f, // Bottom Right
-         0.5f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f, // Top Right
-        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f, // Top Left
+        -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f,
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,
+         0.5f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f,
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f
     };
 
     static uint32_t indices[] = {
@@ -201,27 +234,112 @@ std::shared_ptr<Mesh> MeshFactory::CreateQuad() {
         2, 3, 0
     };
 
-    return std::make_shared<Mesh>(vertices, sizeof(vertices), indices, 6);
+    BufferLayout layout = {
+        { ShaderDataType::Float3, "a_Position" },
+        { ShaderDataType::Float3, "a_Color" }
+    };
+
+    return std::make_shared<Mesh>(vertices, sizeof(vertices), layout, indices, 6);
+}
+
+// ==== renderCommand.cpp ====
+
+#include "renderCommand.h"
+#include <glad/glad.h>
+
+void RenderCommand::Init()
+{
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
+}
+
+void RenderCommand::SetClearColor(const glm::vec4& color)
+{
+    glClearColor(color.r, color.g, color.b, color.a);
+}
+
+void RenderCommand::Clear()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void RenderCommand::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray, uint32_t indexCount)
+{
+    vertexArray->Bind();
+    uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
+    glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
+}
+
+// ==== renderer.cpp ====
+
+#include "renderer.h"
+#include "renderCommand.h"
+
+Renderer::SceneData Renderer::s_SceneData;
+
+void Renderer::Init()
+{
+    RenderCommand::Init();
+}
+
+void Renderer::BeginScene(const Camera& camera)
+{
+    s_SceneData.View = camera.GetViewMatrix();
+    s_SceneData.Projection = camera.GetProjectionMatrix();
+}
+
+void Renderer::EndScene()
+{
+    // Por agora, nada. Futuramente pode limpar buffers de submissão ou lidar com batches.
+}
+
+void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<Mesh>& mesh, const glm::mat4& transform)
+{
+    shader->Bind();
+    shader->SetMat4("u_View", s_SceneData.View);
+    shader->SetMat4("u_Projection", s_SceneData.Projection);
+    shader->SetMat4("u_Model", transform);
+    mesh->Draw();
 }
 
 // ==== shader.cpp ====
 
 #include "shader.h"
-#include <glad/glad.h>
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <log.h>
+#include <filesystem>
+#include "log.h"
 
 Shader::Shader(const std::string& name, const std::string& vertexPath, const std::string& fragmentPath)
-    : m_Name(name) {
-    std::string vertexSource = ReadFile(vertexPath);
-    std::string fragmentSource = ReadFile(fragmentPath);
-    Compile(vertexSource, fragmentSource);
+    : m_Name(name), m_VertexPath(vertexPath), m_FragmentPath(fragmentPath) {
+
+    std::string vertexSource = PreprocessShader(ReadFile(vertexPath), std::filesystem::path(vertexPath).parent_path().string());
+    std::string fragmentSource = PreprocessShader(ReadFile(fragmentPath), std::filesystem::path(fragmentPath).parent_path().string());
+    m_IsValid = Compile(vertexSource, fragmentSource);
 }
 
 Shader::~Shader() {
-    glDeleteProgram(m_RendererID);
+    if (m_RendererID != 0)
+        glDeleteProgram(m_RendererID);
+}
+
+bool Shader::Reload() {
+    LOG_INFO("Reloading shader: {}", m_Name);
+
+    std::string vertexSource = PreprocessShader(ReadFile(m_VertexPath), std::filesystem::path(m_VertexPath).parent_path().string());
+    std::string fragmentSource = PreprocessShader(ReadFile(m_FragmentPath), std::filesystem::path(m_FragmentPath).parent_path().string());
+
+    if (m_RendererID != 0)
+        glDeleteProgram(m_RendererID);
+
+    m_UniformLocationCache.clear();
+    m_IsValid = Compile(vertexSource, fragmentSource);
+    return m_IsValid;
+}
+
+bool Shader::IsValid() const {
+    return m_IsValid && m_RendererID != 0;
 }
 
 std::string Shader::ReadFile(const std::string& path) {
@@ -234,6 +352,25 @@ std::string Shader::ReadFile(const std::string& path) {
     std::stringstream ss;
     ss << file.rdbuf();
     return ss.str();
+}
+
+std::string Shader::PreprocessShader(const std::string& source, const std::string& parentDir) {
+    std::istringstream iss(source);
+    std::stringstream output;
+    std::string line;
+
+    while (std::getline(iss, line)) {
+        if (line.find("#include") != std::string::npos) {
+            size_t start = line.find("\"") + 1;
+            size_t end = line.find_last_of("\"");
+            std::string includePath = parentDir + "/" + line.substr(start, end - start);
+            output << PreprocessShader(ReadFile(includePath), std::filesystem::path(includePath).parent_path().string());
+        } else {
+            output << line << '\n';
+        }
+    }
+
+    return output.str();
 }
 
 uint32_t Shader::CompileShader(uint32_t type, const std::string& source) {
@@ -253,7 +390,12 @@ uint32_t Shader::CompileShader(uint32_t type, const std::string& source) {
     return shader;
 }
 
-void Shader::Compile(const std::string& vertexSrc, const std::string& fragmentSrc) {
+bool Shader::Compile(const std::string& vertexSrc, const std::string& fragmentSrc) {
+    if (vertexSrc.empty() || fragmentSrc.empty()) {
+        LOG_ERROR("Shader source vazio!" );
+        return false;
+    }
+
     uint32_t vertex = CompileShader(GL_VERTEX_SHADER, vertexSrc);
     uint32_t fragment = CompileShader(GL_FRAGMENT_SHADER, fragmentSrc);
 
@@ -268,14 +410,17 @@ void Shader::Compile(const std::string& vertexSrc, const std::string& fragmentSr
         char info[512];
         glGetProgramInfoLog(m_RendererID, 512, nullptr, info);
         LOG_ERROR("Falha ao linkar shader program: {}", info);
+        return false;
     }
 
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+    return true;
 }
 
 void Shader::Bind() const {
-    glUseProgram(m_RendererID);
+    if (IsValid())
+        glUseProgram(m_RendererID);
 }
 
 void Shader::Unbind() const {
@@ -283,31 +428,40 @@ void Shader::Unbind() const {
 }
 
 int Shader::GetUniformLocation(const std::string& name) const {
+    if (m_UniformLocationCache.contains(name))
+        return m_UniformLocationCache[name];
+
     int location = glGetUniformLocation(m_RendererID, name.c_str());
-    if (location == -1) {
-        LOG_WARN("Uniform '{}' não encontrado no shader.", name);
-    }
+    if (location == -1)
+        LOG_WARN("Uniform '{}' não encontrado no shader '{}'", name, m_Name);
+
+    m_UniformLocationCache[name] = location;
     return location;
 }
 
 void Shader::SetInt(const std::string& name, int value) const {
-    glUniform1i(GetUniformLocation(name), value);
+    if (IsValid())
+        glUniform1i(GetUniformLocation(name), value);
 }
 
 void Shader::SetFloat(const std::string& name, float value) const {
-    glUniform1f(GetUniformLocation(name), value);
+    if (IsValid())
+        glUniform1f(GetUniformLocation(name), value);
 }
 
 void Shader::SetVec3(const std::string& name, const glm::vec3& value) const {
-    glUniform3f(GetUniformLocation(name), value.x, value.y, value.z);
+    if (IsValid())
+        glUniform3f(GetUniformLocation(name), value.x, value.y, value.z);
 }
 
 void Shader::SetVec4(const std::string& name, const glm::vec4& value) const {
-    glUniform4f(GetUniformLocation(name), value.r, value.g, value.b, value.a);
+    if (IsValid())
+        glUniform4f(GetUniformLocation(name), value.r, value.g, value.b, value.a);
 }
 
 void Shader::SetMat4(const std::string& name, const glm::mat4& value) const {
-    glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &value[0][0]);
+    if (IsValid())
+        glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &value[0][0]);
 }
 
 // ==== shaderLibrary.cpp ====
@@ -344,6 +498,7 @@ bool ShaderLibrary::Exists(const std::string& name) const {
 
 #include "vertexArray.h"
 #include <glad/glad.h>
+#include "log.h"
 
 VertexArray::VertexArray() {
     glGenVertexArrays(1, &m_RendererID);
@@ -361,23 +516,54 @@ void VertexArray::Unbind() const {
     glBindVertexArray(0);
 }
 
+void VertexArray::ConfigureAttribute(uint32_t index, const BufferElement& element, uint32_t stride) {
+    glEnableVertexAttribArray(index);
+
+    GLenum glBaseType = GL_FLOAT; // padrão, pode ser expandido futuramente
+    switch (element.Type) {
+        case ShaderDataType::Float:
+        case ShaderDataType::Float2:
+        case ShaderDataType::Float3:
+        case ShaderDataType::Float4:
+        case ShaderDataType::Mat3:
+        case ShaderDataType::Mat4:
+            glBaseType = GL_FLOAT;
+            break;
+        case ShaderDataType::Int:
+        case ShaderDataType::Int2:
+        case ShaderDataType::Int3:
+        case ShaderDataType::Int4:
+            glBaseType = GL_INT;
+            break;
+        case ShaderDataType::Bool:
+            glBaseType = GL_BOOL;
+            break;
+        default:
+            LOG_ERROR("Tipo de ShaderDataType não suportado ainda em VertexArray");
+            return;
+    }
+
+    glVertexAttribPointer(
+        index,
+        element.GetComponentCount(),
+        glBaseType,
+        element.Normalized ? GL_TRUE : GL_FALSE,
+        stride,
+        reinterpret_cast<const void*>(static_cast<intptr_t>(element.Offset))
+    );
+}
+
 void VertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer) {
     Bind();
     vertexBuffer->Bind();
 
-    // Layout fixo para position (3 floats) e color (3 floats) por enquanto
-    glEnableVertexAttribArray(m_VertexAttribIndex);
-    glVertexAttribPointer(m_VertexAttribIndex, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (const void*)0);
-
-    m_VertexAttribIndex++;
-
-    glEnableVertexAttribArray(m_VertexAttribIndex);
-    glVertexAttribPointer(m_VertexAttribIndex, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (const void*)(3 * sizeof(float)));
-
-    m_VertexAttribIndex++;
+    const auto& layout = vertexBuffer->GetLayout();
+    for (const auto& element : layout.GetElements()) {
+        ConfigureAttribute(m_VertexAttribIndex, element, layout.GetStride());
+        m_VertexAttribIndex++;
+    }
 
     m_VertexBuffers.push_back(vertexBuffer);
-
     Unbind();
 }
 
@@ -387,7 +573,6 @@ void VertexArray::SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer
     m_IndexBuffer = indexBuffer;
     Unbind();
 }
-
 // ==== vertexBuffer.cpp ====
 
 #include "vertexBuffer.h"
@@ -409,6 +594,14 @@ void VertexBuffer::Bind() const {
 
 void VertexBuffer::Unbind() const {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+void VertexBuffer::SetLayout(const BufferLayout& layout) {
+    m_Layout = layout;
+}
+
+const BufferLayout& VertexBuffer::GetLayout() const {
+    return m_Layout;
 }
 
 
@@ -442,19 +635,13 @@ void OpenGLContext::SwapBuffers()
 // ==== cameraController.cpp ====
 
 #include "cameraController.h"
-#include "keyCodes.h"
-#include "mouseKeyCodes.h"
 #include <glm/glm.hpp>
 
 CameraController::CameraController(Camera& camera)
-    : m_Camera(camera)
-{
-}
+    : m_Camera(camera) {}
 
-void CameraController::OnUpdate(float deltaTime)
-{
+void CameraController::OnUpdate(float deltaTime) {
     glm::vec3 focal = m_Camera.GetFocalPoint();
-
     glm::vec3 right = glm::normalize(glm::cross(glm::vec3(0.0f, 1.0f, 0.0f), glm::normalize(focal - m_Camera.GetPosition())));
     glm::vec3 forward = glm::normalize(focal - m_Camera.GetPosition());
 
@@ -474,34 +661,41 @@ void CameraController::OnUpdate(float deltaTime)
     m_Camera.SetFocalPoint(focal);
 }
 
-void CameraController::OnKeyPressed(const KeyPressedEvent& e)
-{
+void CameraController::OnKeyPressed(const KeyPressedEvent& e) {
     switch (e.keycode) {
-    case ENGINE_KEY_W: m_MoveForward = true; break;
-    case ENGINE_KEY_S: m_MoveBackward = true; break;
-    case ENGINE_KEY_A: m_MoveLeft = true; break;
-    case ENGINE_KEY_D: m_MoveRight = true; break;
-    case ENGINE_KEY_E: m_MoveIn = true; break;
-    case ENGINE_KEY_Q: m_MoveOut = true; break;
+        case ENGINE_KEY_W: m_MoveForward = true; break;
+        case ENGINE_KEY_S: m_MoveBackward = true; break;
+        case ENGINE_KEY_A: m_MoveLeft = true; break;
+        case ENGINE_KEY_D: m_MoveRight = true; break;
+        case ENGINE_KEY_E: m_MoveIn = true; break;
+        case ENGINE_KEY_Q: m_MoveOut = true; break;
+        case ENGINE_KEY_LEFT_CONTROL:
+            m_MouseControlActive = true;
+            LockMouse();
+            break;
     }
 }
 
-void CameraController::OnKeyReleased(const KeyReleasedEvent& e)
-{
+void CameraController::OnKeyReleased(const KeyReleasedEvent& e) {
     switch (e.keycode) {
-    case ENGINE_KEY_W: m_MoveForward = false; break;
-    case ENGINE_KEY_S: m_MoveBackward = false; break;
-    case ENGINE_KEY_A: m_MoveLeft = false; break;
-    case ENGINE_KEY_D: m_MoveRight = false; break;
-    case ENGINE_KEY_E: m_MoveIn = false; break;
-    case ENGINE_KEY_Q: m_MoveOut = false; break;
+        case ENGINE_KEY_W: m_MoveForward = false; break;
+        case ENGINE_KEY_S: m_MoveBackward = false; break;
+        case ENGINE_KEY_A: m_MoveLeft = false; break;
+        case ENGINE_KEY_D: m_MoveRight = false; break;
+        case ENGINE_KEY_E: m_MoveIn = false; break;
+        case ENGINE_KEY_Q: m_MoveOut = false; break;
+        case ENGINE_KEY_LEFT_CONTROL:
+            m_MouseControlActive = false;
+            UnlockMouse();
+            break;
     }
 }
 
-void CameraController::OnMouseMoved(const MouseMovedEvent& e)
-{
-    if (m_FirstMouse)
-    {
+void CameraController::OnMouseMoved(const MouseMovedEvent& e) {
+    if (!m_MouseControlActive)
+        return;
+
+    if (m_FirstMouse) {
         m_LastX = e.x;
         m_LastY = e.y;
         m_FirstMouse = false;
@@ -515,24 +709,31 @@ void CameraController::OnMouseMoved(const MouseMovedEvent& e)
     float yaw = m_Camera.GetYaw() + xOffset;
     float pitch = m_Camera.GetPitch() + yOffset;
 
-    if (pitch > 89.0f)
-        pitch = 89.0f;
-    if (pitch < -89.0f)
-        pitch = -89.0f;
+    if (pitch > 89.0f) pitch = 89.0f;
+    if (pitch < -89.0f) pitch = -89.0f;
 
     m_Camera.SetRotation(yaw, pitch);
 }
 
-void CameraController::OnScroll(const ScrollEvent& e)
-{
+void CameraController::OnScroll(const ScrollEvent& e) {
     float distance = glm::length(m_Camera.GetPosition() - m_Camera.GetFocalPoint());
     distance -= e.yoffset * m_ZoomSensitivity;
-    if (distance < 1.0f)
-        distance = 1.0f;
-    if (distance > 100.0f)
-        distance = 100.0f;
+    if (distance < 1.0f) distance = 1.0f;
+    if (distance > 100.0f) distance = 100.0f;
 
     m_Camera.SetDistance(distance);
+}
+
+void CameraController::LockMouse() {
+    GLFWwindow* nativeWindow = glfwGetCurrentContext();
+    if (nativeWindow)
+        glfwSetInputMode(nativeWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+}
+
+void CameraController::UnlockMouse() {
+    GLFWwindow* nativeWindow = glfwGetCurrentContext();
+    if (nativeWindow)
+        glfwSetInputMode(nativeWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 }
 
 // ==== log.cpp ====
@@ -553,99 +754,73 @@ void Log::Init(){
 
 }
 
-// ==== sandbox.cpp ====
+// ===== sandbox.cpp =====
 
 #include "log.h"
 #include "windowSystem.h"
 #include "eventbus.h"
 #include "macros.h"
 #include "clock.h"
-#include "shaderLibrary.h"
+#include "shader.h"
 #include "meshFactory.h"
 #include "camera.h"
 #include "cameraController.h"
-#include "keyCodes.h"
-#include "mouseKeyCodes.h"
+#include "event.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <memory>
 
 static EventBus bus;
 static WindowSystem window;
 
-static Camera mainCamera(45.0f, 1280.0f / 720.0f, 0.1f, 100.0f);
-static CameraController cameraController(mainCamera);
+static Camera camera(45.0f, 1280.0f / 720.0f, 0.1f, 100.0f);
+static CameraController cameraController(camera);
 
-void OnWindowResize(const WindowResizeEvent& e)
-{
-    mainCamera.SetViewportSize((float)e.width, (float)e.height);
+void OnWindowClose(const WindowCloseEvent&) {
+    LOG_INFO("Fechando janela...");
 }
 
-void OnWindowClose(const WindowCloseEvent& e)
-{
-    LOG_INFO("Window close event received!");
+void OnWindowResize(const WindowResizeEvent& e) {
+    camera.SetViewportSize((float)e.width, (float)e.height);
 }
 
-void OnKeyPressed(const KeyPressedEvent& e)
-{
+void OnKeyPressed(const KeyPressedEvent& e) {
     cameraController.OnKeyPressed(e);
 }
 
-void OnKeyReleased(const KeyReleasedEvent& e)
-{
+void OnKeyReleased(const KeyReleasedEvent& e) {
     cameraController.OnKeyReleased(e);
 }
 
-void OnMouseMoved(const MouseMovedEvent& e)
-{
+void OnMouseMoved(const MouseMovedEvent& e) {
     cameraController.OnMouseMoved(e);
 }
 
-void OnMouseScrolled(const ScrollEvent& e)
-{
+void OnMouseScrolled(const ScrollEvent& e) {
     cameraController.OnScroll(e);
 }
 
-int main()
-{
+int main() {
     Log::Init();
     Clock::Init();
 
-    window.Init(1280, 720, "Sandbox Test Triângulo + Quadrado", bus);
-
+    window.Init(1280, 720, "Sandbox Layout Dinâmico", bus);
     bus.Subscribe<WindowCloseEvent>(REGISTER_EVENT(OnWindowClose));
+    bus.Subscribe<WindowResizeEvent>(REGISTER_EVENT(OnWindowResize));
     bus.Subscribe<KeyPressedEvent>(REGISTER_EVENT(OnKeyPressed));
     bus.Subscribe<KeyReleasedEvent>(REGISTER_EVENT(OnKeyReleased));
     bus.Subscribe<MouseMovedEvent>(REGISTER_EVENT(OnMouseMoved));
     bus.Subscribe<ScrollEvent>(REGISTER_EVENT(OnMouseScrolled));
-    BIND_EVENT(bus, WindowResizeEvent, OnWindowResize);
 
-    ShaderLibrary shaders;
-    shaders.Load("basic", "assets/shader/shader.vertex", "assets/shader/basic.fragment");
+    auto shader = std::make_shared<Shader>("basic", "assets/shader/shader.vertex", "assets/shader/basic.fragment");
 
     auto triangle = MeshFactory::CreateTriangle();
     auto quad = MeshFactory::CreateQuad();
 
-    glm::vec3 triangleColor = glm::vec3(1.0f, 1.0f, 0.0f); // Amarelo
-    glm::vec3 quadColor = glm::vec3(1.0f, 0.0f, 0.0f);     // Vermelho
-
-    static double fpsTimer = 0.0;
-    static int frameCounter = 0;
-
-    while (!window.ShouldClose())
-    {
+    while (!window.ShouldClose()) {
         Clock::Update();
-
         float deltaTime = Clock::GetDeltaTime();
-        fpsTimer += deltaTime;
-        frameCounter++;
-
-        if (fpsTimer >= 1.0)
-        {
-            LOG_INFO("FPS: {0}", frameCounter);
-            fpsTimer = 0.0;
-            frameCounter = 0;
-        }
 
         window.PollEvents();
         cameraController.OnUpdate(deltaTime);
@@ -653,21 +828,19 @@ int main()
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        auto shader = shaders.Get("basic");
         shader->Bind();
+        shader->SetMat4("u_Projection", camera.GetProjectionMatrix());
+        shader->SetMat4("u_View", camera.GetViewMatrix());
 
-        shader->SetMat4("u_Projection", mainCamera.GetProjectionMatrix());
-        shader->SetMat4("u_View", mainCamera.GetViewMatrix());
+        glm::mat4 identity = glm::mat4(1.0f);
 
-        // Desenhar Quad Vermelho
-        shader->SetVec3("u_Color", quadColor);
-        shader->SetMat4("u_Model", glm::mat4(1.0f));
-        quad->Draw();
-
-        // Desenhar Triângulo Amarelo (um pouco na frente)
-        shader->SetVec3("u_Color", triangleColor);
-        shader->SetMat4("u_Model", glm::mat4(1.0f));
+        glm::mat4 modelTriangle = glm::translate(identity, glm::vec3(-0.5f, 0.0f, 0.0f));
+        shader->SetMat4("u_Model", modelTriangle);
         triangle->Draw();
+
+        glm::mat4 modelQuad = glm::translate(identity, glm::vec3(0.5f, 0.0f, 0.0f));
+        shader->SetMat4("u_Model", modelQuad);
+        quad->Draw();
 
         window.SwapBuffers();
     }

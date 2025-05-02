@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.27)
 
-SET(CMAKE_CXX_STANDARD          20)
+SET(CMAKE_CXX_STANDARD          23)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(OpenGL_API
@@ -32,6 +32,8 @@ set (EXECUTABLE src/sandbox.cpp
                 src/renderer/vertexBuffer.cpp
                 src/renderer/vertexArray.cpp
                 src/renderer/shaderLibrary.cpp
+                src/renderer/renderCommand.cpp
+                src/renderer/renderer.cpp
                 src/input/cameraController.cpp
                 src/core/log.cpp
                 src/openGL/openGLContext.cpp

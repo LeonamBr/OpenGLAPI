@@ -1,25 +1,27 @@
 #include "meshFactory.h"
+#include "bufferLayout.h"
 
-// Cria um triângulo simples
 std::shared_ptr<Mesh> MeshFactory::CreateTriangle() {
     static float vertices[] = {
-        // Positions         // Colors
         -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f,
          0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,
-         0.0f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f,
+         0.0f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f
     };
 
-    return std::make_shared<Mesh>(vertices, sizeof(vertices));
+    BufferLayout layout = {
+        { ShaderDataType::Float3, "a_Position" },
+        { ShaderDataType::Float3, "a_Color" }
+    };
+
+    return std::make_shared<Mesh>(vertices, sizeof(vertices), layout);
 }
 
-// Cria um quadrado com dois triângulos (usando índices)
 std::shared_ptr<Mesh> MeshFactory::CreateQuad() {
     static float vertices[] = {
-        // Positions         // Colors
-        -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f, // Bottom Left
-         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f, // Bottom Right
-         0.5f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f, // Top Right
-        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f, // Top Left
+        -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f,
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,
+         0.5f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f,
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f
     };
 
     static uint32_t indices[] = {
@@ -27,5 +29,10 @@ std::shared_ptr<Mesh> MeshFactory::CreateQuad() {
         2, 3, 0
     };
 
-    return std::make_shared<Mesh>(vertices, sizeof(vertices), indices, 6);
+    BufferLayout layout = {
+        { ShaderDataType::Float3, "a_Position" },
+        { ShaderDataType::Float3, "a_Color" }
+    };
+
+    return std::make_shared<Mesh>(vertices, sizeof(vertices), layout, indices, 6);
 }

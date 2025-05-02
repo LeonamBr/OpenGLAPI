@@ -120,62 +120,62 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=c++20"
+					"fragment" : "-g -std=c++23"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Leonam/OpenGLAPI/assets"
+					"path" : "D:/OpenGLAPI/assets"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "C:/Leonam/OpenGLAPI/src"
+					"path" : "D:/OpenGLAPI/src"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "C:/Leonam/OpenGLAPI/src/utils"
+					"path" : "D:/OpenGLAPI/src/utils"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "C:/Leonam/OpenGLAPI/src/event"
+					"path" : "D:/OpenGLAPI/src/event"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "C:/Leonam/OpenGLAPI/src/renderer"
+					"path" : "D:/OpenGLAPI/src/renderer"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "C:/Leonam/OpenGLAPI/src/core"
+					"path" : "D:/OpenGLAPI/src/core"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "C:/Leonam/OpenGLAPI/src/openGL"
+					"path" : "D:/OpenGLAPI/src/openGL"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Leonam/OpenGLAPI/src/window"
+					"path" : "D:/OpenGLAPI/src/window"
 				},
 				{
 					"backtrace" : 11,
-					"path" : "C:/Leonam/OpenGLAPI/src/input"
+					"path" : "D:/OpenGLAPI/src/input"
 				},
 				{
 					"backtrace" : 12,
-					"path" : "C:/Leonam/OpenGLAPI/vendor/glad"
+					"path" : "D:/OpenGLAPI/vendor/glad"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "C:/Leonam/OpenGLAPI/vendor/glad/include"
+					"path" : "D:/OpenGLAPI/vendor/glad/include"
 				},
 				{
 					"backtrace" : 14,
-					"path" : "C:/Leonam/OpenGLAPI/vendor/stb"
+					"path" : "D:/OpenGLAPI/vendor/stb"
 				},
 				{
 					"backtrace" : 15,
-					"path" : "C:/Leonam/OpenGLAPI/vendor/glm"
+					"path" : "D:/OpenGLAPI/vendor/glm"
 				}
 			],
 			"language" : "CXX",
@@ -185,7 +185,7 @@
 				[
 					1
 				],
-				"standard" : "20"
+				"standard" : "23"
 			},
 			"sourceIndexes" : 
 			[

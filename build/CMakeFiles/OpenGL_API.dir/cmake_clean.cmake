@@ -1,7 +1,4 @@
 file(REMOVE_RECURSE
-  "C:/Leonam/OpenGLAPI/OpenGL_API.exe"
-  "C:/Leonam/OpenGLAPI/OpenGL_API.exe.manifest"
-  "C:/Leonam/OpenGLAPI/OpenGL_API.pdb"
   "CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj"
   "CMakeFiles/OpenGL_API.dir/src/core/log.cpp.obj.d"
   "CMakeFiles/OpenGL_API.dir/src/input/cameraController.cpp.obj"
@@ -16,6 +13,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/OpenGL_API.dir/src/renderer/mesh.cpp.obj.d"
   "CMakeFiles/OpenGL_API.dir/src/renderer/meshFactory.cpp.obj"
   "CMakeFiles/OpenGL_API.dir/src/renderer/meshFactory.cpp.obj.d"
+  "CMakeFiles/OpenGL_API.dir/src/renderer/renderCommand.cpp.obj"
+  "CMakeFiles/OpenGL_API.dir/src/renderer/renderCommand.cpp.obj.d"
+  "CMakeFiles/OpenGL_API.dir/src/renderer/renderer.cpp.obj"
+  "CMakeFiles/OpenGL_API.dir/src/renderer/renderer.cpp.obj.d"
   "CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj"
   "CMakeFiles/OpenGL_API.dir/src/renderer/shader.cpp.obj.d"
   "CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj"
@@ -30,6 +31,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/OpenGL_API.dir/src/window/windowSystem.cpp.obj.d"
   "CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj"
   "CMakeFiles/OpenGL_API.dir/vendor/glad/src/glad.c.obj.d"
+  "D:/OpenGLAPI/OpenGL_API.exe"
+  "D:/OpenGLAPI/OpenGL_API.exe.manifest"
+  "D:/OpenGLAPI/OpenGL_API.pdb"
   "libOpenGL_API.dll.a"
 )
 
