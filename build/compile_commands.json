@@ -49,6 +49,12 @@
 },
 {
   "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\texture2D.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\texture2D.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/texture2D.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/texture2D.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
   "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\shaderLibrary.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\shaderLibrary.cpp",
   "file": "D:/OpenGLAPI/src/renderer/shaderLibrary.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj"
@@ -64,6 +70,12 @@
   "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\renderer.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\renderer.cpp",
   "file": "D:/OpenGLAPI/src/renderer/renderer.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/renderer/renderer.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\material.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\material.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/material.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/material.cpp.obj"
 },
 {
   "directory": "D:/OpenGLAPI/build",

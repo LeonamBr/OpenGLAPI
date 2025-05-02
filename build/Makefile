@@ -371,6 +371,30 @@ src/renderer/indexBuffer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/indexBuffer.cpp.s
 .PHONY : src/renderer/indexBuffer.cpp.s
 
+src/renderer/material.obj: src/renderer/material.cpp.obj
+.PHONY : src/renderer/material.obj
+
+# target to build an object file
+src/renderer/material.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/material.cpp.obj
+.PHONY : src/renderer/material.cpp.obj
+
+src/renderer/material.i: src/renderer/material.cpp.i
+.PHONY : src/renderer/material.i
+
+# target to preprocess a source file
+src/renderer/material.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/material.cpp.i
+.PHONY : src/renderer/material.cpp.i
+
+src/renderer/material.s: src/renderer/material.cpp.s
+.PHONY : src/renderer/material.s
+
+# target to generate assembly for a file
+src/renderer/material.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/material.cpp.s
+.PHONY : src/renderer/material.cpp.s
+
 src/renderer/mesh.obj: src/renderer/mesh.cpp.obj
 .PHONY : src/renderer/mesh.obj
 
@@ -514,6 +538,30 @@ src/renderer/shaderLibrary.s: src/renderer/shaderLibrary.cpp.s
 src/renderer/shaderLibrary.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.s
 .PHONY : src/renderer/shaderLibrary.cpp.s
+
+src/renderer/texture2D.obj: src/renderer/texture2D.cpp.obj
+.PHONY : src/renderer/texture2D.obj
+
+# target to build an object file
+src/renderer/texture2D.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/texture2D.cpp.obj
+.PHONY : src/renderer/texture2D.cpp.obj
+
+src/renderer/texture2D.i: src/renderer/texture2D.cpp.i
+.PHONY : src/renderer/texture2D.i
+
+# target to preprocess a source file
+src/renderer/texture2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/texture2D.cpp.i
+.PHONY : src/renderer/texture2D.cpp.i
+
+src/renderer/texture2D.s: src/renderer/texture2D.cpp.s
+.PHONY : src/renderer/texture2D.s
+
+# target to generate assembly for a file
+src/renderer/texture2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/texture2D.cpp.s
+.PHONY : src/renderer/texture2D.cpp.s
 
 src/renderer/vertexArray.obj: src/renderer/vertexArray.cpp.obj
 .PHONY : src/renderer/vertexArray.obj
@@ -669,6 +717,9 @@ help:
 	@echo ... src/renderer/indexBuffer.obj
 	@echo ... src/renderer/indexBuffer.i
 	@echo ... src/renderer/indexBuffer.s
+	@echo ... src/renderer/material.obj
+	@echo ... src/renderer/material.i
+	@echo ... src/renderer/material.s
 	@echo ... src/renderer/mesh.obj
 	@echo ... src/renderer/mesh.i
 	@echo ... src/renderer/mesh.s
@@ -687,6 +738,9 @@ help:
 	@echo ... src/renderer/shaderLibrary.obj
 	@echo ... src/renderer/shaderLibrary.i
 	@echo ... src/renderer/shaderLibrary.s
+	@echo ... src/renderer/texture2D.obj
+	@echo ... src/renderer/texture2D.i
+	@echo ... src/renderer/texture2D.s
 	@echo ... src/renderer/vertexArray.obj
 	@echo ... src/renderer/vertexArray.i
 	@echo ... src/renderer/vertexArray.s

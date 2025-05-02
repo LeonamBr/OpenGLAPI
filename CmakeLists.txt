@@ -31,9 +31,11 @@ set (EXECUTABLE src/sandbox.cpp
                 src/renderer/indexBuffer.cpp
                 src/renderer/vertexBuffer.cpp
                 src/renderer/vertexArray.cpp
+                src/renderer/texture2D.cpp
                 src/renderer/shaderLibrary.cpp
                 src/renderer/renderCommand.cpp
                 src/renderer/renderer.cpp
+                src/renderer/material.cpp
                 src/input/cameraController.cpp
                 src/core/log.cpp
                 src/openGL/openGLContext.cpp

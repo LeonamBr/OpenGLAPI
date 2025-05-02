@@ -10,6 +10,8 @@
 #include "renderCommand.h"
 #include "camera.h"
 #include "cameraController.h"
+#include "texture2D.h"
+#include "material.h"
 #include "event.h"
 #include "keyCodes.h"
 
@@ -51,7 +53,7 @@ int main() {
     Log::Init();
     Clock::Init();
 
-    window.Init(1280, 720, "Sandbox Layout Dinâmico", bus);
+    window.Init(1280, 720, "Sandbox com Material", bus);
     BIND_EVENT(bus, WindowCloseEvent, OnWindowClose);
     BIND_EVENT(bus, WindowResizeEvent, OnWindowResize);
     BIND_EVENT(bus, KeyPressedEvent, OnKeyPressed);
@@ -62,10 +64,13 @@ int main() {
     Renderer::Init();
 
     ShaderLibrary shaderLib;
-    auto shader = shaderLib.Load("basic", "assets/shader/shader.vertex", "assets/shader/basic.fragment");
+    auto shader = shaderLib.Load("textured", "assets/shader/shader.vertex", "assets/shader/shader.fragment");
 
-    auto triangle = MeshFactory::CreateTriangle();
-    auto quad = MeshFactory::CreateQuad();
+    auto texturedQuad = MeshFactory::CreateTexturedQuad();
+    auto texture = std::make_shared<Texture2D>("assets/textures/awesomeface.png");
+
+    auto material = std::make_shared<Material>(shader);
+    material->SetTexture("u_Texture", texture, 0);
 
     while (!window.ShouldClose()) {
         Clock::Update();
@@ -79,11 +84,8 @@ int main() {
 
         Renderer::BeginScene(camera);
 
-        glm::mat4 modelTriangle = glm::translate(glm::mat4(1.0f), glm::vec3(-0.5f, 0.0f, 0.0f));
-        Renderer::Submit(shader, triangle, modelTriangle);
-
-        glm::mat4 modelQuad = glm::translate(glm::mat4(1.0f), glm::vec3(0.5f, 0.0f, 0.0f));
-        Renderer::Submit(shader, quad, modelQuad);
+        glm::mat4 model = glm::mat4(1.0f);
+        Renderer::Submit(material, texturedQuad, model);
 
         Renderer::EndScene();
 

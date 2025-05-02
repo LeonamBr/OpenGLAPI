@@ -242,6 +242,28 @@ std::shared_ptr<Mesh> MeshFactory::CreateQuad() {
     return std::make_shared<Mesh>(vertices, sizeof(vertices), layout, indices, 6);
 }
 
+std::shared_ptr<Mesh> MeshFactory::CreateTexturedQuad() {
+    static float vertices[] = {
+        -0.5f, -0.5f, 0.0f,  1, 0, 0,        0.0f, 0.0f,
+         0.5f, -0.5f, 0.0f,  0, 1, 0,        1.0f, 0.0f,
+         0.5f,  0.5f, 0.0f,  0, 0, 1,        1.0f, 1.0f,
+        -0.5f,  0.5f, 0.0f,  1, 1, 0,        0.0f, 1.0f
+    };
+
+    static uint32_t indices[] = {
+        0, 1, 2,
+        2, 3, 0
+    };
+
+    BufferLayout layout = {
+        { ShaderDataType::Float3, "a_Position" },
+        { ShaderDataType::Float3, "a_Color" },
+        { ShaderDataType::Float2, "a_TexCoord" }
+    };
+
+    return std::make_shared<Mesh>(vertices, sizeof(vertices), layout, indices, 6);
+}
+
 // ==== renderCommand.cpp ====
 
 #include "renderCommand.h"
@@ -277,30 +299,36 @@ void RenderCommand::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray,
 
 Renderer::SceneData Renderer::s_SceneData;
 
-void Renderer::Init()
-{
+void Renderer::Init() {
+
     RenderCommand::Init();
+
 }
 
-void Renderer::BeginScene(const Camera& camera)
-{
-    s_SceneData.View = camera.GetViewMatrix();
-    s_SceneData.Projection = camera.GetProjectionMatrix();
+void Renderer::BeginScene(const Camera& camera) {
+    s_SceneData.ViewMatrix = camera.GetViewMatrix();
+    s_SceneData.ProjectionMatrix = camera.GetProjectionMatrix();
+    s_SceneData.ViewProjectionMatrix = s_SceneData.ProjectionMatrix * s_SceneData.ViewMatrix;
 }
 
-void Renderer::EndScene()
-{
-    // Por agora, nada. Futuramente pode limpar buffers de submissão ou lidar com batches.
-}
+void Renderer::EndScene() {}
 
-void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<Mesh>& mesh, const glm::mat4& transform)
-{
+void Renderer::Submit(std::shared_ptr<Shader> shader, std::shared_ptr<Mesh> mesh, const glm::mat4& modelMatrix) {
     shader->Bind();
-    shader->SetMat4("u_View", s_SceneData.View);
-    shader->SetMat4("u_Projection", s_SceneData.Projection);
-    shader->SetMat4("u_Model", transform);
+    shader->SetMat4("u_Model", modelMatrix);
+    shader->SetMat4("u_View", s_SceneData.ViewMatrix);
+    shader->SetMat4("u_Projection", s_SceneData.ProjectionMatrix);
     mesh->Draw();
 }
+
+void Renderer::Submit(std::shared_ptr<Material> material, std::shared_ptr<Mesh> mesh, const glm::mat4& modelMatrix) {
+    material->Bind();
+    material->Set("u_Model", modelMatrix);
+    material->Set("u_View", s_SceneData.ViewMatrix);
+    material->Set("u_Projection", s_SceneData.ProjectionMatrix);
+    mesh->Draw();
+}
+
 
 // ==== shader.cpp ====
 
@@ -754,6 +782,57 @@ void Log::Init(){
 
 }
 
+// ==== texture2D.cpp ====
+
+#include "texture2D.h"
+#include "log.h"
+#include <stb_image.h>
+
+Texture2D::Texture2D(const std::string& path)
+    : m_Path(path)
+{
+    int width, height, channels;
+    stbi_set_flip_vertically_on_load(1);
+    stbi_uc* data = stbi_load(path.c_str(), &width, &height, &channels, 0);
+
+    if (!data) {
+        LOG_ERROR("Falha ao carregar textura: {}", path);
+        return;
+    }
+
+    m_Width = width;
+    m_Height = height;
+
+    m_InternalFormat = (channels == 4) ? GL_RGBA8 : GL_RGB8;
+    m_DataFormat     = (channels == 4) ? GL_RGBA : GL_RGB;
+
+    glGenTextures(1, &m_RendererID);
+    glBindTexture(GL_TEXTURE_2D, m_RendererID);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    stbi_image_free(data);
+}
+
+Texture2D::~Texture2D() {
+    glDeleteTextures(1, &m_RendererID);
+}
+
+void Texture2D::Bind(uint32_t slot) const {
+    glActiveTexture(GL_TEXTURE0 + slot);
+    glBindTexture(GL_TEXTURE_2D, m_RendererID);
+}
+
+void Texture2D::Unbind() const {
+    glBindTexture(GL_TEXTURE_2D, 0);
+}
+
 // ===== sandbox.cpp =====
 
 #include "log.h"
@@ -762,10 +841,16 @@ void Log::Init(){
 #include "macros.h"
 #include "clock.h"
 #include "shader.h"
+#include "shaderLibrary.h"
 #include "meshFactory.h"
+#include "renderer.h"
+#include "renderCommand.h"
 #include "camera.h"
 #include "cameraController.h"
+#include "texture2D.h"
+#include "material.h"
 #include "event.h"
+#include "keyCodes.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -805,18 +890,24 @@ int main() {
     Log::Init();
     Clock::Init();
 
-    window.Init(1280, 720, "Sandbox Layout Dinâmico", bus);
-    bus.Subscribe<WindowCloseEvent>(REGISTER_EVENT(OnWindowClose));
-    bus.Subscribe<WindowResizeEvent>(REGISTER_EVENT(OnWindowResize));
-    bus.Subscribe<KeyPressedEvent>(REGISTER_EVENT(OnKeyPressed));
-    bus.Subscribe<KeyReleasedEvent>(REGISTER_EVENT(OnKeyReleased));
-    bus.Subscribe<MouseMovedEvent>(REGISTER_EVENT(OnMouseMoved));
-    bus.Subscribe<ScrollEvent>(REGISTER_EVENT(OnMouseScrolled));
+    window.Init(1280, 720, "Sandbox com Material", bus);
+    BIND_EVENT(bus, WindowCloseEvent, OnWindowClose);
+    BIND_EVENT(bus, WindowResizeEvent, OnWindowResize);
+    BIND_EVENT(bus, KeyPressedEvent, OnKeyPressed);
+    BIND_EVENT(bus, KeyReleasedEvent, OnKeyReleased);
+    BIND_EVENT(bus, MouseMovedEvent, OnMouseMoved);
+    BIND_EVENT(bus, ScrollEvent, OnMouseScrolled);
 
-    auto shader = std::make_shared<Shader>("basic", "assets/shader/shader.vertex", "assets/shader/basic.fragment");
+    Renderer::Init();
 
-    auto triangle = MeshFactory::CreateTriangle();
-    auto quad = MeshFactory::CreateQuad();
+    ShaderLibrary shaderLib;
+    auto shader = shaderLib.Load("textured", "assets/shader/shader.vertex", "assets/shader/shader.fragment");
+
+    auto texturedQuad = MeshFactory::CreateTexturedQuad();
+    auto texture = std::make_shared<Texture2D>("assets/textures/awesomeface.png");
+
+    auto material = std::make_shared<Material>(shader);
+    material->SetTexture("u_Texture", texture, 0);
 
     while (!window.ShouldClose()) {
         Clock::Update();
@@ -825,26 +916,18 @@ int main() {
         window.PollEvents();
         cameraController.OnUpdate(deltaTime);
 
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1.0f});
+        RenderCommand::Clear();
 
-        shader->Bind();
-        shader->SetMat4("u_Projection", camera.GetProjectionMatrix());
-        shader->SetMat4("u_View", camera.GetViewMatrix());
+        Renderer::BeginScene(camera);
 
-        glm::mat4 identity = glm::mat4(1.0f);
+        glm::mat4 model = glm::mat4(1.0f);
+        Renderer::Submit(material, texturedQuad, model);
 
-        glm::mat4 modelTriangle = glm::translate(identity, glm::vec3(-0.5f, 0.0f, 0.0f));
-        shader->SetMat4("u_Model", modelTriangle);
-        triangle->Draw();
-
-        glm::mat4 modelQuad = glm::translate(identity, glm::vec3(0.5f, 0.0f, 0.0f));
-        shader->SetMat4("u_Model", modelQuad);
-        quad->Draw();
+        Renderer::EndScene();
 
         window.SwapBuffers();
     }
 
     return 0;
 }
-

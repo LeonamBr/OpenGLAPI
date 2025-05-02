@@ -354,6 +354,7 @@ class MeshFactory {
 public:
     static std::shared_ptr<Mesh> CreateTriangle();
     static std::shared_ptr<Mesh> CreateQuad();
+    static std::shared_ptr<Mesh> CreateTexturedQuad();
 };
 
 #endif
@@ -399,24 +400,31 @@ public:
 #include "camera.h"
 #include "shader.h"
 #include "mesh.h"
+#include "material.h"
+#include <glm/glm.hpp>
+#include <memory>
 
 class Renderer {
 public:
     static void Init();
+
     static void BeginScene(const Camera& camera);
     static void EndScene();
-    static void Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<Mesh>& mesh, const glm::mat4& transform);
+
+    static void Submit(std::shared_ptr<Material> material, std::shared_ptr<Mesh> mesh, const glm::mat4& modelMatrix);
+    static void Submit(std::shared_ptr<Shader> shader, std::shared_ptr<Mesh> mesh, const glm::mat4& modelMatrix);
 
 private:
     struct SceneData {
-        glm::mat4 View;
-        glm::mat4 Projection;
+        glm::mat4 ViewMatrix;
+        glm::mat4 ProjectionMatrix;
+        glm::mat4 ViewProjectionMatrix;
     };
 
     static SceneData s_SceneData;
 };
 
-#endif
+#endif 
 
 // ==== Sahder.h ====
 
@@ -1045,5 +1053,72 @@ class Log{
 #define ENGINE_MOUSE_BUTTON_LEFT      ENGINE_MOUSE_BUTTON_1
 #define ENGINE_MOUSE_BUTTON_RIGHT     ENGINE_MOUSE_BUTTON_2
 #define ENGINE_MOUSE_BUTTON_MIDDLE    ENGINE_MOUSE_BUTTON_3
+
+#endif
+
+
+// ==== texture2D.h ====
+
+#ifndef TEXTURE_2D_H
+#define TEXTURE_2D_H
+
+#include <string>
+#include <glad/glad.h>
+
+class Texture2D {
+public:
+    Texture2D(const std::string& path);
+    ~Texture2D();
+
+    void Bind(uint32_t slot = 0) const;
+    void Unbind() const;
+
+    inline uint32_t GetWidth() const { return m_Width; }
+    inline uint32_t GetHeight() const { return m_Height; }
+    inline uint32_t GetID() const { return m_RendererID; }
+    inline const std::string& GetPath() const { return m_Path; }
+
+private:
+    std::string m_Path;
+    uint32_t m_Width = 0, m_Height = 0;
+    uint32_t m_RendererID = 0;
+    GLenum m_InternalFormat = 0, m_DataFormat = 0;
+};
+
+#endif
+
+// ==== material.h ====
+
+#ifndef MATERIAL_H
+#define MATERIAL_H
+
+#include "shader.h"
+#include "texture2D.h"
+
+#include <glm/glm.hpp>
+#include <unordered_map>
+#include <memory>
+#include <string>
+
+class Material {
+public:
+    Material(std::shared_ptr<Shader> shader);
+
+    void Bind() const;
+
+    void Set(const std::string& name, const glm::mat4& mat);
+    void Set(const std::string& name, const glm::vec4& vec);
+    void Set(const std::string& name, const glm::vec3& vec);
+    void Set(const std::string& name, float value);
+    void Set(const std::string& name, int value);
+    void SetTexture(const std::string& name, std::shared_ptr<Texture2D> texture, uint32_t slot);
+
+    const std::shared_ptr<Shader>& GetShader() const { return m_Shader; }
+
+private:
+    std::shared_ptr<Shader> m_Shader;
+    std::unordered_map<std::string, std::shared_ptr<Texture2D>> m_Textures;
+    std::unordered_map<std::string, uint32_t> m_TextureSlots;
+};
 
 #endif
