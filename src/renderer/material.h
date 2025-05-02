@@ -3,6 +3,7 @@
 
 #include "shader.h"
 #include "texture2D.h"
+#include "cubeMapTexture.h"
 
 #include <glm/glm.hpp>
 #include <unordered_map>
@@ -21,6 +22,7 @@ public:
     void Set(const std::string& name, float value);
     void Set(const std::string& name, int value);
     void SetTexture(const std::string& name, std::shared_ptr<Texture2D> texture, uint32_t slot);
+    void SetCubeMap(const std::string& name, std::shared_ptr<CubeMapTexture> cubemap, uint32_t slot);
 
     const std::shared_ptr<Shader>& GetShader() const { return m_Shader; }
 

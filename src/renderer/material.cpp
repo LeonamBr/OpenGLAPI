@@ -36,3 +36,9 @@ void Material::SetTexture(const std::string& name, std::shared_ptr<Texture2D> te
     m_Textures[name] = texture;
     m_TextureSlots[name] = slot;
 }
+
+void Material::SetCubeMap(const std::string& name, std::shared_ptr<CubeMapTexture> cubemap, uint32_t slot) {
+    m_TextureSlots[name] = slot;
+    cubemap->Bind(slot);
+    m_Shader->SetInt(name, slot);
+}

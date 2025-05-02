@@ -9,6 +9,7 @@ project(OpenGL_API
 
 include_directories(assets)
 include_directories(src)
+include_directories(src/engine)
 include_directories(src/utils)
 include_directories(src/event)
 include_directories(src/renderer)
@@ -31,8 +32,11 @@ set (EXECUTABLE src/sandbox.cpp
                 src/renderer/indexBuffer.cpp
                 src/renderer/vertexBuffer.cpp
                 src/renderer/vertexArray.cpp
+                src/renderer/imageLoader.cpp
+                src/renderer/cubeMapTexture.cpp
                 src/renderer/texture2D.cpp
                 src/renderer/shaderLibrary.cpp
+                src/renderer/materialLibrary.cpp
                 src/renderer/renderCommand.cpp
                 src/renderer/renderer.cpp
                 src/renderer/material.cpp

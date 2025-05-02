@@ -49,6 +49,18 @@
 },
 {
   "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\imageLoader.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\imageLoader.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/imageLoader.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/imageLoader.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\cubeMapTexture.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\cubeMapTexture.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/cubeMapTexture.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/cubeMapTexture.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
   "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\texture2D.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\texture2D.cpp",
   "file": "D:/OpenGLAPI/src/renderer/texture2D.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/renderer/texture2D.cpp.obj"
@@ -58,6 +70,12 @@
   "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\shaderLibrary.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\shaderLibrary.cpp",
   "file": "D:/OpenGLAPI/src/renderer/shaderLibrary.cpp",
   "output": "CMakeFiles/OpenGL_API.dir/src/renderer/shaderLibrary.cpp.obj"
+},
+{
+  "directory": "D:/OpenGLAPI/build",
+  "command": "C:\\mingw\\bin\\g++.exe -DSPDLOG_COMPILED_LIB -DSTB_IMAGE_IMPLEMENTATION @CMakeFiles/OpenGL_API.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\OpenGL_API.dir\\src\\renderer\\materialLibrary.cpp.obj -c D:\\OpenGLAPI\\src\\renderer\\materialLibrary.cpp",
+  "file": "D:/OpenGLAPI/src/renderer/materialLibrary.cpp",
+  "output": "CMakeFiles/OpenGL_API.dir/src/renderer/materialLibrary.cpp.obj"
 },
 {
   "directory": "D:/OpenGLAPI/build",

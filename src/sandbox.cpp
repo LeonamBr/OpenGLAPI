@@ -1,20 +1,4 @@
-#include "log.h"
-#include "windowSystem.h"
-#include "eventbus.h"
-#include "macros.h"
-#include "clock.h"
-#include "shader.h"
-#include "shaderLibrary.h"
-#include "meshFactory.h"
-#include "renderer.h"
-#include "renderCommand.h"
-#include "camera.h"
-#include "cameraController.h"
-#include "texture2D.h"
-#include "material.h"
-#include "event.h"
-#include "keyCodes.h"
-
+#include "engine/engine.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <memory>
@@ -53,7 +37,7 @@ int main() {
     Log::Init();
     Clock::Init();
 
-    window.Init(1280, 720, "Sandbox com Material", bus);
+    window.Init(1280, 720, "Sandbox com Skybox", bus);
     BIND_EVENT(bus, WindowCloseEvent, OnWindowClose);
     BIND_EVENT(bus, WindowResizeEvent, OnWindowResize);
     BIND_EVENT(bus, KeyPressedEvent, OnKeyPressed);
@@ -64,9 +48,26 @@ int main() {
     Renderer::Init();
 
     ShaderLibrary shaderLib;
-    auto shader = shaderLib.Load("textured", "assets/shader/shader.vertex", "assets/shader/shader.fragment");
+    auto skyboxShader = shaderLib.Load("skybox", "assets/shader/skybox.vertex", "assets/shader/skybox.fragment");
 
-    auto texturedQuad = MeshFactory::CreateTexturedQuad();
+    // Usa a mesma textura checker para todos os lados do cubemap
+    auto checkerTexture = std::make_shared<Texture2D>("assets/textures/checker.png");
+    auto cubemap = std::make_shared<CubeMapTexture>(
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png"
+    );
+
+    auto skyboxMesh = MeshFactory::CreateCube();
+    auto skyboxMat = std::make_shared<Material>(skyboxShader);
+    skyboxMat->SetCubeMap("u_Skybox", cubemap, 0);
+
+    // Mesh de teste com awesomeface (fora do loop)
+    auto mesh = MeshFactory::CreateTexturedQuad();
+    auto shader = shaderLib.Load("textured", "assets/shader/shader.vertex", "assets/shader/shader.fragment");
     auto texture = std::make_shared<Texture2D>("assets/textures/awesomeface.png");
 
     auto material = std::make_shared<Material>(shader);
@@ -83,10 +84,10 @@ int main() {
         RenderCommand::Clear();
 
         Renderer::BeginScene(camera);
+        Renderer::SubmitSkybox(skyboxMat, skyboxMesh, camera);
 
-        glm::mat4 model = glm::mat4(1.0f);
-        Renderer::Submit(material, texturedQuad, model);
-
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -2.0f));
+        Renderer::Submit(material, mesh, model);
         Renderer::EndScene();
 
         window.SwapBuffers();

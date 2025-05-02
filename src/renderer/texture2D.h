@@ -3,6 +3,7 @@
 
 #include <string>
 #include <glad/glad.h>
+#include "imageLoader.h"
 
 class Texture2D {
 public:

@@ -1,24 +1,17 @@
 #include "texture2D.h"
 #include "log.h"
-#include <stb_image.h>
 
 Texture2D::Texture2D(const std::string& path)
     : m_Path(path)
 {
-    int width, height, channels;
-    stbi_set_flip_vertically_on_load(1);
-    stbi_uc* data = stbi_load(path.c_str(), &width, &height, &channels, 0);
+    LoadedImage img = LoadImage(path, true);
+    if (!img.data) return;
 
-    if (!data) {
-        LOG_ERROR("Falha ao carregar textura: {}", path);
-        return;
-    }
+    m_Width = img.width;
+    m_Height = img.height;
 
-    m_Width = width;
-    m_Height = height;
-
-    m_InternalFormat = (channels == 4) ? GL_RGBA8 : GL_RGB8;
-    m_DataFormat     = (channels == 4) ? GL_RGBA : GL_RGB;
+    m_InternalFormat = (img.channels == 4) ? GL_RGBA8 : GL_RGB8;
+    m_DataFormat     = (img.channels == 4) ? GL_RGBA : GL_RGB;
 
     glGenTextures(1, &m_RendererID);
     glBindTexture(GL_TEXTURE_2D, m_RendererID);
@@ -28,10 +21,10 @@ Texture2D::Texture2D(const std::string& path)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-    glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, img.data);
     glGenerateMipmap(GL_TEXTURE_2D);
 
-    stbi_image_free(data);
+    FreeImage(img.data);
 }
 
 Texture2D::~Texture2D() {

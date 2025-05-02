@@ -1,0 +1,12 @@
+#version 460 core
+
+in vec3 v_TexCoord;
+out vec4 FragColor;
+
+uniform samplerCube u_Skybox;
+uniform float u_Tiling;
+
+void main()
+{
+    FragColor = texture(u_Skybox, v_TexCoord);
+}

@@ -347,6 +347,54 @@ src/renderer/camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/camera.cpp.s
 .PHONY : src/renderer/camera.cpp.s
 
+src/renderer/cubeMapTexture.obj: src/renderer/cubeMapTexture.cpp.obj
+.PHONY : src/renderer/cubeMapTexture.obj
+
+# target to build an object file
+src/renderer/cubeMapTexture.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/cubeMapTexture.cpp.obj
+.PHONY : src/renderer/cubeMapTexture.cpp.obj
+
+src/renderer/cubeMapTexture.i: src/renderer/cubeMapTexture.cpp.i
+.PHONY : src/renderer/cubeMapTexture.i
+
+# target to preprocess a source file
+src/renderer/cubeMapTexture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/cubeMapTexture.cpp.i
+.PHONY : src/renderer/cubeMapTexture.cpp.i
+
+src/renderer/cubeMapTexture.s: src/renderer/cubeMapTexture.cpp.s
+.PHONY : src/renderer/cubeMapTexture.s
+
+# target to generate assembly for a file
+src/renderer/cubeMapTexture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/cubeMapTexture.cpp.s
+.PHONY : src/renderer/cubeMapTexture.cpp.s
+
+src/renderer/imageLoader.obj: src/renderer/imageLoader.cpp.obj
+.PHONY : src/renderer/imageLoader.obj
+
+# target to build an object file
+src/renderer/imageLoader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/imageLoader.cpp.obj
+.PHONY : src/renderer/imageLoader.cpp.obj
+
+src/renderer/imageLoader.i: src/renderer/imageLoader.cpp.i
+.PHONY : src/renderer/imageLoader.i
+
+# target to preprocess a source file
+src/renderer/imageLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/imageLoader.cpp.i
+.PHONY : src/renderer/imageLoader.cpp.i
+
+src/renderer/imageLoader.s: src/renderer/imageLoader.cpp.s
+.PHONY : src/renderer/imageLoader.s
+
+# target to generate assembly for a file
+src/renderer/imageLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/imageLoader.cpp.s
+.PHONY : src/renderer/imageLoader.cpp.s
+
 src/renderer/indexBuffer.obj: src/renderer/indexBuffer.cpp.obj
 .PHONY : src/renderer/indexBuffer.obj
 
@@ -394,6 +442,30 @@ src/renderer/material.s: src/renderer/material.cpp.s
 src/renderer/material.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/material.cpp.s
 .PHONY : src/renderer/material.cpp.s
+
+src/renderer/materialLibrary.obj: src/renderer/materialLibrary.cpp.obj
+.PHONY : src/renderer/materialLibrary.obj
+
+# target to build an object file
+src/renderer/materialLibrary.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/materialLibrary.cpp.obj
+.PHONY : src/renderer/materialLibrary.cpp.obj
+
+src/renderer/materialLibrary.i: src/renderer/materialLibrary.cpp.i
+.PHONY : src/renderer/materialLibrary.i
+
+# target to preprocess a source file
+src/renderer/materialLibrary.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/materialLibrary.cpp.i
+.PHONY : src/renderer/materialLibrary.cpp.i
+
+src/renderer/materialLibrary.s: src/renderer/materialLibrary.cpp.s
+.PHONY : src/renderer/materialLibrary.s
+
+# target to generate assembly for a file
+src/renderer/materialLibrary.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGL_API.dir\build.make CMakeFiles/OpenGL_API.dir/src/renderer/materialLibrary.cpp.s
+.PHONY : src/renderer/materialLibrary.cpp.s
 
 src/renderer/mesh.obj: src/renderer/mesh.cpp.obj
 .PHONY : src/renderer/mesh.obj
@@ -714,12 +786,21 @@ help:
 	@echo ... src/renderer/camera.obj
 	@echo ... src/renderer/camera.i
 	@echo ... src/renderer/camera.s
+	@echo ... src/renderer/cubeMapTexture.obj
+	@echo ... src/renderer/cubeMapTexture.i
+	@echo ... src/renderer/cubeMapTexture.s
+	@echo ... src/renderer/imageLoader.obj
+	@echo ... src/renderer/imageLoader.i
+	@echo ... src/renderer/imageLoader.s
 	@echo ... src/renderer/indexBuffer.obj
 	@echo ... src/renderer/indexBuffer.i
 	@echo ... src/renderer/indexBuffer.s
 	@echo ... src/renderer/material.obj
 	@echo ... src/renderer/material.i
 	@echo ... src/renderer/material.s
+	@echo ... src/renderer/materialLibrary.obj
+	@echo ... src/renderer/materialLibrary.i
+	@echo ... src/renderer/materialLibrary.s
 	@echo ... src/renderer/mesh.obj
 	@echo ... src/renderer/mesh.i
 	@echo ... src/renderer/mesh.s

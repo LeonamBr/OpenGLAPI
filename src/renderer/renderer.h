@@ -17,6 +17,7 @@ public:
 
     static void Submit(std::shared_ptr<Material> material, std::shared_ptr<Mesh> mesh, const glm::mat4& modelMatrix);
     static void Submit(std::shared_ptr<Shader> shader, std::shared_ptr<Mesh> mesh, const glm::mat4& modelMatrix);
+    static void SubmitSkybox(std::shared_ptr<Material> material, std::shared_ptr<Mesh> mesh, const Camera& camera);
 
 private:
     struct SceneData {
@@ -28,4 +29,4 @@ private:
     static SceneData s_SceneData;
 };
 
-#endif 
+#endif
