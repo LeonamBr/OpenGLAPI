@@ -1,108 +1,78 @@
 # OpenGLAPI
 
-Bem-vindo ao **OpenGLAPI**! Este é um projeto de estudo e construção de uma mini-engine gráfica modularizada, baseada em **OpenGL 4.6**, escrita em **C++** puro com foco em:
+Bem-vindo ao **OpenGLAPI**! Este é um projeto de estudo e construção de uma mini-engine gráfica modularizada, desenvolvida do zero com C++ e OpenGL. A arquitetura é inspirada em princípios de design modernos, com foco em clareza, organização e escalabilidade. O projeto serve como base para a criação futura de um editor visual ou jogo próprio.
 
-- Arquitetura limpa e separada por responsabilidades
-- Sistema de eventos robusto
-- Controle de entrada (keyboard/mouse) desacoplado
-- Modularização de rendering pipeline
-- Flexibilidade para expansão futura (ECS, RendererAPI, Scene system)
-
-
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
 src/
-├── core/          # Base do sistema: logs, keycodes, macros
+├── core/          # Base do sistema: logs, macros, clock
 ├── event/         # EventBus e eventos customizados
-├── input/         # CameraController e InputManager (futuro)
-├── openGL/        # Contexto OpenGL puro (GLFW + GLAD)
-├── renderer/      # Mesh, Shader e sistemas de renderização
-├── utils/         # Utilidades de conversão e helpers
-├── window/        # Sistema de janela separado (WindowSystem)
-└── sandbox.cpp   # Ambiente de testes principal
+├── input/         # CameraController e gerenciamento de entrada
+├── renderer/      # Shaders, Mesh, Texture, Renderer, Material, CubeMap
+├── window/        # Sistema de janela GLFW
+├── engine/        # Header centralizador de includes
+├── sandbox.cpp    # Ponto de entrada principal
 assets/
-├── shader/        # Shaders GLSL (.vertex e .fragment)
-vendor/
-├── glad/
-├── glfw/
-├── glm/
-├── spdlog/
+├── textures/      # Texturas usadas nos materiais e skybox
+├── shader/        # GLSL shaders
 ```
 
+## 🚀 Tecnologias Utilizadas
 
-## Tecnologias Utilizadas
+- C++20
+- OpenGL 4.6
+- GLFW
+- GLAD
+- GLM
+- spdlog
+- stb_image
 
-- **C++20**
-- **OpenGL 4.6**
-- **GLFW** (para gerenciamento de janelas e input)
-- **GLAD** (loader de funções OpenGL)
-- **spdlog** (sistema de log profissional)
-- **GLM** (matemática para gráficos 3D)
-
-
-## Como Compilar
-
-1. Certifique-se de ter instalado:
-   - CMake
-   - MinGW ou outro compilador C++
-
-2. Clone o repositório com submodules:
+## 🛠 Instruções para Compilar
 
 ```bash
 git clone --recurse-submodules https://github.com/LeonamBr/OpenGLAPI.git
-```
-
-3. Compile:
-
-```bash
-mkdir build
-cd build
+cd OpenGLAPI
+mkdir build && cd build
 cmake ..
-make
-```
-
-4. Execute:
-
-```bash
+make -j
 ./OpenGL_API
 ```
 
-
-## Estado Atual
+## ✅ Estado Atual
 
 - [x] Sistema de eventos com EventBus
-- [x] Sistema de logging modularizado
-- [x] Gerenciamento de janela separado de render
-- [x] Rendering básico de formas (triângulo e quads)
-- [x] Câmera 3D controlada por mouse e teclado
-- [x] DeltaTime no game loop
-- [x] Shaders separados e gerenciados
-- [ ] Mesh estruturado para múltiplos atributos (em andamento)
-- [ ] Sistema de ShaderLibrary (em planejamento)
+- [x] Logging modularizado com spdlog
+- [x] Sistema de janela com GLFW separado
+- [x] Contexto OpenGL com GLAD
+- [x] ShaderLibrary funcional com cache
+- [x] RenderCommand e abstração
+- [x] Renderer::Submit para Shader e Material
+- [x] MeshFactory para gerar quad e cubo
+- [x] Camera 3D com Controller
+- [x] Sistema de materiais e textura unificada
+- [x] Skybox com CubeMap checkerboard orientado
+- [x] ImageLoader centralizado para textura
+- [x] Atualização dinâmica de deltaTime com Clock
 
+## 📌 Roadmap
 
-## Roadmap Futuro
+- [ ] Seleção de objetos com Raycasting
+- [ ] Sistema de cena com entidades/componentes (ECS)
+- [ ] GUI com Dear ImGui para editor
+- [ ] Iluminação básica (Phong Directional/Point)
+- [ ] Sombras com Shadow Mapping
+- [ ] Save/Load de cena com JSON
+- [ ] Plugin system e extensibilidade
 
-- [ ] Refatorar Mesh para ser flexível (Positions, Normals, TexCoords)
-- [ ] Implementar ShaderLibrary
-- [ ] Implementar RendererAPI e RenderCommand
-- [ ] Sistema de Entities e Components
-- [ ] Sistema de Scene e SceneManager
-- [ ] Suporte para Textures
-- [ ] Lighting básico (Phong, Directional light)
+## 🧠 Filosofia do Projeto
 
+Projetado com base em experimentação real, refatoração consciente e práticas modernas de engenharia de software. Cada módulo é testável de forma independente e segue padrões claros. Nenhuma linha de código foi escrita por atalhos — tudo foi entendido, construído e validado passo a passo.
 
-## Licença
+## 📄 Licença
 
-Este projeto é aberto para aprendizado e evolução pessoal. Não possui licença comercial ainda.
+Este projeto é aberto para aprendizado, estudo e expansão pessoal. Faça fork, modifique e experimente à vontade!
 
+## ✍️ Autor
 
-## Autor
-
-Desenvolvido por **[LeonamBr](https://github.com/LeonamBr)**, com apoio e feedback construtivo no processo de estudo de engines gráficas e arquiteturas de software.
-
----
-
-**OpenGLAPI** ❤️ Construindo passo a passo, sem pressa, mas com qualidade!
-
+Desenvolvido por **[LeonamBr](https://github.com/LeonamBr)** com base em pesquisa, testes e estruturação manual linha por linha.

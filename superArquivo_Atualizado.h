@@ -355,6 +355,29 @@ public:
     static std::shared_ptr<Mesh> CreateTriangle();
     static std::shared_ptr<Mesh> CreateQuad();
     static std::shared_ptr<Mesh> CreateTexturedQuad();
+    static std::shared_ptr<Mesh> CreateCube();
+};
+
+#endif
+
+// ==== materialLibrary ====
+
+#ifndef MATERIAL_LIBRARY_H
+#define MATERIAL_LIBRARY_H
+
+#include "material.h"
+#include <unordered_map>
+#include <string>
+#include <memory>
+
+class MaterialLibrary {
+public:
+    void Add(const std::string& name, const std::shared_ptr<Material>& material);
+    std::shared_ptr<Material> Get(const std::string& name);
+    bool Exists(const std::string& name) const;
+
+private:
+    std::unordered_map<std::string, std::shared_ptr<Material>> m_Materials;
 };
 
 #endif
@@ -413,6 +436,7 @@ public:
 
     static void Submit(std::shared_ptr<Material> material, std::shared_ptr<Mesh> mesh, const glm::mat4& modelMatrix);
     static void Submit(std::shared_ptr<Shader> shader, std::shared_ptr<Mesh> mesh, const glm::mat4& modelMatrix);
+    static void SubmitSkybox(std::shared_ptr<Material> material, std::shared_ptr<Mesh> mesh, const Camera& camera);
 
 private:
     struct SceneData {
@@ -424,7 +448,7 @@ private:
     static SceneData s_SceneData;
 };
 
-#endif 
+#endif
 
 // ==== Sahder.h ====
 
@@ -1064,6 +1088,7 @@ class Log{
 
 #include <string>
 #include <glad/glad.h>
+#include "imageLoader.h"
 
 class Texture2D {
 public:
@@ -1119,6 +1144,78 @@ private:
     std::shared_ptr<Shader> m_Shader;
     std::unordered_map<std::string, std::shared_ptr<Texture2D>> m_Textures;
     std::unordered_map<std::string, uint32_t> m_TextureSlots;
+};
+
+#endif
+
+// ==== engine.h ====
+
+#include "log.h"
+#include "windowSystem.h"
+#include "eventbus.h"
+#include "macros.h"
+#include "clock.h"
+#include "shader.h"
+#include "shaderLibrary.h"
+#include "meshFactory.h"
+#include "renderer.h"
+#include "renderCommand.h"
+#include "camera.h"
+#include "cameraController.h"
+#include "texture2D.h"
+#include "cubeMapTexture.h"
+#include "material.h"
+#include "materialLibrary.h"
+#include "event.h"
+#include "keyCodes.h"
+
+//=== imageLoader.h ====
+
+#ifndef IMAGE_LOADER_H
+#define IMAGE_LOADER_H
+
+#include <string>
+
+struct LoadedImage {
+    unsigned char* data;
+    int width;
+    int height;
+    int channels;
+};
+
+LoadedImage LoadImage(const std::string& path, bool flip = true);
+void FreeImage(unsigned char* data);
+
+#endif
+
+// ==== cubeMapTexture.h ====
+
+#ifndef CUBEMAP_TEXTURE_H
+#define CUBEMAP_TEXTURE_H
+
+#include <glad/glad.h>
+#include <string>
+#include <array>
+#include <memory>
+#include "imageLoader.h"
+
+class CubeMapTexture {
+public:
+    CubeMapTexture(const std::string& right,
+                   const std::string& left,
+                   const std::string& top,
+                   const std::string& bottom,
+                   const std::string& front,
+                   const std::string& back);
+    ~CubeMapTexture();
+
+    void Bind(uint32_t slot = 0) const;
+    void Unbind() const;
+
+    inline uint32_t GetID() const { return m_RendererID; }
+
+private:
+    uint32_t m_RendererID = 0;
 };
 
 #endif

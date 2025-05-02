@@ -200,7 +200,6 @@ void Mesh::Draw() const {
         glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
-
 // ==== meshFactory.cpp ====
 
 #include "meshFactory.h"
@@ -264,6 +263,35 @@ std::shared_ptr<Mesh> MeshFactory::CreateTexturedQuad() {
     return std::make_shared<Mesh>(vertices, sizeof(vertices), layout, indices, 6);
 }
 
+std::shared_ptr<Mesh> MeshFactory::CreateCube() {
+    static float vertices[] = {
+        -1.0f,  1.0f, -1.0f,
+        -1.0f, -1.0f, -1.0f,
+         1.0f, -1.0f, -1.0f,
+         1.0f,  1.0f, -1.0f,
+        -1.0f,  1.0f,  1.0f,
+        -1.0f, -1.0f,  1.0f,
+         1.0f, -1.0f,  1.0f,
+         1.0f,  1.0f,  1.0f
+    };
+
+    static uint32_t indices[] = {
+        0, 1, 2, 2, 3, 0, // back
+        4, 5, 6, 6, 7, 4, // front
+        4, 5, 1, 1, 0, 4, // left
+        3, 2, 6, 6, 7, 3, // right
+        4, 0, 3, 3, 7, 4, // top
+        1, 5, 6, 6, 2, 1  // bottom
+    };
+
+    BufferLayout layout = {
+        { ShaderDataType::Float3, "a_Position" }
+    };
+
+    return std::make_shared<Mesh>(vertices, sizeof(vertices), layout, indices, sizeof(indices) / sizeof(uint32_t));
+}
+
+
 // ==== renderCommand.cpp ====
 
 #include "renderCommand.h"
@@ -300,9 +328,7 @@ void RenderCommand::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray,
 Renderer::SceneData Renderer::s_SceneData;
 
 void Renderer::Init() {
-
     RenderCommand::Init();
-
 }
 
 void Renderer::BeginScene(const Camera& camera) {
@@ -327,6 +353,19 @@ void Renderer::Submit(std::shared_ptr<Material> material, std::shared_ptr<Mesh> 
     material->Set("u_View", s_SceneData.ViewMatrix);
     material->Set("u_Projection", s_SceneData.ProjectionMatrix);
     mesh->Draw();
+}
+
+void Renderer::SubmitSkybox(std::shared_ptr<Material> material, std::shared_ptr<Mesh> mesh, const Camera& camera) {
+    glDepthMask(GL_FALSE);
+    glm::mat4 view = glm::mat4(glm::mat3(camera.GetViewMatrix()));
+    glm::mat4 proj = camera.GetProjectionMatrix();
+
+    material->Bind();
+    material->Set("u_View", view);
+    material->Set("u_Projection", proj);
+    
+    mesh->Draw();
+    glDepthMask(GL_TRUE);
 }
 
 
@@ -786,25 +825,18 @@ void Log::Init(){
 
 #include "texture2D.h"
 #include "log.h"
-#include <stb_image.h>
 
 Texture2D::Texture2D(const std::string& path)
     : m_Path(path)
 {
-    int width, height, channels;
-    stbi_set_flip_vertically_on_load(1);
-    stbi_uc* data = stbi_load(path.c_str(), &width, &height, &channels, 0);
+    LoadedImage img = LoadImage(path, true);
+    if (!img.data) return;
 
-    if (!data) {
-        LOG_ERROR("Falha ao carregar textura: {}", path);
-        return;
-    }
+    m_Width = img.width;
+    m_Height = img.height;
 
-    m_Width = width;
-    m_Height = height;
-
-    m_InternalFormat = (channels == 4) ? GL_RGBA8 : GL_RGB8;
-    m_DataFormat     = (channels == 4) ? GL_RGBA : GL_RGB;
+    m_InternalFormat = (img.channels == 4) ? GL_RGBA8 : GL_RGB8;
+    m_DataFormat     = (img.channels == 4) ? GL_RGBA : GL_RGB;
 
     glGenTextures(1, &m_RendererID);
     glBindTexture(GL_TEXTURE_2D, m_RendererID);
@@ -814,10 +846,10 @@ Texture2D::Texture2D(const std::string& path)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-    glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, img.data);
     glGenerateMipmap(GL_TEXTURE_2D);
 
-    stbi_image_free(data);
+    FreeImage(img.data);
 }
 
 Texture2D::~Texture2D() {
@@ -833,25 +865,150 @@ void Texture2D::Unbind() const {
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
+// ==== materialLibrary.cpp ====
+
+#include "materialLibrary.h"
+#include "log.h"
+
+void MaterialLibrary::Add(const std::string& name, const std::shared_ptr<Material>& material) {
+    if (Exists(name)) {
+        LOG_WARN("Material '{0}' já existe. Substituindo.", name);
+    }
+    m_Materials[name] = material;
+}
+
+std::shared_ptr<Material> MaterialLibrary::Get(const std::string& name) {
+    if (!Exists(name)) {
+        LOG_ERROR("Material '{0}' não encontrado na MaterialLibrary.", name);
+        return nullptr;
+    }
+    return m_Materials[name];
+}
+
+bool MaterialLibrary::Exists(const std::string& name) const {
+    return m_Materials.find(name) != m_Materials.end();
+}
+
+// ==== cubeMapaTexture.cpp ====
+
+#include "cubeMapTexture.h"
+#include "log.h"
+
+CubeMapTexture::CubeMapTexture(const std::string& right,
+                               const std::string& left,
+                               const std::string& top,
+                               const std::string& bottom,
+                               const std::string& front,
+                               const std::string& back) {
+
+    std::array<std::string, 6> faces = { right, left, top, bottom, front, back };
+
+    glGenTextures(1, &m_RendererID);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, m_RendererID);
+
+    for (unsigned int i = 0; i < faces.size(); i++) {
+        LoadedImage img = LoadImage(faces[i], false);
+        if (img.data) {
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+                         0, GL_RGB, img.width, img.height, 0, GL_RGB, GL_UNSIGNED_BYTE, img.data);
+            FreeImage(img.data);
+        } else {
+            LOG_ERROR("Falha ao carregar textura do cubemap: {}", faces[i]);
+        }
+    }
+
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+}
+
+CubeMapTexture::~CubeMapTexture() {
+    glDeleteTextures(1, &m_RendererID);
+}
+
+void CubeMapTexture::Bind(uint32_t slot) const {
+    glActiveTexture(GL_TEXTURE0 + slot);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, m_RendererID);
+}
+
+void CubeMapTexture::Unbind() const {
+    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+}
+
+
+// ==== imageLoader.cpp ====
+
+#include "imageLoader.h"
+#include "log.h"
+#include <stb_image.h>
+
+LoadedImage LoadImage(const std::string& path, bool flip) {
+    LoadedImage img = {};
+    stbi_set_flip_vertically_on_load(flip ? 1 : 0);
+    img.data = stbi_load(path.c_str(), &img.width, &img.height, &img.channels, 0);
+    if (!img.data)
+        LOG_ERROR("Falha ao carregar imagem: {}", path);
+    return img;
+}
+
+void FreeImage(unsigned char* data) {
+    stbi_image_free(data);
+}
+
+
+// ==== material.cpp ====
+
+#include "material.h"
+
+Material::Material(std::shared_ptr<Shader> shader)
+    : m_Shader(shader) {}
+
+void Material::Bind() const {
+    m_Shader->Bind();
+    for (const auto& [name, texture] : m_Textures) {
+        uint32_t slot = m_TextureSlots.at(name);
+        texture->Bind(slot);
+        m_Shader->SetInt(name, slot);
+    }
+}
+
+void Material::Set(const std::string& name, const glm::mat4& mat) {
+    m_Shader->SetMat4(name, mat);
+}
+
+void Material::Set(const std::string& name, const glm::vec4& vec) {
+    m_Shader->SetVec4(name, vec);
+}
+
+void Material::Set(const std::string& name, const glm::vec3& vec) {
+    m_Shader->SetVec3(name, vec);
+}
+
+void Material::Set(const std::string& name, float value) {
+    m_Shader->SetFloat(name, value);
+}
+
+void Material::Set(const std::string& name, int value) {
+    m_Shader->SetInt(name, value);
+}
+
+void Material::SetTexture(const std::string& name, std::shared_ptr<Texture2D> texture, uint32_t slot) {
+    m_Textures[name] = texture;
+    m_TextureSlots[name] = slot;
+}
+
+void Material::SetCubeMap(const std::string& name, std::shared_ptr<CubeMapTexture> cubemap, uint32_t slot) {
+    m_TextureSlots[name] = slot;
+    cubemap->Bind(slot);
+    m_Shader->SetInt(name, slot);
+}
+
+
 // ===== sandbox.cpp =====
 
-#include "log.h"
-#include "windowSystem.h"
-#include "eventbus.h"
-#include "macros.h"
-#include "clock.h"
-#include "shader.h"
-#include "shaderLibrary.h"
-#include "meshFactory.h"
-#include "renderer.h"
-#include "renderCommand.h"
-#include "camera.h"
-#include "cameraController.h"
-#include "texture2D.h"
-#include "material.h"
-#include "event.h"
-#include "keyCodes.h"
-
+#include "engine/engine.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <memory>
@@ -890,7 +1047,7 @@ int main() {
     Log::Init();
     Clock::Init();
 
-    window.Init(1280, 720, "Sandbox com Material", bus);
+    window.Init(1280, 720, "Sandbox com Skybox", bus);
     BIND_EVENT(bus, WindowCloseEvent, OnWindowClose);
     BIND_EVENT(bus, WindowResizeEvent, OnWindowResize);
     BIND_EVENT(bus, KeyPressedEvent, OnKeyPressed);
@@ -901,9 +1058,26 @@ int main() {
     Renderer::Init();
 
     ShaderLibrary shaderLib;
-    auto shader = shaderLib.Load("textured", "assets/shader/shader.vertex", "assets/shader/shader.fragment");
+    auto skyboxShader = shaderLib.Load("skybox", "assets/shader/skybox.vertex", "assets/shader/skybox.fragment");
 
-    auto texturedQuad = MeshFactory::CreateTexturedQuad();
+    // Usa a mesma textura checker para todos os lados do cubemap
+    auto checkerTexture = std::make_shared<Texture2D>("assets/textures/checker.png");
+    auto cubemap = std::make_shared<CubeMapTexture>(
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png",
+        "assets/textures/checker_64x64.png"
+    );
+
+    auto skyboxMesh = MeshFactory::CreateCube();
+    auto skyboxMat = std::make_shared<Material>(skyboxShader);
+    skyboxMat->SetCubeMap("u_Skybox", cubemap, 0);
+
+    // Mesh de teste com awesomeface (fora do loop)
+    auto mesh = MeshFactory::CreateTexturedQuad();
+    auto shader = shaderLib.Load("textured", "assets/shader/shader.vertex", "assets/shader/shader.fragment");
     auto texture = std::make_shared<Texture2D>("assets/textures/awesomeface.png");
 
     auto material = std::make_shared<Material>(shader);
@@ -920,10 +1094,10 @@ int main() {
         RenderCommand::Clear();
 
         Renderer::BeginScene(camera);
+        Renderer::SubmitSkybox(skyboxMat, skyboxMesh, camera);
 
-        glm::mat4 model = glm::mat4(1.0f);
-        Renderer::Submit(material, texturedQuad, model);
-
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -2.0f));
+        Renderer::Submit(material, mesh, model);
         Renderer::EndScene();
 
         window.SwapBuffers();
