@@ -1,32 +1,80 @@
-# Prerequisites
-*.d
+# ========================
+# Compilação C/C++ Geral
+# ========================
 
-# Compiled Object files
-*.slo
-*.lo
+# Objetos compilados
 *.o
 *.obj
+*.lo
+*.slo
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
+# Bibliotecas estáticas
 *.a
 *.lib
+*.lai
+*.la
 
-# Executables
+# Bibliotecas dinâmicas
+*.so
+*.so.*
+*.dll
+*.dylib
+
+# Executáveis
 *.exe
 *.out
 *.app
+
+# Headers pré-compilados
+*.gch
+*.pch
+
+# Módulos Fortran
+*.mod
+*.smod
+
+# Diretórios temporários
+*.d
+
+# ========================
+# Arquivos CMake
+# ========================
+
+# Diretórios de build
+/build/
+/cmake-build-*/
+/CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+Testing/
+Makefile
+CTestTestfile.cmake
+cmake_install.cmake
+install_manifest.txt
+
+# Arquivos Ninja
+build.ninja
+.ninja_deps
+.ninja_log
+
+# Arquivos de projeto do CLion / JetBrains (opcional)
+.idea/
+*.iml
+
+# ========================
+# Arquivos de log e backup
+# ========================
+
+*.log
+*.tmp
+*.swp
+*.bak
+*~
+*.user
+*.sdf
+
+# ========================
+# Arquivos gerados de shader compilados (caso use)
+# ========================
+*.spv
+*.bin
