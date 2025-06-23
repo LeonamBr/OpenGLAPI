@@ -1,1 +1,0 @@
--IC:/Leonam/OpenGLAPI/vendor/glad -IC:/Leonam/OpenGLAPI/vendor/glad/include -IC:/Leonam/OpenGLAPI/vendor/stb -IC:/Leonam/OpenGLAPI/Sandbox/src -IC:/Leonam/OpenGLAPI/Engine/src -IC:/Leonam/OpenGLAPI/vendor/glfw/include -IC:/Leonam/OpenGLAPI/vendor/glm -IC:/Leonam/OpenGLAPI/vendor/spdlog/include
