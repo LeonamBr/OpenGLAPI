@@ -1,56 +1,16 @@
 cmake_minimum_required(VERSION 3.27)
+project(OpenGLAPI)
 
-SET(CMAKE_CXX_STANDARD          23)
-SET(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-project(OpenGL_API
-        VERSION 1.0.0
-        LANGUAGES C CXX)
-
-include_directories(assets)
-include_directories(src)
-include_directories(src/engine)
-include_directories(src/utils)
-include_directories(src/event)
-include_directories(src/renderer)
-include_directories(src/core)
-include_directories(src/openGL)
-include_directories(src/window)
-include_directories(src/input)
 include_directories(vendor/glad)
 include_directories(vendor/glad/include)
 include_directories(vendor/stb)
+
+# Submódulos
+add_subdirectory(vendor/glad)
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/glm)
 add_subdirectory(vendor/spdlog)
 
-set (EXECUTABLE src/sandbox.cpp
-                src/renderer/shader.cpp
-                src/renderer/camera.cpp
-                src/renderer/mesh.cpp
-                src/renderer/meshFactory.cpp
-                src/renderer/indexBuffer.cpp
-                src/renderer/vertexBuffer.cpp
-                src/renderer/vertexArray.cpp
-                src/renderer/imageLoader.cpp
-                src/renderer/cubeMapTexture.cpp
-                src/renderer/texture2D.cpp
-                src/renderer/shaderLibrary.cpp
-                src/renderer/materialLibrary.cpp
-                src/renderer/renderCommand.cpp
-                src/renderer/renderer.cpp
-                src/renderer/material.cpp
-                src/input/cameraController.cpp
-                src/core/log.cpp
-                src/openGL/openGLContext.cpp
-                src/window/windowSystem.cpp
-                vendor/glad/src/glad.c)
-
-add_compile_definitions(STB_IMAGE_IMPLEMENTATION)
-
-add_executable(${PROJECT_NAME} ${EXECUTABLE})
-target_link_libraries(${PROJECT_NAME} PUBLIC glfw glm spdlog pthread dl)
-
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}
-)
+# Adiciona os submódulos
+add_subdirectory(Engine)
+add_subdirectory(Sandbox)

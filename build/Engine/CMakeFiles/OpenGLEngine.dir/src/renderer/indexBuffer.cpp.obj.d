@@ -1,0 +1,21 @@
+Engine/CMakeFiles/OpenGLEngine.dir/src/renderer/indexBuffer.cpp.obj: \
+ C:\Leonam\OpenGLAPI\Engine\src\renderer\indexBuffer.cpp \
+ C:\Leonam\OpenGLAPI\Engine\src\renderer\indexBuffer.h \
+ C:/mingw/include/c++/14.2.0/cstdint \
+ C:/mingw/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h \
+ C:/mingw/include/c++/14.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+ C:/mingw/include/c++/14.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+ C:/mingw/include/c++/14.2.0/pstl/pstl_config.h \
+ C:/mingw/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h \
+ C:/mingw/x86_64-w64-mingw32/include/stdint.h \
+ C:/mingw/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/mingw/x86_64-w64-mingw32/include/corecrt.h \
+ C:/mingw/x86_64-w64-mingw32/include/_mingw.h \
+ C:/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
+ C:/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ C:/mingw/x86_64-w64-mingw32/include/vadefs.h \
+ C:/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ C:/mingw/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
+ C:/mingw/x86_64-w64-mingw32/include/stddef.h \
+ C:/Leonam/OpenGLAPI/vendor/glad/include/glad/glad.h \
+ C:/Leonam/OpenGLAPI/vendor/glad/include/KHR/khrplatform.h

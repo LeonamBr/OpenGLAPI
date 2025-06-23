@@ -1,0 +1,3 @@
+C:\mingw\bin\cmake.exe -E rm -f CMakeFiles\SandboxApp.dir/objects.a
+C:\mingw\bin\ar.exe qc CMakeFiles\SandboxApp.dir/objects.a @CMakeFiles\SandboxApp.dir\objects1.rsp
+C:\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\SandboxApp.dir/objects.a -Wl,--no-whole-archive -o C:\Leonam\OpenGLAPI\bin\SandboxApp.exe -Wl,--out-implib,libSandboxApp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SandboxApp.dir\linkLibs.rsp
