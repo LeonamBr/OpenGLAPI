@@ -9,6 +9,7 @@ public:
     virtual void OnUpdate(float dt) {}
     virtual void OnRender() {}
     virtual void OnDetach() {}
+    virtual void UIRender() {}
 
     void SetActive(bool active) { m_Active = active; }
     bool IsActive() const { return m_Active; }

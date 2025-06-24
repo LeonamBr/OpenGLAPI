@@ -40,6 +40,16 @@ public:
         LOG_INFO("[Sandbox] Detach");
     }
 
+    void UIRender() override {
+    ImGui::Begin("Debug");
+    ImGui::Text("FPS: %.2f", 1.0f / Clock::GetDeltaTime());
+    ImGui::Text("Camera Pos: (%.2f, %.2f, %.2f)",
+        Application::Get().GetCamera().GetPosition().x,
+        Application::Get().GetCamera().GetPosition().y,
+        Application::Get().GetCamera().GetPosition().z);
+    ImGui::End();
+}
+
 private:
     std::shared_ptr<Mesh> m_TexturedMesh;
     std::shared_ptr<Material> m_TextureMaterial;

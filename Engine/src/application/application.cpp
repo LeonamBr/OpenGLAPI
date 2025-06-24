@@ -2,6 +2,7 @@
 #include "renderCommand.h"
 #include "log.h"
 #include "event/event.h"
+#include "imGuiSystem.h"
 
 Application::Application() {
     assert(!s_Instance && "Application já foi instanciada!");
@@ -24,6 +25,7 @@ void Application::RegisterInterface(const std::string& name, std::unique_ptr<Int
 void Application::Run() {
     
     m_Window.Init(1280, 720, "Caramelo Engine", m_eventBus);
+    ImGuiSystem::Init(static_cast<GLFWwindow*>(m_Window.GetNativeWindow()));
     BIND_EVENT(m_eventBus, WindowCloseEvent, OnWindowClose);
     BIND_EVENT(m_eventBus, WindowResizeEvent, OnWindowResize);
     BIND_EVENT(m_eventBus, KeyPressedEvent, OnKeyPressed);
@@ -54,6 +56,8 @@ void Application::Run() {
 
         m_Window.PollEvents();
         m_CameraController.OnUpdate(dt);
+        ImGuiSystem::BeginFrame();
+        m_Registry.RenderUI();
 
         m_Registry.UpdateAll(dt);
 
@@ -64,10 +68,13 @@ void Application::Run() {
         m_Registry.RenderAll();
 
         Renderer::EndScene();
+        ImGuiSystem::EndFrame();
         m_Window.SwapBuffers();
     }
 
     m_Registry.OnDetachAll();
+    ImGuiSystem::Shutdown();
+
 }
 
 void Application::SetCamera(Camera& camera)

@@ -24,6 +24,7 @@ include_directories(src/application)
 # Fontes da engine (sem main.cpp)
 set(ENGINE_SRC
     src/application/application.cpp
+    src/application/imGuiSystem.cpp
     src/application/main.cpp
     src/renderer/shader.cpp
     src/renderer/camera.cpp
@@ -51,7 +52,7 @@ add_compile_definitions(STB_IMAGE_IMPLEMENTATION)
 # Biblioteca da engine
 add_library(OpenGLEngine STATIC ${ENGINE_SRC})
 
-target_link_libraries(OpenGLEngine PUBLIC glad glfw glm spdlog pthread dl)
+target_link_libraries(OpenGLEngine PUBLIC glad imgui glfw glm spdlog pthread dl)
 
 set_target_properties(OpenGLEngine PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin

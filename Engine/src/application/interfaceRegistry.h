@@ -42,6 +42,11 @@ public:
             iface->OnDetach();
     }
 
+    void RenderUI() {
+    for (auto& [name, iface] : m_Entries)
+        iface->UIRender();
+    }
+
     void MoveToTop(const std::string& name) {
         auto it = std::find_if(m_Entries.begin(), m_Entries.end(), [&](auto& e) { return e.first == name; });
         if (it != m_Entries.end()) {

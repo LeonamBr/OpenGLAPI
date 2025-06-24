@@ -4,12 +4,14 @@ project(OpenGLAPI)
 include_directories(vendor/glad)
 include_directories(vendor/glad/include)
 include_directories(vendor/stb)
+include_directories(vendor/imgui)
 
 # Submódulos
 add_subdirectory(vendor/glad)
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/glm)
 add_subdirectory(vendor/spdlog)
+add_subdirectory(vendor/imgui)
 
 # Adiciona os submódulos
 add_subdirectory(Engine)
