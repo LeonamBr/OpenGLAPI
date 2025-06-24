@@ -9,12 +9,12 @@ public:
     auto skyboxShader = shaderLib.Load("skybox", "../assets/shader/skybox.vertex", "../assets/shader/skybox.fragment");
 
     auto cubemap = std::make_shared<CubeMapTexture>(
-        "../assets/textures/checker_64x64.png",
-        "../assets/textures/checker_64x64.png",
-        "../assets/textures/checker_64x64.png",
-        "../assets/textures/checker_64x64.png",
-        "../assets/textures/checker_64x64.png",
-        "../assets/textures/checker_64x64.png"
+        "../assets/textures/checker_64x64_tiles_borda_preta.png",
+        "../assets/textures/checker_64x64_tiles_borda_preta.png",
+        "../assets/textures/checker_64x64_tiles_borda_preta.png",
+        "../assets/textures/checker_64x64_tiles_borda_preta.png",
+        "../assets/textures/checker_64x64_tiles_borda_preta.png",
+        "../assets/textures/checker_64x64_tiles_borda_preta.png"
     );
 
     m_CubeMesh = MeshFactory::CreateCube();
